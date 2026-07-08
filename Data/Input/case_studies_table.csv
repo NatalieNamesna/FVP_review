@@ -1,0 +1,929 @@
+﻿ID,Title,First author,Year,Journal ,DOI,Key words, Main aim,Specific aims,"Time period:
+ period young (kyr)",Time period: period old (kyr),Time coverage: Did the authors deal with uneven temporal distribution of the data?,Time coverage: Did the authors use bins for dealing with uneven temporal distribution? ,Time coverage: Did the authors use interpolation for dealing with uneven temporal distribution? ,Spatial scale,Region,Country,"Study taxa: 
+terrestrial plants?","Study taxa:
+other?",Number of modern pollen records,Number of fossil pollen records,"Method of choosing pollen data: 
+Did the authors have any specific 
+method for selecting records? ","Method of choosing pollen data: 
+Did the authors select records based 
+on the amount of information?","Method of choosing pollen data: 
+Did the authors select records based 
+on their length?","Method of choosing pollen data: 
+Did the authors select records based 
+on the presence of specific taxa/life forms?",Source of pollen data: experimental study,"Source of pollen data:
+Did the authors source from database?","Source of pollen data:
+Which database?","Source of pollen data:
+Did the authors source from published study?","Source of pollen data:
+Did the authors source from unpublished private data?","Pollen nomenclature 
+harmonisation","Pollen counts 
+corrections",Age-depth recalculation,"Source of fuctional information: 
+Plant Functional Types","Source of functional information:
+Plant traits","Source of fuctional information:
+other","Source of traits data: 
+Did the authors source from database?",Source of trait data: Which database? ,"Source of traits data: 
+Did the authors source from published study?","Source of traits data: 
+Did the authors source from unpublished private data?","Gap-filling: Did the authors 
+somehow gap-fill missing trait data?","Gap-filling: How did authors 
+gap-fill the missing trait values?","Traits: Did the authors 
+use plant height?",Traits: Did the authors use leaf morphology?,"Traits: Did the authors 
+use SLA?","Traits: Did the authors 
+use LA?","Traits: Did the authors 
+use leaf P?","Traits: Did the authors 
+use leaf N?","Traits: Did the authors 
+use leaf C?","Traits: Did the authors 
+use LDMC?","Traits: Did the authors 
+use seed traits?","Traits: Did the authors 
+use wood traits?",Traits: others?,"PFTs: Based on which 
+study authors assign 
+pollen taxa to PFTs or 
+any other classes?",Bayesian modelling for aligning pollen types with plant species?,CWM?,"Linking fossil pollen to plant taxa: 
+Did the authors aggregate the traits?","Linking fossil pollen to plant taxa: 
+Did the authors use specialized linking table?","Linking fossil pollen to plant taxa: 
+Did the authors use probabilistic modelling?","Effect of variables on trait composition: 
+Did the authors test it?","Effect of variables on trait composition: 
+Did the authors incorporate effect of climate? ","Effect of variables on trait composition: 
+Did the authors incorporate effect of humans? ",Statistical method to fit the temporal trend?,Results,NOTE
+1,"Changing plant functional diversity over the last 12,000 years provides perspectives for tracking future changes in vegetation communities","
+Adeleye, M. A.",2023,Nature Ecology and Evolution,https://doi.org/10.1038/s41559-022-01943-4,NA,"In this study, they are able to link modern plant traits to fossil pollen assemblages in southeast (SE) Australia and to reconstruct long-term changes in vegetation community strategies in response to past climates within an Australian vegetation context.","The goal in this study is to quantify  long-term changes in plant community ecological strategies and examine the role of associated direct climatic drivers of change (changes in temperature, El Niño/Southern Oscillation (ENSO) and Southern Westerly Winds (SWW)-driven precipitation) and indirect climatic drivers of change (changes in sea levels) in the vegetation of SE Australia through time.",0,12,TRUE,TRUE,FALSE,Continental ,Australia and Oceania,Australia,TRUE,FALSE,NA,67,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,SE Australian Pollen Database,FALSE,FALSE,TRUE,"TRUE
+",TRUE,FALSE,TRUE,FALSE,TRUE,AusTraits,FALSE,FALSE,TRUE,"Taxonomic aggregation 
+to genus or family 
+equivalents to bridge 
+gaps.",TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,"GAM, GLM","Their results show that FD in SE Australia strongly relates 
+to climate, especially moisture changes and that climate has been the primary driver of vegetation change or distribution (including vegetation openness) in SE Australia at least on a millennial scale. The vegetation of most regions show the highest FD within the wetter early to mid-Holocene and only the Bass Strait islands, and possibly the entire eastern part of SE Australia, showed some degree of functional resilience (increasing FD trend) during the drier late Holocene. Furthermore, their results generally support the diversity–stability hypothesis and that differential functional response of species to disturbance is more important than species diversity to maintain ecosystem stability and the degree of FD-driven stability is greater in continental areas than on small islands.",Figures and Conclusion part!
+2,"Relationships between plant traits and climate  in the 
+Mediterranean region: A pollen data analysis","Barboni, D.",2004,"Journal of Vegetation
+ Science ",doi/10.1111/j.1654-1103.2004,"CCA; Drought; Leaf phenology; Leaf size; 
+Morphological trait; Plant functional type; Response function","What are the correlations between the degree of drought stress and 
+temperature, and the adoption of specific adaptive strategies by plants 
+in the Mediterranean region?","We use a large data set of modern pollen surface samples 
+covering the full range of climate across the Mediterranean 
+region to investigate quantitative, regional scale relationships 
+between 12 plant traits and climatic variables. Statistical 
+analyses of these data allow the identification of climatic 
+thresholds for trait occurrence and climatically determined 
+gradients in trait abundance.",0,0,NA,NA,NA,Subcontinental,"Europe, Africa,
+Middle East","Mediterranean
+region",TRUE,FALSE,602,NA,TRUE,NA,NA,NA,FALSE,TRUE,European Pollen Database,FALSE,FALSE,NA,NA,NA,FALSE,TRUE,TRUE,TRUE,"Flora Europaea, Flora
+of North America north of Mexico",TRUE,TRUE,NA,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,NA,FALSE,"FALSE 
+- trait scores?",TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,"Stepwise multiple linear regression, 
+CCA","Patterns in the abundance for the plant traits we considered 
+are clearly determined by α, MTCO or a combination of both. 
+In addition, trends in leaf size, texture, thickness, pubescence 
+and aromatic leaves and other plant level traits such as 
+thorniness and aphylly, vary according to the life form 
+(tree, shrub, forb), the leaf type (broad, needle) and 
+phenology (evergreen, summer-green).",NA
+3,"Climate change and Arctic ecosystems: 1. Vegetation changes north of 55°N between the last glacial maximum, mid-Holocene, and present","Bigelow, N. H.",2003,Journal of Geophysical Research,10.1029/2002JD002558,NA,To reconstruct and map circum-arctic and sub-arctic vegetation patterns across the Northern Hemisphere high latitudes  for the Last Glacial Maximum and mid-Holocene to compare regional ecosystem changes against dynamic climate-biosphere models.,"1)To construct a harmonized, high-latitude fossil pollen and macrofossil dataset across North America, Europe, and Northern Asia.
+
+2) To adapt and refine a standardized biomization scheme designed to differentiate complex Arctic tundra and boreal forest categories.
+
+3) To evaluate the geographic extent of changes in the northern treeline, the distribution of cold steppe, and structural variations in tundra types during key paleoclimatic intervals.",0,18,FALSE ,TRUE,FALSE,Subcontinental,"Asia, North America, Europe",NA,TRUE,FALSE,661,507,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"North American Pollen Database, European Pollen Database",TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The adapted high-latitude biomization scheme successfully reconstructed modern potential vegetation across the circum-polar zone, accurately distinguishing between sub-types of tundra (e.g., shrub tundra vs. prostrate dwarf-shrub tundra) and boreal forests.
+
+Mid-Holocene: Documented a significant northward shift of the forest-tundra boundary across Northern Eurasia. In Siberia, the boreal treeline migrated north by 100 to 200 km, driven by warmer summers. In contrast, the treeline in North America (Canada and Alaska) was close to its modern position or showed only minor local shifts, illustrating a strong regional asymmetry in Holocene thermal maximum responses.
+
+Last Glacial Maximum: Characterized by extreme cold and widespread aridity. Boreal forest biomes were completely absent north of 55°N. Instead, the landscape was dominated by an extensive, open, and heterogeneous matrix of cold steppe, graminoid tundra, and prostrate dwarf-shrub tundra across Beringia and unglaciated Eurasia, reflecting a major restructuring of Arctic ecosystems.",NA
+4,"Modern Pollen–Plant
+ Diversity Relationships Inform Palaeoecological Reconstructions of Functional and Phylogenetic Diversity in Calcareous Fens","Blaus, A.",2020,Frontiers in Ecology and Evolution ,10.3389/fevo.2020.00207,"pollen–plant relationships, calcareous spring
+fens, functional diversity, phylogenetic diversity, Ellenberg indicators, Holocene, palynological diversity","To explore modern pollen-plant diversity relationships in calcareous
+fens and apply these to a Holocene record to reconstruct long-term
+diversity changes.","1) Test correlations between taxonomic richness, FD, PD, and EIVs in modern pollen vs. plant data.
+2) Determine the spatial scale best reflected by pollen.
+3) Apply significant diversity measures to the Kanna fen record.",0,9,NA,NA,NA,Regional ,Europe ,Estonia,TRUE,FALSE,34,1,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,NA,FALSE,TRUE,FALSE,TRUE,"BiolFlor, LEDA trait database",TRUE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,GAM,"Their results suggest that while pollen of herbaceous taxa
+ in fens reflects vegetation at local fen scale, the pollen of woody taxa is likely to reflect larger landscape scale forest vegetation. Dividing woody and herbaceous taxa in pollen-based diversity estimates improves our understanding of spatial scales reflected in palaeodiversity reconstructions.
+Correlations between pollen- and plant-based estimates of functional and phylogenetic diversity indicated that pollen data reflected the functional and phylogenetic aspects of plant communities reasonably well.
+The largest changes in the FD and PD of herbaceous taxa were related to the bog-fen transition around 7 ka. Our results show that climate and other abiotic processes have considerably influenced community FD and PD through the 9.2 ka.",INTRODUCTION
+5,Community-level functional interactions with fire track long-term structural development and fire adaptation,"Brussel, T.",2018,Journal of Vegetation Science ,10.1111/jvs.12654,"community level, fire, fire adaptation, fire severity,
+flammability, functional expressions,  functional interactions and responses, paleoecology, plant community, structural development","Our focus is on morphological and
+ structural traits that indicate sensitivity to changes  in fire activity.
+When combined with reconstructed fire history, variation in the abundances
+(i.e., scores) of  these functional attributes suggest selection of plant community
+expressions that indicate community-level responses to fire related  to changes
+in structural development and changes in fire adaptation.","1) Can fossil pollen records be used
+to examine past variations in functional attributes;
+2) can community- level, functional responses to fire be obtained by coupling fire history with pollen-derived plant traits;
+3) has directional selection promoted attributes that increase community flammability?",0,13.50,TRUE,TRUE,FALSE,Regional,North America,USA,TRUE,FALSE,NA,1,TRUE,TRUE,NA,FALSE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,PLANTS Database,TRUE,FALSE,TRUE,"Overlapping matrix
+assignment",TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,NA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,"Spearman's correlation
+coefficient","Nine of the 14 functional attributes were significantly related
+ to fire fre quency (number of fires 1,000 per year). When combined with fire history data,  variation in the abundances of functional attributes suggest selection of plant  community expressions that indicate community-level responses to fire related to  changes in structural development and changes in fire adaptation. Fire frequency  variations may drive directional selection for fire- adapted attributes, and against  fire-sensitive attributes. Our results indicate increased Holocene fire activity may  have been linked to vegetation functional interactions with fire.",NA
+6,"Functional Paleoecology
+ and the Pollen-Plant Functional Trait Linkage","Brussel, T.",2021,Frontiers in Ecology and Evolution ,10.3389/fevo.2020.564609,"ecological function, functional diversity,
+latitudinal functional diversity gradient, paleoecology, plant functional traits, pollen-derived function, pollen-plant functional trait linkage, trait space","The overarching question we work to
+ address is, does the pollen-plant functional trait linkage represent
+ecological function in North America?","Functional trait data representing primary axes of plant strategy are used to assess spatial relationships between the pollen-plant functional trait linkage (i.e., estimates of site-level function via individual traits) and the functional trait data used to inform these pollen-derived values. We then use these functional estimates from North American sites to quantify functional diversity, the biodiversity metric that governs ecosystem function, and therefore the ability of ecosystems to provide services for humans (Diaz et al., 2007). To present a macroecological example of the utility of making the pollen-plant functional linkage, we compared pollen-based functional diversity estimates to those from modern tree assemblages in the form of latitudinal functional diversity gradient, a pattern found to be embedded within the latitudinal biodiversity gradient for the western hemisphere.",0,0,NA,NA,NA,Continental,"North
+America","USA, Canada,
+Mexico",TRUE,FALSE,3033,NA,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,Neotoma,FALSE,FALSE,FALSE,TRUE,NA,FALSE,TRUE,FALSE,TRUE,BIEN,FALSE,FALSE,TRUE,Taxonomic mean/standarddeviation pooling,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,NA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,"Generalized least squares regression, exponential spatial covariance function","Results indicated that the patterns in pollen-based function
+ sufficiently track ecological function in trait and geographic space and the macroecological biodiversity pattern was reconstructed, although there were minor differences between the slopes of the functional diversity and each of the pollen index gradients. Taken together, the outcomes of our investigation indicate reliability in extending the pollen-plant functional trait linkage into deeper time, at least for examining North American functional dynamics.",INTRODUCTION
+7,"A method for reconstructing
+ temporal  changes in vegetation functional trait  composition using Holocene pollen  assemblages","Carvalho, F.",2019,PLoS ONE,https://doi.org/10.1371/journal.pone.0216698,NA,"They tried to determine whether traits assigned
+ to pollen types could be used to reconstruct  traits found in the vegetation from pollen assemblages.","They develop a new method for using
+ Holocene pollen records to reconstruct the functional characteristics of past plant communities in lowland fens to understand historical ecosystem processes in wetlands. First, they compare plot-level (~ 12.6 m2) trait variation seen in the local fen vegetation with that calculated from modern pollen assemblages originating from moss polsters. We then select the traits that show the best fit between the modern pollen and vegetation-derived measures and apply the modelled relationship to Holocene pollen assemblages to reconstruct past trait dynamics and temporal changes in functional vegetation patterns.",0,7,TRUE,FALSE,TRUE,Regional ,Europe ,England,TRUE,FALSE,2,2,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,NA,TRUE,FALSE,FALSE,NA,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,LME,"Leaf C and N were more predictable from pollen data than
+ mass-area traits (SLA/LDMC). RPP adjustment did not significantly improve the fit. They highlighted the importance of using modern pollen–plant relationships also for functional palaeodiversity. They showed in modern pollen–plant study from fen peatland that some leaf traits (C and N content) were better reconstructed from pollen data than others (specific leaf area and leaf dry matter content).",NA
+8,"The mid-Holocene vegetation of the Mediterranean region 
+and southern Europe, and comparison with the present day","Collins, P. M.",2012,Journal of Biogeography,10.1111/j.1365-2699.2012.02738.x,"Biogeography, biome distribution, Holocene, 
+Mediterranean, phytogeography, pollen, ruined 
+landscape hypothesis, southern Europe, 
+vegetation dynamics, vegetation history","To contribute to the intense debate surrounding the relative influence
+ of climate and humans on Mediterranean-region land cover over the
+ past 6000 years, we assess the Holocene biogeography and vegetation
+ history of southern Europe by means of an extensive pollen record dataset.","1) How did Mediterranean vegetation at the mid-Holocene
+ differ from that of the present day? 
+2) Will our novel treatment of all available data, with more 
+sites and better quality control, challenge the commonly
+ accepted paradigm of a ‘ruined’ Mediterranean?",0,6,TRUE,TRUE,FALSE,Subcontinental,Europe,"Mediterranean
+region",TRUE,FALSE,198,198,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,"European Pollen Database,
+PANGEA",TRUE,TRUE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Peyron et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Temporal difference analysis is more meaningful when only sites 
+containing samples for all time slices are analysed. During the mid
+Holocene, southern Europe was more heavily forested with temperate 
+vegetation than it is at present, but drought-tolerant xeric vegetation
+ was still widespread along the southern margins of the region. 
+Although human land use may have caused the degradation 
+of land between the mid-Holocene and the present, the mere 
+presence of xeric vegetation in the Mediterranean region 
+does not require human impact. This challenges the commonly
+ held belief that modern Mediterranean vegetation represents 
+a ‘degraded’ state.",NA
+9,"Pollen, plant macrofossil and charcoal records for
+palaeovegetation reconstruction in the Mediterranean-Black
+ Sea Corridor since the  Last Glacial Maximum","Cordova, C. E.",2009,Quaternary International,10.1016/j.quaint.2007.06.015,NA,"To develop an updated and improved biomization scheme combining
+pollen, plant macrofossils, and charcoal records to reconstruct structural
+ vegetation and fire dynamics across the Mediterranean-Black Sea Corridor.","1) To establish a collaborative regional database framework
+containing metadata and multi-proxy records.
+
+2) To refine a specialized biomization method capable
+of processing macrofossil data in tandem with pollen records.
+
+3) To outline structural plant changes and fire history
+ over millennial scales since the Last Glacial Maximum (LGM).",0,21,TRUE,TRUE,FALSE,Subcontinental,"Europe, Asia","Mediterranean
+region",TRUE,FALSE,NA,99,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,TRUE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Integrating macrofossils and charcoal alongside pollen clarified open
+ vs. closed canopy structures that were previously ambiguous. The
+LGM was dominated by open, cold steppe and dry shrublands.
+The early to mid-Holocene witnessed widespread expansion of
+temperate and Mediterranean evergreen forests driven by rising
+moisture. In the late Holocene, human agricultural expansion and
+ shifting fire frequencies caused widespread forest fragmentation
+and a secondary expansion of disturbed xerophytic vegetation types.",NA
+10,A new method based on surface-sample pollen data for reconstructing palaeovegetation patterns,"Cruz-Silva, E",2022,Journal of Biogeography,10.1111/jbi.14448,"Biomes, biomisation, Eastern Mediterranean, EMBSeCBIO, palaeovegetation, pollen data, potential natural vegetation, vegetation change, vegetation reconstruction",Develop and evaluate a new pollen-based method for reconstructing past vegetation patterns that explicitly accounts for within-biome variability and compare it with classical biomization.,"1) Develop a reconstruction method based on modern surface pollen; 
+2) compare its performance with biomization; 
+3) validate the method using modern and fossil pollen; 
+4) reconstruct European vegetation changes.",0,0,NA,NA,NA,Continental ,"Europe, Asia, Africa",NA,TRUE,FALSE,5765,NA,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"SPECIAL Pollen Data Set, EMBSeCBIO Pollen Database",TRUE,FALSE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,NA,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,"Dissimilarity-based biome reconstruction using modern pollen analogues, search windows, biome affinity scores, and comparison with classical biomization.","The method captured changes in the importance of individual taxa along environmental gradients. The balanced accuracy obtained for the EMBSeCBIO region using the new method was better than obtained using biomisation (77% vs. 65%). When the method was applied to high-resolution fossil records, 70% of the entities showed more temporally stable biome assignments than obtained using biomisation. The technique also identified likely non-analogue assemblages in a synthetic modern dataset and in fossil records.",INTRODUCTION!!!
+11,"The age and post-glacial development of the modern
+European vegetation: a plant functional approach based
+on pollen data","Davis, B. A. S.",2014,Veget Hist Archaeobot ,10.1007/s00334-014-0476-9,"Arboreal pollen, Biome, Holocene, Plant functional type,
+ Squared chord distance","Here, we take advantage of these advances to quantitatively assess
+the age of the modern vegetated landscape of Europe, to measure
+change across time using the squared chord distance (SCD) metric
+(Overpeck et al. 1985), and to map the relative openness of the landscape,
+as well as the distribution and abundance of biomes, at 500-year intervals
+throughout the Holocene (11.5 ka to modern times).",NA,0,11.50,TRUE,TRUE,TRUE,Continental,"Europe, Asia",NA,TRUE,FALSE,NA,879,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,NA,NA,NA,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,NA,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Peyron et al. (1998),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,Thin plate spline,"Though the (PFT) assemblage became continuously more similar
+to present, biome assemblages changed in northern and southern
+Europe but stayed relatively constant in central Europe. Landscape
+openness as approximated by arboreal PFT % increased until the
+mid-Holocene and then returned to early-Holocene conditions by
+modern times.",NA
+12,"Functional Signatures of Surface Pollen and Vegetation Are
+Broadly Similar: Good News for Past Reconstructionsof Vegetation","Dugerdil, L.",2025,Journal of Biogeography,https://doi.org/10.1111/jbi.15100,"Arid Central Asia, biomes, communities, databases,
+functional biogeography, past climate, plant traits,
+ pollen, trait distribution","In this present study, we compare the trait values and distributions
+of surface pollen assemblages and vegetation plots to test
+(1) whether relationships between traits (univariate distributions of
+trait values and pairwise trait–trait relationships) are conserved
+between pollen and vegetation. We also test
+(2) whether the functional space (i.e., the organisation of plant height,
+seed mass, leaf area, specific leaf area, nitrogen content per
+leaf mass, and stem-specific density trait values in
+multivariate space) derived from surface pollen samples
+matches that of extant vegetation (in vegetation plot records).
+This is necessary since whole phenotypes rather than individual
+traits respond to the environment (Anderegg 2023). Once
+validated, it will be possible to (3) combine sediment pollen with
+traits (Birks 2020) to assess the functional structure of past vegetation,
+from which biomes could be reconstructed (Harrison et al. 2010).","1) What is the more reliable aggregation scheme
+(coarse or  fine) to assign trait values to pollen
+types to reduce the biases between pollen
+and vegetation-based functional spaces? 
+2) Between plant species and pollen types,
+do we observe  consistent trait distributions,
+univariate relations between traits, and
+multivariate phenotypic spaces?
+3) Are the functional spaces derived from
+pollen and extant  vegetation comparable
+at the level of communities?",0,0,NA,NA,NA,Continental,Asia,"Uzbekistan,
+Turkmenistan,
+Tajikistan,
+Kyrgyzstan,
+Kazakhstan,
+Afghanistan",TRUE,FALSE,NA,2393,TRUE,TRUE,NA,FALSE,FALSE,TRUE,"Eurasian Pollen Database,
+European Modern Pollen Database v.2,
+East Asian Pollen Database,
+Tibetan pollen datasets",TRUE,FALSE,TRUE,TRUE,NA,FALSE,TRUE,FALSE,TRUE,"TRY, BROT, BIEN,
+GIFT",TRUE,FALSE,TRUE,"Bayesian Hierarchical
+ Probabilistic Matrix
+Factorisation",TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Trait distributions and bivariate trait relationships were broadly
+similar for pollen types and vegetation taxa, which is also the
+case for the multivariate spaces of the global spectrum of plant
+form and function. At the community scale, the trait values
+weighted by taxon abundance significantly differed among
+biomes, and these differences were consistent for both pollen
+aggregation schemes and extant.",Introduction and idea!
+13,"Pollen-based biomes for Beringia 18,000, 6000  and 0 14C yr BP","Edwards, M. E. ",2001,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00426.x,"Pollen data, plant functional types, biomes, 
+vegetation changes, climate changes, Alaska, 
+eastern Siberia, mid-Holocene, last glacial maximum.","To map and compare the distribution of biomes across the modern
+ and past landscapes of Beringia (Siberia-Alaska land bridge region)
+ at key late Quaternary time slices using quantitative assignment methods.","1) To modify and extend the objective biomization framework
+ of Prentice et al. (1996) using modern high-latitude pollen samples.
+
+2) To evaluate the sensitivity of the method regarding specific 
+underrepresented boreal tree taxa like Siberian larch (Larix).
+
+3) To determine whether the LGM vegetation across Beringia 
+was uniform or formed a heterogeneous macro-mosaic of tundra variations.",0,18,FALSE,TRUE,FALSE,Regional,"North america, Asia","USA, Canada, Russia",TRUE,FALSE,503,112,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"North American Pollen Database,
+PALE Pollen Database ",TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996),
+Tarasov et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Reconstructed modern samples matched existing tundra and taiga
+ ranges well. At 6000 yr BP, biomes were mostly similar to modern 
+conditions, indicating minor expansions of the forest limits. 
+At 18,000 yr BP, the entirety of Beringia was characterized by 
+tundra vegetation, exhibiting structural mosaic variations in specific
+ PFT composition between sites.",NA
+14,"Pollen-based biome reconstruction for southern  Europe
+ and Africa 18,000 yr BP","Elenga, H.",2001,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00430.x,"Pollen data, plant functional types, biomes, 
+vegetation changes, Europe, Africa, last glacial maximum.","To compile pollen data from 18000 yr BP and reconstruct the distribution
+ of biomes across Southern Europe and the entire African continent 
+during the Last Glacial Maximum.","1) To apply the objective biomization algorithm systematically to
+ LGM pollen counts in these regions.  
+
+2) To evaluate how LGM ecosystems differed structurally from
+ modern ones (e.g., changes in tropical rainforests, montane forests, and steppes).  
+
+3) To provide an empirical dataset to validate climate simulations 
+produced by atmospheric general circulation models",18,18,FALSE,FALSE,TRUE,Continental,"Europe, 
+Africa","France, Spain, Italy, Greece,Turkey, Syria, Iran, Chad, Ghana, Cameroon, Kenya, Egypt, Uganda, Rwanda, Zambia, Madagaskar, Namibia, Taung, ",TRUE,FALSE,NA,42,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"European Pollen Database, 
+African Pollen Database ",TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Peyron et al. (1998), Jolly et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Major deviations from modern vegetation were documented: 
+Mediterranean and Southern African forests/scrublands were
+ extensively replaced by steppe. In tropical highlands, alpine 
+grasslands and xerophytic scrub expanded downwards, while
+ tropical lowlands saw rainforests contract and give way to tropical
+seasonal forests and savannas.",NA
+15,Modelling Late Miocene vegetation in Europe: Results of the CARAIB model and comparison with palaeovegetation data,"François, L.",2011,"Palaeogeography, Palaeoclimatology, Palaeoecology",10.1016/j.palaeo.2011.01.012,"Miocene, Europe, Vegetation, Model, Palaeovegetation data, Plant functional types, Biomes","To develop a methodology to validate climate and dynamic vegetation model runs for Neogene time slices using available palaeoflora data at the plant functional type (PFT) level, rather than at the biome level.","1) Adapt the dynamic vegetation model CARAIB (CARbon Assimilation In the Biosphere) specifically to represent Miocene European vegetation by adding thermophilous tree types.  
+2) Force the model with ECHAM5-MPIOM (COSMOS) Tortonian climate simulations to map potential tree distributions and metrics (biomass, NPP).  
+3) Quantify and compare the simulated vegetation against a standardized macro/micro-palaeoflora presence/absence dataset using a custom PFT coexistence matrix.",7250,11610,FALSE,FALSE,FALSE,Continental,"Europe, 
+Africa, Asia",NA,TRUE,FALSE,NA,58,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,PALAEOFLORA database,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,PALAEOFLORA Database,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Laurent et al. (2004),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The CARAIB model produced an overall presence/absence agreement of 53% when evaluated across all sites and tree classes.  Boreal/Cold elements: The agreement was very high (>85%) for needle-leaved summergreen cold trees (Larix sp.). However, the model generally overpredicted the southern range of cold boreal/temperate trees, extending them further south than indicated by the fossil record.  Warm/Subtropical elements: The model correctly predicted the absence of tropical elements. However, it performed poorly (<40%) at capturing temperate perhumid warm trees. The model restricted subtropical trees to localized southern refugia, whereas the proxy data demonstrates these warm elements flourished across Central Europe up to 50°N.  Climate Model Implications: The systematic underprediction of warm elements suggests that the COSMOS-derived Late Miocene climate inputs suffer from a cold bias. This could stem from underestimated atmospheric CO2 levels or an overestimation of altered ocean heat transport caused by an open Panama seaway. ",NA
+16,A pollen-based pseudobiomisation approach to anthropogenic land-cover change,"Fyfe, R.",2010,The Holocene,10.1177/0959683610369509,"biomisation, human impact, land cover, northwest 
+Scotland, pollen, southwest England","This paper proposes a method of intermediate complexity by which 
+major land-cover changes can be assessed for individual sites and regions. 
+A pseudobiomisation approach is used, in which pollen taxa are assigned 
+to different land-cover classes (LCC), and the sum of adjusted pollen 
+proportions for each class used to determine an LCC affinity score 
+for individual pollen samples within stratigraphic pollen sequences. 
+In a pilot study, data from pollen core sites from northwest Scotland 
+and southwest England for the last 8000 cal. BP have been classified 
+into ten land-cover classes, including predominantly wooded, 
+semi-open and open types.","1) To assign pollen taxa to distinct land-cover classes (LCCs)
+ that capture both natural and culturally modified open and wooded ground. 
+2) To develop a mathematical affinity threshold framework
+ that can successfully differentiate ""semi-open"" landscape 
+categories from closed or completely open ground.  
+3) To illustrate the methodology by applying it to 20 Holocene
+ pollen sequences across two geographically contrasting 
+regions of the UK (northwest Scotland and southwest England)
+ over the last 8,000 years. .",0,8,TRUE,TRUE,TRUE,Regional,Europe,England,TRUE,FALSE,NA,20,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Peyron et al. (1998), Gachet et al. (2003), Behre (1981)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Results highlight how land-cover change was punctuated rather 
+than gradual through the mid to late Holocene, and show how 
+habitat diversity increased after ~6000 cal. BP with the arrival 
+of agriculture, before reaching a minimum in early modern times.
+This pollen-based method is potentially applicable to the reconstruction 
+of long-term land-cover change within Europe and other 
+temperatezone regions.",NA
+17,"A probabilistic approach to the use of pollen indicators for 
+plant attributes and biomes: an application to European 
+vegetation at 0 and 6 ka","Gachet, S.",2003,"Global Ecology & 
+Biogeography",10.1046/j.1466-822X.2003.00018.x,"biomes, conditional probability, Europe, land surface
+ characteristics, palaeovegetation reconstruction, 
+plant attributes, pollen data.","This paper presents a probabilistic method for the characterization of 
+pollen taxa using attributes, and for the reconstitution of past biomes. 
+The probabilities are calculated on the basis of European floristic and 
+pollen databases sufficiently large and exhaustive to provide robust estimates.","1) To overcome the limitations of subjective, binary (0 or 1)
+ assignment matrices connecting pollen to Plant Functional Types (PFTs).
+2) To calculate conditional probabilities P(attribute|pollen) using large, 
+matched modern floristic and pollen databases.
+3) To apply this probabilistic model to European pollen datasets 
+for the mid-Holocene (6 ka) and modern (0 ka) time slices 
+to map shifts in vegetation attributes.",0,6,TRUE,TRUE,FALSE,Continental,Europe,NA,TRUE,FALSE,1327,338,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,FALSE,TRUE,TRUE,NA,TRUE,TRUE,TRUE,TRUE,Flora Europea,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Gachet et al. (2003),FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,NA,"The probabilistic method successfully reconstructed the distribution 
+of major European plant attributes and biomes for both 0 and 6 ka.
+ The mid-Holocene (6 ka) map revealed a significantly higher 
+probability of finding broad-leaved deciduous forest attributes 
+across central and northern Europe compared to the modern 
+era. Concurrently, Mediterranean evergreen attributes were 
+restricted to narrower coastal bands during the mid-Holocene,
+ illustrating a more humid, less human-degraded European 
+landscape compared to modern baseline distributions.",NA
+18,"Equilibrium in plant functional trait responses to warming is stronger under higher 
+climate variability during the Holocene","Gaüzère, P.",2020,Global Ecology and Biogeography,10.1111/geb.13176,"climate legacy, climate mismatch, disequilibrium dynamics, 
+functional trait, global change, Late  Quaternary, palynology, space-for-time substitution","They aimed to investigate whether current trait–climate disequilibrium is likely 
+to emerge during plant functional responses to Holocene climate warming.
+Test whether plant functional trait composition tracked climate warming 
+during the Holocene or showed disequilibrium with climate.","1) Compare temporal trait–environment relationships 
+with spatial trait–environment relationships 
+2) Evaluate disequilibrium during periods of high vs low climate variability",0,14,TRUE,TRUE,TRUE,Continental ,North America,"USA, Canada",TRUE,FALSE,NA,425,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,Neotoma,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,"TRY, TTT",FALSE,FALSE,NA,NA,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,"Locally Estimated 
+Scatterplot Smoothing (LOESS)","Functional trait composition showed consistent deviation 
+from climatic  equilibrium during both periods. 
+The temporal dynamics of trait composition tends  to be 
+positively correlated with climate equilibrium expectations 
+during Holocene  climate warming (14–7 ka), 
+but not during a subsequent period of low climate variability (7–0 ka).",NA
+19,"Holocene fire regimes, fire-related plant functional types, and climate in south-coastal British Columbia forests","Giuliano, C.",2023,Ecosphere,10.1002/ecs2.4416,"charcoal accumulation, charcoal peak analysis, climate change, fire frequency, fire return interval, fire survival traits, lake sediments, macroscopic charcoal, pollen analysis, Pseudotsuga menziesii, Pteridium aquilinum, Quercus garryana","To reconstruct Holocene fire regimes over the last 10,000 years in south-coastal British Columbia and investigate how they interacted with climate and forest composition, specifically focusing on fire-related plant functional types.","1) To reconstruct long-term fire history using contiguous macroscopic charcoal analysis of lake sediments. 
+2) To analyze changes in forest composition and plant abundance via fossil pollen analysis. 
+3) To assess how fire-survival traits/strategies (e.g., fire endurers, fire resisters, fire avoiders) respond to or influence fire frequency and severity.",0,10,TRUE,FALSE,TRUE,Regional ,"North 
+America",Canada,TRUE,FALSE,NA,1,NA,NA,NA,NA,TRUE,FALSE,NA,TRUE ,FALSE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,"according to Rowe (1983), Agee (1993), Wirth (2005), and USDA (2021)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,Charcoal accumulation rates,NA,NA
+20,Biome classification from Japanese pollen data: application to  modern-day and Late Quaternary samples,"Gotanda, K.",2002,Quaternary Science Reviews,10.1016/S0277-3791(01)00046-4,NA,To develop an optimized pollen-based biomization method using exclusively arboreal taxa to quantitatively reconstruct modern and Late Quaternary vegetation patterns in Japan.,"1) To compile a modern dataset of 285 surface pollen spectra to build and test the accuracy of a national biomization matrix. 
+2) To evaluate if using only arboreal pollen can successfully circumvent data limitations and increase biome assignment accuracy compared to previous regional frameworks. 
+3) To apply this established scheme to the sediment core of Lake Mikata to reconstruct continuous vegetation changes spanning back to ca 40,000 yr BP.",0,40,NA,NA,NA,Regional,Asia,Japan,TRUE,FALSE,285,1,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,Japanese Pollen Publication Database,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996),
+Prentice & Webb (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Lake Mikata Vegetation Succession: Reconstructed three major evolutionary steps over the last 40,000 years:  
+- Prior to 25,000 yr BP: Temperate deciduous forest (TEDE) continuously dominated the region. 
+ - 22,000 to 18,000 yr BP: A total shift to cool-mixed forest (COMX) took place, representing the coldest stage of the Last Glaciation. This phase corresponds to modern-day southern Hokkaido climate and is flanked by brief transitional periods of rapid TEDE/COMX fluctuation.  
+- Post 10,000 yr BP (Holocene): Warm-mixed forest (WAMX) was quickly established, mirroring modern-day environmental settings around the lake. ",NA
+21,"Disturbed vegetation reconstruction using the biomization
+ method from  Japanese pollen data: Modern and Late Quaternary samples","Gotanda, K.",2007,Quaternary International,10.1016/j.quaint.2007.09.030,NA,"To modify the standard biomization method to account for and 
+reconstruct heavily disturbed or secondary vegetation communities 
+caused by human activities or natural climatic perturbations in Japan.","1) To assign Japanese arboreal and herbaceous pollen taxa
+ to specialized Plant Functional Types (PFTs), including 
+secondary and ruderal types.
+
+2) To define a new ""Disturbed Vegetation Biome"" (DISV)
+ based on diagnostic pioneer trees and weeds.
+
+3) To validate this modified method using 231 modern surface
+ samples, and then apply it to the Late Quaternary fossil
+ record of Lake Mikata.",0,45,NA,NA,NA,Regional,Asia,Japan,TRUE,FALSE,219,1,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,Japanese Pollen Publication Database,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al.(1996),
+Tarasov et al.(1998),
+Gotanda et al. (2002)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Modifying the biomization scheme to explicitly include a Disturbed
+ Vegetation Biome (DISV) increased modern validation accuracy
+ to 71% across Japan's human-altered landscape. In the Lake 
+Mikata fossil core, two prominent phases of DISV were discovered.
+ The first occurred during the late Holocene, fueled by human
+ deforestation and intensive rice agriculture. The second occurred
+ during the Last Glacial, where abrupt, severe natural climate
+ fluctuations (resembling Dansgaard-Oeschger cycles) repeatedly
+ damaged the forest canopy and enabled pioneer, disturbance-tolerant
+ plant functional types to expand temporarily.",NA
+22,Quantifying modern biomes based on surface pollen data in China,"Chen, Y.",2010,Global and Planetary Change,10.1016/j.gloplacha.2010.09.002,"China, biome, biomization, human disturbance, model-data comparison, modern surface pollen, plant functional types",To compile an updated and expanded extensive modern surface pollen dataset for China and use it to quantitatively reconstruct modern biomes using a newly established global classification of plant functional types (PFTs).,"1) To evaluate current pollen–vegetation relationships and test the accuracy of a national-scale biomization scheme. 
+2) To improve the precision of pollen taxon assignments to PFTs using newly published floras and modern online regional resources. 
+3) To evaluate the spatial distribution of simulated biomes against real climate/vegetation gradients and understand the masking impacts of long-term human historical land-use on modern pollen signatures.",0,0,FALSE,FALSE,FALSE,Regional ,Asia,China,TRUE,FALSE,2324,NA,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1992), Kaplan (2001), Kaplan et al. (2003), Yu et al. (1998, 2000)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Biome Delineation: Successfully reconstructed 19 distinct modern biome types across China using the updated 2,324-sample array.  Spatial Agreement: Reconstructed biomes provide an accurate reflection of the real-world geographic, latitudinal, and altitudinal distribution of modern vegetation in China.  
+Error Correction: Resolved prior persistent mathematical assignment errors that historically occurred when distinguishing between cool/cold temperate coniferous forests and adjacent mixed forest configurations.
+ Human Distortion Insights: Explicitly characterized how structural human landscape manipulation impacts regional surface pollen presentation, providing a crucial interpretive standard for late-Holocene archaeology/pollen core modeling. ",NA
+23,"Biome reconstruction from pollen and plant macrofossil data
+ for Africa and the Arabian peninsula at 0 and 6000 years","Jolly, D.",1998,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.1998.00238.x,"Biome, plant functional type, pollen, plant macrofossil, Africa, Arabian peninsula, Madagascar, 6000 years BP","To reconstruct and map the geographical distribution of major biomes 
+across Africa and the Arabian peninsula at the present-day (0 yr BP) 
+and the mid-Holocene (6000 $^{14}\text{C}$ yr BP) using a standardized, 
+objective biomization technique.","1) To adapt the global biomization framework to accommodate 
+the high diversity of African tropical, subtropical, and desert
+ vegetation;
+2)  to test the validation of the method using modern
+ surface pollen spectra and macrofossil assemblages against
+ potential natural vegetation; 
+3) and to evaluate the extent of greening
+ in the Sahara/Sahel region during the mid-Holocene.",0,6,FALSE,TRUE,FALSE,Continental,Africa,NA,TRUE,FALSE,966,99,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), 
+Prentice et al. (1992)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The modern validation shows that the biomization technique successfully 
+reproduces the actual distribution of African biomes. At 6000 yr BP, enhanced
+ monsoonal rainfall caused a dramatic northward shift of vegetation zones. 
+Steppe and savanna biomes expanded over vast areas of the Sahara and 
+Arabian deserts up to approximately 23°–24°N, and tropical deciduous forests
+ or xerophytic woods shifted northwards relative to their modern limits, reflecting the ""green Sahara"" period.
+",NA
+24,"Environmental change 
+controls postglacial forest dynamics through interspecific differences in life-history traits","Lacourse, T. ",2009,Ecological Society of America,doi/10.1890/08-1136,"British Columbia, Canada, community assembly,
+ coniferous forests, fourth-corner analysis, life history, paleoecology, plant traits, pollen analysis, RLQ analysis, stress tolerance, trait–environment linkages","Here, fossil pollen data from Misty Lake
+ on northeastern Vancouver Island, British Columbia (Lacourse 2005) 
+that span the last 15 000 calendar years (cal yr) were used to investigate 
+how the interaction between plant species traits and environmental 
+conditions shaped the composition of postglacial forests.",NA,0,15,TRUE,TRUE,TRUE,Regional,North America,Canada,TRUE,FALSE,NA,1,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,NA,TRUE,FALSE,NA,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,NA,TRUE,FALSE,FASLE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,"RLQ, fourth-corner method","Fourth-corner analyses revealed significant correlations 
+between all paleoenvironmental variables (i.e., temperature, precipitation, summer insolation, vegetation density) and most plant traits (relative growth rate, minimum seed-bearing age, seed mass, height, life span, and shade, drought, and waterlogging tolerances). The strongest correlation was between paleotemperature and height, reflecting the positive effect of temperature on plant growth and development and the overarching competitive advantage that height confers. This research demonstrates that environmental conditions interact significantly with life-history and stress tolerance traits over long ecological timescales to determine forest composition. Climate is the ultimate control on postglacial forest composition and species abundances, but long-term community assembly is also constrained through interspecific differences in plant traits.",INTRODUCTION!!!
+25,"Climate and Species Traits
+ Drive Changes in Holocene Forest Composition Along an Elevation Gradient in Pacific Canada","Lacourse, T. ",2022,Frontiers in Ecology and Evolution,10.3389/fevo.2022.838545,"pollen analysis, forest composition, plant 
+species traits, climate change, multivariate timeseries,
+ RLQ analysis, fourth corner analysis,
+ trait-environment relationships","They examined past changes in forest 
+composition in Pacific Canada using 
+a paleoecological approach and investigate
+ the role of past changes in climate and 
+differences in species traits in changing
+ forest compositions.","They investigate the effects of past changes
+in climate on the abundances of dominant
+woody plant taxa in Pacific Canada and 
+consider the role that interspecific differences
+ in life-history and stress tolerance traits
+ play in mediating past changes in forest composition.",0,14,TRUE,TRUE,NA,Regional,North America,Canada,TRUE,FALSE,NA,5,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,NA,TRUE,FALSE,FALSE,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,"RDA, PCA, RLQ","Species with similar life history traits tend to be most abundant at 
+similar times and species that are functionally dissimilar are separated in time. 
+For example, on central Vancouver Island, species with “fast” life history strategies 
+(e.g., P. contorta, A. viridis) are most abundant in lateglacial plant communities, 
+while those with “slow” life history strategies (e.g., T. heterophylla, T. mertensiana) 
+are generally most abundant in mid-late Holocene forests. Within those time periods, 
+sorting by elevation appears governed most strongly by differences in ecological 
+performance and stress tolerance traits. This highlights that not only are species sorted 
+through time as environmental changes occur but that species traits are also sorted on 
+long timescales. Environmental change is the main driver of temporal turnover in forest 
+composition, with this filtering acting on species traits to direct community assembly and 
+dynamics.",Introduction!
+26,Global biome changes over the last 21 000 years inferred from model–data comparisons,"Li, Ch.",2025,Climate of the Past,https://doi.org/10.5194/cp-21-1001-2025,NA,"Reconstruct global megabiome dynamics over the last 21,000 years and compare them with Earth System Model simulations.","1) Present global megabiome dynamics since the LGM.
+2) compare reconstructions with six transient ESM simulations.
+3) identify regions and periods with strong data–model mismatches.",0,21,TRUE,TRUE,FALSE,Global,NA,NA,TRUE,FALSE,NA,3455,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"LegacyPollen 2.0, Neotoma, Pangaea",TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Harrison et al. (2010, 2017)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Global vegetation shifted from open glacial megabiomes to forest-dominated Holocene megabiomes after the LGM. Reconstructions and ESM simulations generally agreed, with the largest mismatches during the LGM and early deglaciation. Late-Holocene human impacts did not substantially alter broad-scale global megabiome patterns.",NA
+27,"Functional traits from
+ pollen and plant assemblages show complex relationships on the Tibetan Plateau: A deep insight into plant functional paleoecology","Liao, M. ",2025,Global and Planetary Change,https://doi.org/10.1016/j.gloplacha.2025.105031,"Pollen analysis, Plant functional traits,
+ Community-weighted mean (CWM), Functional diversity, Climate gradient, Tibetan Plateau","To evaluate the accuracy of pollen-based
+ functional traits in reflecting functional trait composition and functional diversity within their surrounding plant communities.","1) Assess the accuracy of CWMs and FDs inferred from pollen assemblage in representing
+plant communities, both across the entire study area (regardless of vegetation types) and
+within different vegetation types.
+
+2) Whether the trends of CWMs and FDs inferred from pollen assemblages along climate
+gradients can accurately reflect the relationships between plant-based CWMs and FDs with
+climatic variables.",0,0,NA,NA,NA,Regional ,Asia,"China, 
+Tibet",TRUE,FALSE,207,NA,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,NA,FALSE,TRUE,FALSE,TRUE,TiP-Leaf dataset,TRUE,FALSE,TRUE,"assigning the
+regional average
+trait value",TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,"GAM, GLM","Pollen-inferred CWMs and FDs can provide valuable insights into long-term ecological
+processes, especially when paired with climate data.
+
+The relationships are complex and context-dependent.
+
+Trait-based paleoecology requires careful trait selection, understanding of vegetation
+context, and awareness of taphonomic and taxonomic biases.
+
+The study strengthens the methodological basis for using functional traits from fossil pollen
+records to interpret ecosystem responses to past climate change",NA
+28,Late onset of the Holocene rainfall maximum in northeastern China inferred from a pollen record from the sediments of Tianchi Crater Lake,"Liu, X.",2019,Quaternary Research,10.1017/qua.2018.137,"Northeastern China, Holocene summer monsoon maximum, Tianchi Crater lake, Pollen-based quantitative reconstruction",To quantitatively reconstruct Holocene precipitation and temperature changes from a northeastern China pollen record to resolve the debate surrounding the timing and forcing mechanisms of the Holocene summer monsoon maximum (HSMM) in the region.,"1) To extract and analyze fossil pollen spectra from the sediments of Tianchi Crater Lake covering the past 10,300 years. 
+2) To apply the plant functional type-modern analogue technique (PFT-MAT) to quantitatively reconstruct annual precipitation and temperature.
+3) To compare the new quantitative records with existing paleoclimate sequences across China and high-latitude zones to assess regional forcing factors (e.g., insolation, ice volume, SSTs).",0,10.30,FALSE,FALSE,FALSE,Regional,Asia,China,TRUE,FALSE,211,2,NA,NA,NA,NA,TRUE,TRUE,China Quaternary Pollen Data Base,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Peyron et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,Stratigraphically constrained cluster analysis via CONISS (for pollen zones) and a 5-point running average curve to track long-term climatic trends.,"Vegetation Succession: Shifted from a sparse forest steppe (10,300–6900 cal yr BP) to a typical forest steppe (6900–5500 cal yr BP), transitioning into a deciduous broad-leaved forest dominated by Quercus and Betula during the peak moisture period, before reverting to forest-steppe variations in the late Holocene.
+Precipitation Maximum: Annual precipitation gradually increased during the early to mid-Holocene, showcasing a distinct Holocene Summer Monsoon Maximum (HSMM) relatively late, between ~5500 and 3100 cal yr BP.
+Forcing Complexity: The delayed onset of peak monsoonal rainfall cannot be attributed to a single trigger, but indicates a complex internal climate mechanism driven by ice-sheet retreat, ENSO variations, and Okhotsk Sea-ice dynamics.",NA
+29,"Mid- to Late-Holocene pollen-based biome reconstructions
+ for Colombia","Marchant, R.",2001,Quaternary Science Reviews,10.1016/S0277-3791(00)00182-7,NA,"They aim to determine the causal factors in driving vegetation change
+ since 6000 yr ago be they climatic, edaphic or human-induced and, 
+ultimately to place the present composition and distribution of Colombian 
+vegetation within a relatively long timeframe.","1) To construct an a priori assignment matrix pairing northern 
+Andean pollen taxa into explicit Plant Functional Types (PFTs).
+
+2) To validate the biomization equations by comparing modern 
+pollen-derived biomes against modern potential vegetation maps.
+
+3) To map regional adjustments and shifts in forest types 
+versus open savanna biomes during the mid-to-late Holocene
+ (back to 6000 radiocarbon years BP).",0,6,TRUE,TRUE,FALSE,Regional,South America,Colombia,TRUE,FALSE,NA,37,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Modern modern pollen-derived biome maps accurately matched
+ potential natural vegetation distributions, notably capturing complex
+ altitorial switches across the Andean Cordilleras. At 6000 BP, biome
+ distributions showed a clear upward shift in mountain vegetation belts
+ and an expansion of tropical forest types into areas currently dominated 
+by savannas, providing evidence of significantly warmer and more humid 
+macroclimatic conditions during the mid-Holocene compared to the modern 
+baseline.",NA
+30,A reconstruction of Colombian biomes derived from  modern pollen data along an altitude gradient,"Marchant, R.",2001,Review of Paleobotany and Palynology,NA,"biomization, Colombia, human impact, modern pollen, plant functional types, tree line","To test and adapt the quantitative objective ""biomization"" methodology using a modern surface (core-top) pollen data network from Colombia along an altitudinal gradient to reconstruct tropical mountain ecosystems.","1) To define a regional assignment scheme matching Colombian pollen taxa to Plant Functional Types (PFTs) and broad biomes.
+
+2) To evaluate if the biomization algorithm can accurately predict the positioning of the tropical upper forest line (tree line).
+
+3) To validate pollen-derived biome models against real, site-specific modern ecological vegetation surveys.",0,0,NA,NA,NA,Regional ,South America,Colombia,TRUE,FALSE,22,NA,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Altitudinal Biome Zonation: The objective biomization method successfully captured the structural transition of vegetation across the high-elevation landscape.
+
+Tree Line Identification: The algorithm successfully identified the position of the tree line boundary, locating it between 3200 and 3500 meters altitude. This closely matches real-world field observations in the Colombian cordilleras.
+
+Methodological Viability: The study demonstrates that the biomization technique is a reliable tool for tropical mountain settings. This provides a strong, calibrated foundation for future papers to reconstruct past shifts in Andean temperature and vegetation zones using fossil pollen cores.",NA
+31,"Pollen-based biome reconstructions for Colombia at 3000, 
+6000, 9000, 12 000, 15 000 and 18 000 14C yr ago: 
+Late Quaternary tropical vegetation dynamics","Marchant, R.",2002,Journal of Quartenary Science,10.1002/jqs.669,"biome, colombia, environmental change, 
+Last Glacial Maximum, plant functional types,
+ pollen, BIOME-6000","To reconstruct Colombian vegetation (biomes) dynamically from the
+ Last Glacial Maximum to the modern era using a standardized pollen
+ dataset.","1) Group pollen taxa into Plant Functional Types (PFTs) 
+and biomes using an objective assignment method.  
+
+2) Map structural vegetation changes across Colombia at 
+3000-year intervals.  
+
+3) Validate the biomization model using modern core-top 
+pollen samples against potential natural vegetation.  ",0,18,FALSE ,TRUE,FALSE,Regional,South America,Colombia,TRUE,FALSE,45,45,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"Latin America Pollen 
+Database",TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Prentice & Webb (1998), adapted by Marchant et al. (2001)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The LGM (18k yr BP) was cold and dry, depressing the treeline 
+by ~1200 m. The Early Holocene (9k yr BP) warmed and moistened,
+ followed by a severe mid-Holocene dry phase (6k yr BP), before
+ returning to cooler, modern-like conditions with emerging human
+ impacts around 3k yr BP. Colombia's complex topography created
+ highly localized/heterogeneous vegetation responses.",NA
+32,"Pollen-based biome reconstructions for Latin America at 0, 
+6000 and 18 000 radiocarbon years ago","Marchant, R.",2009,Climate of the Past,10.5194/cp-5-725-2009,NA,"To reconstruct and map regional vegetation patterns across the Latin 
+American continent at three discrete temporal frames (0, 6000, and 18,000
+ yr BP) using a standardized biomization methodology.","1) To adapt the global BIOME 6000 classification parameters to
+ better represent the extreme ecological gradients of the 
+Neotropics and high-altitude Andean environments; 
+2) to validate 
+the biomization method using modern surface-sample data; 
+3) and to provide a unified dataset for evaluating large-scale 
+environmental transitions since the Last Glacial Maximum.",0,18,FALSE ,TRUE,FALSE,Continental,Latin America,NA,TRUE,FALSE,381,161,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,Latin American Pollen Database,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1992, 1996),
+Marchant et al. (2001, 2002)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Modern surface evaluation proves that the biomization technique 
+accurately depicts the baseline landscape layout of Latin America. 
+At 6000 yr BP, alterations across the Amazon and Andean borders 
+point to more open savanna structures and lower lake levels due to 
+varied seasonal precipitation. At 18,000 yr BP, low temperatures and 
+decreased atmosphericCO2 concentration values led to compressed 
+tropical rainforest ranges, lower mountain treelines, and expanded 
+cold-adapted grassland and dry scrub environments.",NA
+33,Quantitative biome reconstruction using modern and late Quaternary pollen data from the southern part of the Russian Far East,"Mokhova, L.",2009,"Quaternary Science 
+Reviews",NA,NA,"To establish and test an optimized regional pollen-to-biome assignment matrix using a comprehensive modern surface pollen dataset from the southern Russian Far East, and to apply it to a late Quaternary sediment record to quantitatively track vegetation change.","1) To assign 70 terrestrial pollen taxa to distinct Plant Functional Types (PFTs) corresponding to 8 regional forest, steppe, and tundra biomes.
+
+2) To assess the statistical accuracy and robust nature of the biomization method across a modern network of 286 surface spectra spanning clear latitudinal and altitudinal climate sectors.
+
+3) To reconstruct changes in vegetation and regional landscape openness over the last ca. 32,000 years using a high-resolution radiocarbon-dated peat sediment core from the Lower Amur River basin.",0,22,TRUE,FALSE,TRUE,Regional ,Asia,Russia,TRUE,FALSE,286,1,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al.(1996), Tarasov et al.(1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Modern Reference Baseline: The biomization algorithm accurately matched the modern potential natural forest or steppe biome across the majority of the 286 reference sites. It effectively distinguished between the cold conifer taiga of northern latitudes and the structurally diverse cool mixed forests characteristic of the southern Primorye zone.
+
+Pre-LGM and Glacial Dynamics (ca. 32,000–18,000 yr BP): Reconstructed a landscape dominated by the Taiga biome mixed with prominent Tundra and Cold Steppe scores. This indicates a highly open, cold, and arid landscape during the Last Glacial Maximum, with cold-tolerant Larix and herbaceous communities dominating the Lower Amur valley.
+
+Deglaciation and Holocene Recovery: * Early Holocene: Witnessed a clean transition to Cool Conifer Forest as temperatures warmed and moisture increased, facilitating the rapid expansion of Picea and Abies.
+
+Mid-Holocene Climate Optimum: Marked by a significant expansion of the Cool Mixed Forest biome, indicating a substantial influx of thermophilous broad-leaved trees (e.g., Quercus, Ulmus, Tilia). This represents the warmest and most humid phase of the sequence, with temperatures higher than today.
+
+Methodological Confirmation: The successful reconstruction demonstrates that the standard northern Eurasian biomization matrix can be reliably applied to the high-latitude Pacific edge of Asia, providing an objective framework for past climate model-data comparisons.",NA
+34,"Palaeovegetation in China during the late Quaternary: 
+Biome reconstructions based on a global scheme of plant 
+functional types","Ni, J.",2010,"Palaeogeography, Palaeoclimatology, Palaeoecology",10.1016/j.palaeo.2010.02.008,"Biome, Biomization, China, Last glacial maximum, 
+Mid-Holocene, Plant functional types (PFTs), 
+Pollen Vegetation shift","Here we apply the global scheme of PFTs to a comprehensive set of 
+pollen records available from China to test the applicability of the 
+global scheme of PFTs in China, and to obtain a well-founded 
+reconstruction of changing palaeovegetation patterns.","In this study, we apply the global scheme of PFTs to a 
+comprehensive set of surface, MH and LGM pollen records 
+from China. The modern vegetation is reconstructed from 
+surface pollen samples in order to test the applicability of 
+the global scheme of PFTs in China, and to demonstrate a 
+good empirical relationship between modern vegetation and 
+surface pollen. Then the same procedure is applied to the 
+MH and LGM in order to obtain a well-founded reconstruction 
+of changing palaeovegetation patterns.",0,18,TRUE,TRUE,FALSE,Regional,Asia,China,TRUE,FALSE,806,238,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,Chinese Pollen Database,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,NA,NA
+35,"Biome distribution over the last 22,000 yr in China","Ni, J.",2014,"Palaeogeography, Palaeoclimatology, Palaeoecology",http://dx.doi.org/10.1016/j.palaeo.2014.04.023,"Anthropogenic biome, Biomization, Holocene, Last glacial maximum, Plant functional types, Pollen dataset","To reconstruct and map the continuous spatial and temporal distribution patterns of macro-vegetation biomes across China during the last 22,000 years using a comprehensive synthesized fossil pollen database.","1) To compile and taxonomically harmonize fossil pollen records covering the Last Glacial Maximum, deglaciation, and Holocene.
+
+2) To convert pollen percentages into 29 Plant Functional Types (PFTs) grouped into 15 distinct forest, steppe, desert, and tundra biomes.
+
+3) To document large-scale ecosystem shifts, changes in forest boundaries, and movements of the East Asian Monsoon edge since the late Pleistocene.",0,22,TRUE,TRUE,TRUE,Regional ,Asia,China,TRUE,FALSE,2434,228,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,eastern continental Asia pollen dataset,TRUE ,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996),
+Prentice & Webb (1998), 
+Harrison et al. (2010)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,"Last Glacial Maximum Conditions (22,000–18,000 cal yr BP): Reconstructed a severely restricted forest cover across China. Desert, Steppe, and Tundra biomes expanded heavily into northern and central China, while the limited forest biomes present were pushed south and east toward coastal refugia due to a cold, dry winter monsoon.
+
+Deglaciation and Transitional Phase (14,000–11,000 cal yr BP): Marked by a progressive, steady expansion of temperate deciduous and conifer forests moving northward and inland as the climate warmed.
+
+Holocene Climate Optimum (9,000–5,000 cal yr BP): Characterized by the maximum northward and westward extension of forest biomes. Broad-leaved evergreen and warm-mixed forests shifted north of their modern limits by roughly 1 to 3 degrees of latitude, indicating a highly active and expanded East Asian Summer Monsoon system bringing high moisture levels.
+
+Late Holocene Decline (Last 2,000 years): Documented a sharp retreat of complex forest biomes and a massive expansion of open, human-dominated grasslands and steppe-like signals across eastern China, reflecting the combined effects of late Holocene cooling and widespread anthropogenic land clearance.",NA
+36,"Biomization and quantitative climate reconstruction techniques
+ in northwestern Mexico—With an application to four 
+Holocene pollen sequences","Ortega-Rosas, C. I. ",2008,Global and Planetary Change,10.1016/j.gloplacha.2007.10.006,"biomes reconstruction, quantitative climate reconstruction,
+ Younger Dryas, monsoon, Holocene variability, NW Mexico","To evaluate and apply the biomization method and quantitative climate
+ reconstruction techniques to surface and fossil Holocene pollen data
+ in northwestern Mexico","1) To establish a modern pollen calibration dataset of 401 
+surface samples for NW Mexico and the SW USA.
+
+2) To assign modern and fossil pollen taxa to specific 
+Plant Functional Types (PFTs) and biomes.
+
+3) To reconstruct Holocene altitudinal vegetation shifts
+ and climate variations using four peat bog sequences.",0,10.5,TRUE,FALSE,TRUE,Regional,North America,Mexico,TRUE,FALSE,400,4,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FASLE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Modern surface calibration datasets showed high success (~81%)
+ in properly predicting regional desert vs. temperate highland
+ forest distributions. The early Holocene (~10.5 to 7.3 kyr BP)
+ was colder and more humid, encouraging high-elevation forest
+ expansions. The mid-Holocene (~7.3 to 3 kyr BP) was marked
+ by severe aridity and increased temperatures, causing
+ desertification and lowering the treeline, followed by a transition
+ to modern seasonal moisture dynamics in the late Holocene.",NA
+37,"Climatic Reconstruction in Europe for 18,000 YR B.P. from Pollen Data","Peyron, O.",1998,Quaternary Research,10.1006/qres.1997.1961,NA,To quantitatively reconstruct the spatial climate patterns of Europe and the Mediterranean region during the Last Glacial Maximum (LGM) using fossil pollen assemblages.,"1) To implement a modified and improved version
+ of the ""best modern analogues"" method by utilizing 
+groups of pollen types (PFTs) rather than raw individual taxon percentages.
+
+2) To overcome the ""no-analog"" problem associated
+ with full-glacial steppic vegetation assemblages.
+
+3) To calculate robust quantitative anomalies for temperature
+ (coldest/warmest month, mean annual) and annual precipitation
+ compared to modern values across a latitudinal gradient.",0,18,FALSE,FALSE,FALSE,Continental,Europe,"France, Spain, Italy, Greece, Syria, Iran",TRUE,FALSE,1328,15,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FASLE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1992, 1996)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Grouping individual taxa into functional PFT blocks effectively solved the ""no-analog"" issue, providing realistic modern reference matches even for highly distinct full-glacial steppic pollen profiles.",The method of PFTs and biomization well explained in the method section!
+38,Climate of East Africa 6000 14C Yr B.P. as Inferred  from Pollen Data,"Peyron, O.",2000,Quaternary Research,10.1006/qres.2000.2136,"climate, Holocene, East Africa, pollen","To generate a quantitative spatial reconstruction of the climate of East Africa during the mid-Holocene (6,000 yr B.P.) using fossil pollen records.","1) To apply and compare two independent quantitative
+ approaches: the standard ""best modern analogues"" 
+method and the taxon-to-PFT (Plant Functional Type) 
+inversion method.
+
+2) To map key climatic parameters (annual precipitation
+ and mean annual temperature) and bioclimatic parameters
+ across an altitudinal and latitudinal gradient in East Africa.
+
+3) To determine regional climate anomalies and evaluate
+ changes in the altitudinal temperature lapse rate during 
+the mid-Holocene.",0,6,FALSE,FALSE,FALSE,Regional,Africa,"Kenya, Uganda, Tanzania, Burundi, Ethiopia, Rwanda",TRUE,FALSE,449,32,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,African Pollen Database,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Peyron et al. (1998), Jolly et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"During the mid-Holocene East Africa split along a latitudinal axis: regions north of 3°S experienced substantially wetter conditions (precipitation anomalies exceeding +150mm/year), while locations further south were slightly drier than modern levels.Reconstructed altitudinal data demonstrates that the temperature lapse rate across the East African mountains was noticeably less steep during the mid-Holocene compared to the contemporary baseline.",NA
+39,"Pollen-based reconstructions of biome distributions for 
+Australia, Southeast Asia and the Pacific (SEAPAC region)
+ at 0, 6000 and 18,000 14C yr BP","Pickett, E. J.",2004,Journal of Biogeography,https://onlinelibrary.wiley.com/doi/10.1111/j.1365-2699.2004.01001.x,"Biomization, palaeovegetation patterns, palaeoclimate
+ reconstructions, plant functional types, drought-limited 
+biomes, mid-Holocene, last glacial maximum, 
+temperate rain forests.","This paper documents reconstructions of the vegetation patterns
+ in Australia, Southeast Asia and the Pacific (SEAPAC region) 
+in the midHolocene and at the last glacial maximum (LGM).","1) To compile a comprehensive regional palynological baseline
+ covering Australia, Papua New Guinea, Indonesia, and the Pacific islands.
+
+2) To design an assignment matrix allocating over 600 distinct 
+pollen types into representative PFTs.
+
+3) To analyze and map vegetation changes to better understand
+ past monsoonal variability and temperature shifts.",0,18,FALSE ,TRUE,FALSE,Subcontinental,"Australia and Oceania,
+Asia","Australia,
+ Indonesia,
+ Papua New Guinea,
+ New Zealand, 
+Pacific island nations",TRUE,FALSE,377,147,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"Australasian Pollen Database,
+Indo-Pacific Pollen Database",TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FASLE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Reconstructions at 6000 yr BP displayed an expansion of humid warm forests in northern and eastern Australia, reflecting a more vigorous and active monsoon cycle. 
+Conversely, at 18000 yr BP (LGM), lower sea-levels and cooler temperatures 
+significantly reduced moisture across the region; forests contracted into 
+restricted refugia, while open, dry grass savannas and hyper-arid 
+shrublands expanded extensively over the exposed Sunda and 
+Sahul continental shelves.",NA
+40,Reconstructing biomes from palaeoecological data: a general method and its application to European pollen data at 0 and 6 ka,"Prentice, I. C.",1996,Climate Dynamics,10.1007/BF00211617,NA,"Develop a general biomization method that reconstructs vegetation biomes from fossil pollen using plant functional types (PFTs), and test it on modern and mid-Holocene European pollen data.","1) Develop a universal pollen–PFT–biome framework; 
+2) validate it using modern pollen; 
+3) reconstruct European vegetation at 6 ka BP; 
+4) demonstrate its usefulness for climate-model evaluation.",0,6,NA,NA,NA,Continental,"Europe, Asia, Africa",NA,TRUE,FALSE,2289,343,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,European Pollen Database,TRUE,FALSE,NA,NA,NA,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FASLE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1992, 1996)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The biomization method accurately reconstructed modern European biomes and produced a coherent map of European vegetation at 6 ka BP. Compared with the present, temperate deciduous forests extended farther north and to higher elevations, taiga retreated eastward, and Mediterranean xerophytic vegetation was replaced by more mesic forests. These shifts were interpreted as responses to warmer summers, more maritime climates in northern Europe, and wetter growing-season conditions in southern Europe during the mid-Holocene.",NA
+41,"Novel insights into post-glacial 
+vegetation change: functional and phylogenetic diversity in pollen records","Reitalu, T.",2015,"Journal of Vegetation 
+Science ",10.1111/jvs.12300,"Biodiversity; Late quaternary; Long-term; 
+Millennial time-scale; Palynological diversity; Plant diversity; Pollen data","How do pollen-based functional 
+and phylogenetic diversity help to explain post-glacial vegetation 
+change in relation to climate and human influence?","1) Diversity components (richness, 
+evenness, functional and phylogenetic diversity) all convey 
+independent additional information and show varying trends through
+ the 14 500-yr period; 
+2) The Late Glacial (LG) and the Holocene have contrasting values in diversity owing to climatic differences; 
+3) Diversity components are influenced differently by climate and human impact.",0,14.5,NA,NA,NA,Regional,Europe," Estonia, Latvia",TRUE,FALSE,NA,20,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,LEDA,TRUE,FALSE,NA,NA,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,GAM,"The Late Glacial and the mid-Holocene periods showed
+ contrasting values for most of the diversity components, and several diversity components were strongly associated with climate. 
+Late Glacial -> high PD and low FD.
+Climate warming to the Holocene -> low FD and high FD based on plant height and seed weight. 
+Human impact -> increase plant richness, low FD and PD in herbs. ",NA
+42,Holocene climatic reconstructions from the fossil pollen record at Qigai Nuur in the southern Mongolian Plateau,"Sun, Z.",2013,The Holocene,10.1177/0959683613489581,"East Asian summer monsoon, Holocene, Mongolian Plateau, palaeoclimate, pollen, vegetation",Reconstruct Holocene vegetation and climate changes from fossil pollen at Qigai Nuur and evaluate controls on precipitation and temperature variability.,"1) Reconstruct vegetation history
+2) reconstruct MAT and MAP using PFT-MAT
+3) compare reconstructions with regional monsoon records
+4) infer climatic controls (ITCZ and ENSO).",0,10.7,TRUE,FALSE,TRUE,Regional ,Asia,China,TRUE,FALSE,NA,1,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,NA,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,China Quaternary Pollen Data Base,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Jiang et al. (2006)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,PFT–MAT (Plant Functional Type–Modern Analogue Technique),"Vegetation shifted repeatedly between steppe forest and dry steppe over the last ~10.7 kyr. Warm and wet conditions dominated from ~9200–2800 cal yr BP, interrupted by dry intervals around 7400–6000 and 4000–2800 cal yr BP. Climate reconstructions suggest that precipitation was controlled by East Asian monsoon dynamics, ITCZ shifts, and ENSO variability.",NA
+43,An updated biomization scheme and vegetation reconstruction based on a synthesis of modern and mid-Holocene pollen data in China,"Sun, Z.",2020,Global and Planetary Change,https://doi.org/10.1016/j.gloplacha.2020.103178,"Pollen data, Plant functional types, Biomes, Mid-Holocene, China",,"1) To expand the spatial reference grid of modern surface pollen samples across undersampled regions of China (such as the Xinjiang area and northwestern Tibetan Plateau).
+2) To redesign the mathematical biomization matrix by adjusting the number of defined Plant Functional Types (PFTs) and biomes to better resolve traditional classification overlap issues. 
+3) To generate maps of mid-Holocene vegetation structure and compare a custom landscape openness index against modern baseline vegetation boundaries. ",0,6.5,NA,NA,NA,Regional,Asia,China,TRUE,FALSE,1630,234,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,"China Quaternary Pollen Data Base, East Asia Surface Pollen Dataset",TRUE ,FALSE,TRUE,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996), Harrison et al. (2010)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Developed an improved Chinese biomization scheme containing 18 biomes, 30 PFTs, and 590 pollen taxa. Achieved ~80% biome assignment accuracy. Mid-Holocene forests expanded westward and forest–steppe boundaries shifted ~150–300 km northwestward, likely due to a stronger East Asian Summer Monsoon and increased moisture availability.",NA
+44,"Pollen-based reconstructions of Japanese biomes  at 0, 6000
+ and 18,000 14C yr BP",Takahara. H.,2000,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00432.xDigital Object Identifier (DOI),"Pollen data, plant functional types, biomes, 
+vegetation changes, Japan, mid-Holocene, 
+last glacial maximum.","To reconstruct the distribution of major vegetation types (biomes) 
+in Japan at three target time periods using fossil pollen datasets.","1) To assign Japanese pollen taxa to specific Plant Functional 
+Types (PFTs) based on structural, bioclimatic, and ecological criteria.
+
+2) To validate the biomization method by evaluating modern 
+surface/core-top pollen samples against actual modern potential 
+vegetation maps.
+
+3) To map regional biome patterns and altitudinal vegetation shifts
+ for the mid-Holocene (6000 yr BP) and the Last Glacial Maximum (18000 yr BP).",0,18,FALSE ,TRUE,FALSE,Regional,Asia,Japan,TRUE,FALSE,94,73,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,Japanese Pollen Database,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996),
+Prentice & Webb (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA," Reconstructed modern biomes closely match modern potential vegetation patterns. 
+At 6000 yr BP, warm evergreen broad-leaved forests expanded northwards and upwards, 
+reflecting warmer-than-present climates. At 18000 yr BP (LGM), temperate and 
+evergreen biomes were replaced entirely by cold coniferous forests and 
+tundra-like steppe communities, signaling extreme cooling and drying across 
+the Japanese archipelago.",NA
+45,Present-day and mid-Holocene biomes reconstructed from pollen and plant macrofossil data from the former Soviet Union and Mongolia,"Tarasov, P.E.",1998,Journal of Biogeography,https://onlinelibrary.wiley.com/doi/10.1046/j.1365-2699.1998.00236.x,,To reconstruct the spatial distribution of present-day and mid-Holocene biomes across northern Eurasia using the plant-functional-type (PFT) biomization method for evaluation against global climate models.,"1) To compile a comprehensive pollen dataset of modern surface samples and 6,000-year fossil spectra from across the Former Soviet Union and Mongolia.
+
+2) To adapt and validate the objective Prentice et al. (1996) biomization scheme for continental northern Eurasian vegetation zones.
+
+3) To integrate radiocarbon-dated plant macrofossil records (e.g., larch and spruce wood/stems) to precisely track shifting northern tree lines and landscape change.",0,6,FALSE,TRUE,TRUE,Subcontinental,"Asia, Europe","Russia, Mongolia, Ukraine, Belarus, Kazakhstan, Kyrgyzstan",TRUE,FALSE,844,216,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"European Pollen Database, Global Pollen Database",TRUE ,TRUE,NA,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Model Accuracy: The adapted Prentice et al. (1996) method mapped modern validation surfaces with high precision, confirming the accuracy of the PFT affinity framework.
+
+Forest Extensions: At 6,000 yr B.P., the temperate deciduous forest belt shifted significantly northward and southward from its modern limits across the Ural Mountains. The northern margins of cool mixed and cool coniferous forests also expanded poleward.
+
+Taiga & Cold Deciduous Shifts: Classic taiga was significantly reduced in European Russia but expanded into eastern Yakutia, replacing open cold deciduous forest zones.
+
+Continental Stability: In contrast to the dramatic forest migrations observed along maritime and high-latitude gradients, steppic biomes inside the dry continental interior remained structurally stable, pointing to persistent dry conditions in western Mongolia and north of the Aral Sea during the mid-Holocene.",NA
+46,"Last glacial maximum biomes reconstructed from pollen 
+and plant macrofossil data from northern Eurasia","Tarasov, P.E.",2001,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00429.x,"Biomes, Former Soviet Union, last glacial maximum,
+ Mongolia, plant functional types, pollen data,
+ vegetation changes, vegetation map.","To objectively reconstruct the vegetation distributions and biomes 
+of Northern Eurasia during the Last Glacial Maximum (LGM) using 
+a quantitative biomization method applied to pollen and plant macrofossil records.","1) To validate and reinforce previous qualitative vegetation maps 
+with standardized quantitative parameters.
+
+2) To determine the spatial extent of tundra and steppe bands 
+across the plains of the Former Soviet Union and Mongolia.
+
+3) To localize glacial tree refugia, specifically for broadleaved
+ and cool conifer communities along the Black Sea and Caucasus corridors.",18,18,FALSE,FALSE,TRUE,Regional,Asia,"Russia, Mongolia",TRUE,FALSE,NA,39,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,NA,NA,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Prentice et al. (1996),
+Tarasov et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Tundra vegetation heavily dominated northern latitudes above 57°N around
+ the Scandinavian ice sheet. Arid steppe landscapes expanded heavily southwards, 
+creating a distinct continuous tundra-steppe transition zone across Siberia that does 
+not exist today. Broadleaved species were forced entirely out of major zones into 
+microclimatic coastal refugia, notably along the Black Sea.",NA
+47,Taxonomic and functional diversity of North American vegetation during the last interglacial–glacial cycle,"Terlizzi, T.",2025,Quaternary Research,10.1017/qua.2024.55,"Quaternary, paleogeography, glaciation, North America, pollen, vegetation dynamics",They used pollen-derived taxonomic and functional diversity estimates to quantify North American plant community dynamics from the last interglacial period (MIS 5e) to the present (MIS 1).,"1) To compile a pre-Last Glacial Maximum (LGM) pollen dataset across North America with sufficient chronological and sampling resolution. 
+2) To evaluate whether global temperature changes and latitudinal temperature gradient compressions systematically drove plant diversity shifts across different bioregions. 
+3) To assess if taxonomic diversity trends (richness, abundance) are mirrored by functional trait-based diversity metrics across the last ca. 130 ka",0,130,TRUE,FALSE,TRUE,Continental ,"North 
+America","USA, Canada, 
+Mexico, Guatemala",TRUE,FALSE,NA,23,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,Neotoma,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,BIEN,FALSE,FALSE,NA,NA,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,NA,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,GAM,"Taxonomic vs. Functional Connectivity: Taxonomic and functional diversity patterns generally matched across time and space, meaning they can often be used interchangeably. However, functional diversity shifts occurred less frequently and varied in timing and amplitude compared to taxonomic changes. This suggests that ecosystems maintain functional resilience even when species composition changes.",NA
+48,"Biomes of western North America at 18,000,  6000 and 0 
+14C yr BP reconstructed from pollen and packrat midden data","Thomson, R. S.",2001,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00427.x,"Packrat middens, pollen data, plant macrofossil data,
+ plant functional types, biomes, vegetation changes, 
+western North America, last glacial maximum, mid-Holocene.","To reconstruct and compare the compositions and geographical 
+distributions of biomes across western North America for the modern
+ era, 6000, and 18,000 yr BP. ","1) To combine lacustrine pollen data with macrofossil sequences
+ extracted from packrat middens.
+
+2) To formulate a new specialized ""open conifer woodland"" biome to
+ describe arid and semiarid interior spaces.
+
+3) To evaluate the performance of pollen versus macrofossils under
+ standard biomization math equations.",0,18,FALSE ,TRUE,FALSE,Regional,North America,"USA, Canada",TRUE,TRUE,66,97,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,North American Pollen Database,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Pollen data reliably identified wet forest types, whereas packrat midden 
+macrofossils proved highly precise for mapping arid desert/steppe limits.
+ At 6000 yr BP, modern desert spaces were wetter, and steppe elements 
+expanded into northern regions. At 18000 yr BP, massive Laurentide and
+ Cordilleran ice sheets shifted storm tracks southward, causing 
+widespread expansion of open conifer woodlands across the Great Basin
+ and modern southwestern deserts.",VERY RELEVANT - Introduction!
+49,Biome changes and their inferred climatic drivers in northern and eastern continental Asia at selected times since 40 cal ka bp,"Tian, F.",2017,Vegetation History and Archeobotany,https://doi.org/10.1007/s00334-017-0653-8,"Siberia, China, Northern Asia, Model-data comparison, Pollen, Permafrost, Vegetation-climate disequilibrium","To reconstruct large-scale vegetation pattern changes across northern and eastern continental Asia over the last 40,000 years using pollen-based biomization and compare them with a climate-driven biome model to evaluate macroclimatic drivers versus non-climatic feedback mechanism lags.","1) Establish a comprehensive, unified dataset of past vegetation across China, Mongolia, and Siberia by integrating regional palynological records. 
+2) Apply an explicit global Plant Functional Type (PFT) classification scheme to map broad ecosystem migrations at selected temporal landmarks.  
+3) Investigate regions exhibiting vegetation-climate disequilibrium (such as the taiga-tundra transition underpermafrost constraints) where biological migration or soil delays override immediate macroclimatic adjustments.",0,40,TRUE,TRUE,FALSE,Subcontinental,Asia,"China, Mongolia, Russia",TRUE,FALSE,NA,468,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,"European Pollen Database, Global Pollen Database",TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"Prentice et al. (1996),
+Prentice & Webb (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,NA,NA
+50,"Observed and dark diversity
+ dynamics  over millennial time scales: fast lifehistory traits
+ linked to expansion lags of plants in northern Europe","Trindade, D. P. F.",2023,The Royal Society Publishing,https://doi.org/10.1098/rspb.2022.1904,"biodiversity change, dispersal limitation,  
+functional diversity, time lags, sedimentary  pollen, temporal dynamics","They used sedimentary pollen data to 
+examine how both taxonomic and functional observed and dark diversity changed over the past 14 500 years in northern Europe.","Here, we explored the dynamics of observed
+ and dark diversity, pool size and community completeness both at the taxonomic and functional diversity facets using a sedimentary pollen data from northern Europe. This data spans the last 14 500 years from the Late Glacial period until the present, a period during which the region has experienced significant changes in both climate and human land use",0,14.5,NA,NA,NA,Regional,Europe,"Estonia, Latvia",TRUE,FALSE,NA,20,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,GAM,"We found that taxonomic and functional observed and dark diversity 
+increased over time, especially after the Late Glacial and during the Late Holocene. However, dark diversity dynamics revealed expansion lags related to species’ functional characteristics (dispersal limitation and stress intolerance) and an extensive functional redundancy when compared to taxa in observed diversity. We highlight that assessing observed and dark diversity dynamics is a promising tool to examine biodiversity change across spatial scales, its possible causes, and functional consequences.",FIGURE 1 !!!!!!!
+51,"A 7000-year history of 
+changing plant trait composition in an  Amazonian landscape; the role of humans and climate","van der Sande, M. T.",2019,Ecology Letters,10.1111/ele.13251,"Amazon, charcoal, climate change, erosion, fire activity, fossil pollen, functional traits, human disturbance, Peru, tropical forest.","They apply a novel approach to link species 
+abundance data from fossil pollen records 
+spanning millennia with data on environmental change and functional traits, to evaluate long-term effects of climate and humans on the trait composition of tropical forest landscapes. They link palaeoecological data with functional traits from a human-dominated tropical forest landscape in the lowland Peruvian Amazon, using 7000 years of fossil pollen data from Lake Sauce. ","1) How do traits determine taxon-level responses to climate and human disturbance (erosion rate and fire activity)?
+2) How do temporal shifts in community-mean traits relate to climate and human activity?",0,7,TRUE,FALSE,TRUE,Regional,South America ,Peru,TRUE,FALSE,NA,2,NA,NA,NA,NA,FALSE,FALSE,NA,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,"BIEN, Seed Mass Database,
+Global Wood Density Database,
+Tropicos",TRUE,FALSE,NA,NA,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,"Multivariate analysis, linear regression models, GLM","They evaluate how climate and human disturbances affect
+ community trait composition. We found weak relationships between environmental conditions and traits at the taxon level, but strong effects for community-mean traits. Overall, community-mean traits were more responsive to human disturbances than to climate change; humaninduced erosion increased the dominance of dense-wooded, non-zoochorous species with compound leaves, and human-induced fire increased the dominance of tall, zoochorous taxa with large seeds and simple leaves.","To evaluate the suitability
+ of their  traits for use at genus or family level, they tested for phylogenetic signal in our continuous traits (i.e. wood density, leaf area, adult height and seed mass) with Pagel’s lambda, which generally performs well for testing phylogenetic signal."
+52,"Modern pollen rain predicts shifts in plant trait composition
+ but not plant diversity along the Andes–Amazon elevational gradient","van der Sande, M. T.",2020,"Journal of Vegetation
+Science",10.1111/jvs.12925,"diversity, elevation, functional traits, pollen, richness,
+ R-rel values, taphonomy, tropical Andes, tropical forest",NA,"Firstly, how do taxa differ in their over- or underrepresentation by pollen?
+Secondly, how do community-average trait values and 
+species diversity change with elevation?
+Thirdly, can pollen data predict the shifts in plant functional
+ traits and diversity along the gradient?",0,0,NA,NA,NA,Regional,South America ,Peru,TRUE,FALSE,82,NA,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,NA,TRUE ,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,"Wood density database, 
+BIEN",TRUE,FALSE,NA,NA,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,Linear mixed-effects model,"Community-weighted mean (CWM) wood density significantly increased,
+ while maximum adult height and leaf area systematically decreased as 
+elevation increased. These spatial trait shifts in the living vegetation 
+were accurately predicted and captured by the relative abundance configurations of the 
+modern surface pollen rain, demonstrating that pollen data can faithfully
+ track major macroecological shifts in plant functional composition.
+ Conversely, absolute species diversity trends (richness, Shannon, and Simpson) 
+were poorly reflected in the uncorrected pollen data due to taxonomic 
+constraints and variations in tropical pollen dispersal syndromes",NA
+53,"Warming, drought, and disturbances lead to shifts in functional
+composition: A millennial-scale analysis for Amazonian and  Andean sites","van der Sande, M. T.",2023,Global Change Biology,10.1111/gcb.16818,"Amazon, Andes, climate change, El Niño, fire,
+ fossil pollen, functional traits, tropical forest","Here, we use a functional trait approach
+on timescales of 10,000 years to assess
+ how climate and disturbances influence
+ the community-mean adult height, leaf area,
+ seed mass, and wood density for eight lowland
+ and highland forest landscapes. To do so, we 
+combine data of eight fossil pollen records 
+with functional traits and proxies for climate
+ (temperature, precipitation, and El Niño frequency) 
+and disturbances (fire and general disturbances).","First, how do temporal changes in past 
+climate (precipitation, temperature anomalies, 
+and the frequency of El Niño events) and past 
+disturbances (fire activity and disturbances in general) 
+determine shifts in community-mean trait values across 
+Neotropical forests over at least the last 2000 years 
+(for some of our sites up to 12,000 years).
+Second, how do these responses of trait composition 
+to climate and disturbances depend on elevation?",0,11.95,TRUE,FALSE,TRUE,Regional,South America ,"Ecuador, 
+Peru, 
+Colombia,
+Brazil",TRUE,FALSE,NA,8,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,"WD database, BIEN,
+Seed Mass Database",TRUE,FALSE,NA,NA,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,NA,FALSE,TRUE,"TRUE
+",FALSE,FALSE,TRUE,TRUE,TRUE,"LMM, GLS","We found that temperature and disturbances were the most important 
+drivers of changes in functional composition. Increased water availability
+ (high precipitation and low El Niño frequency) generally led to more acquisitive
+ trait composition (large leaves and soft wood). In lowland forests, warmer climates
+ decreased community-mean height probably because of increased water stress, 
+whereas in highland forests warmer climates increased height probably because of 
+upslope migration of taller species. Disturbance increased the abundance of acquisitive, 
+disturbance-adapted taxa with small seeds for quick colonization of disturbed sites, large 
+leaves for light capture, and soft wood to attain fast height growth. Fire had weak effects 
+on lowland forests but led to more stress-adapted taxa that are tall with fast life cycles and
+ small seeds that can quickly colonize burned sites.",Introduction!
+54,Pollen-based reconstruction reveals the impact of the onset of agriculture on plant functional trait composition,"Veeken, A.  ",2022,Ecology Letters,10.1111/ele.14063,"climate, early agriculture, Holocene, 
+plant functional traits, pollen data","Determine trends in plant trait composition within landscapes undergoing the transition to agriculture by econstructing plant trait composition in multiple pollen records from a variety of different northwestern European locations. They also assess the relative importance of climate versus agriculture 
+in driving these trends.","1) Determine whether functional composition exhibits spatial and/or temporal patterns throughout the Holocene in northwestern Europe.
+2) Examine whether agriculture triggered a change in functional composition.
+3) Assess the additional role of climate in driving functional composition.",0,10,FALSE,FALSE,FALSE,Continental,Europe,"France, Ireland,
+ Sweden, England, Germany, Czech Republic, Slovakia, Switzerland ",TRUE,FALSE,NA,78,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,Neotoma,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,TRY,TRUE,FALSE,TRUE,"Hierarchical Bayesian
+ Probabilistic Matrix 
+Factorisation (HBPMF)",TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,NA,TRUE,TRUE,FALSE,TRUE,TRUE,"
+TRUE",TRUE,TRUE,GAM,"1) Decrease in whole plant size 
+alongside a shift in trait space 
+related to the leaf economic spectrum after the onset of agriculture. 
+2) Both agriculture and climate play a role in explaining the changes in plant community trait composition -> variation with different traits (height + seed size more by agriculture X leaf traits by both). 
+",NA
+55,Modern pollen-based biome reconstructions in East Africa  expanded to southern Tanzania,"Vincens, A.",2006,Review of Paleobotany and Palynology,10.1016/j.revpalbo.2006.04.003,"biomisation, East Africa, modern pollen, plant functional type","To test, expand, and optimize the standard objective biomisation method in East Africa by incorporating newly generated modern surface pollen samples from underrepresented southern Tanzanian ecosystems.","1) To produce 59 new modern surface pollen records from a high-density bioclimatic transect in southern Tanzania.
+
+2) To optimize the African pollen-to-PFT assignment matrix by including all identified terrestrial taxa (408 total) to capture high regional biodiversity.
+
+3) To validate the modified biomisation approach by comparing model-assigned biomes directly against local botanical field observations.",0,0,NA,NA,NA,Subcontinental,Africa,"Kenya, Uganda, Tanzania",TRUE,FALSE,150,NA,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,African Pollen Database,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,FALSE,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,"Jolly et al. (1998), Peyron et al. (2000)",,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"Reconstruction Accuracy: The updated biomisation scheme successfully assigned 124 out of 150 validation sites (82.6%) to their correct true biological biome, proving its high accuracy for high-biodiversity tropical regions.
+
+Taxonomic Expansion Success: Expanding the lookup tables to include nearly all regional pollen types (excluding only aquatics, ferns, and exotics) significantly reduced old model errors that misclassified open savannas as closed forests.
+
+Resolving Forest/Savanna Overlaps: The revised framework accurately distinguishes between closed dry forests, open moist savannas, and true Miombo woodlands (Zambezian dry forest), making it a highly reliable tool for future paleoclimate and vegetation reconstructions in East Africa.",NA
+56,"Holocene Neolithic human activity shaped ecosystem functions through the altering of vegetation traits in Zhejiang, eastern China","Wang, H.",2024,"Quaternary Science 
+Reviews",https://doi.org/10.1016/j.quascirev.2024.108762,"Pollen, Holocene, Vegetation traits, Landscape,
+ Climate Human activities","The aim was to reconstruct past
+ long–term changes in plant traits and to investigate variations in ecosystem functioning under the pressure of natural climate shifts and anthropogenic disturbances.","1) to reveal how the functions of terrestrial vegetation and the strategies for resource acquisition within plant communities changed under climate change; 
+2) how changes in the vegetation functioning and the PFTrs related to human activities; and 
+3) whether Neolithic human activities accelerated, slowed down or reversed ecosystem change.",-73,16.646,TRUE,TRUE,FALSE,Regional,Asia,China,TRUE,FALSE,NA,37,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,NA,TRUE,TRUE,NA,NA,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,GAM,"Our findings reveal that, during the Holocene, plant functional
+ traits at natural sites gradually adapted to warmer and wetter conditions, with the natural functional dispersion (FDis) showing a steady decrease between 9.0 and 4.0 cal ka BP. At human–impacted sites, intensified human activities gradually transformed the landscape from forest to grassland and shrubland, allowing light–demanding vegetation to thrive due to extended canopy gaps. Pioneer plants flourished in the secondary succession, leading communities to exhibit more aggressive resource acquisition strategies compared to a natural community.",NA
+57,Late Quaternary biomes of Canada and the  eastern United States,"Williams, J. W.",2001,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.2000.00428.x,"Pollen data, plant functional types, biomes, 
+vegetation changes, eastern North America, 
+Canada, mid-Holocene, last glacial maximum.
+","To map and reconstruct the biomes of Canada and the eastern 
+United States for the modern era,6000 yr BP, and 18000 yr BP using 
+the biomization method. ","1) To evaluate the modern predictive skill of the biomization 
+method against independent pre-settlement historical
+ vegetation maps.  
+
+2) To investigate structural and compositional variations (PFT shifts)
+ within biomes across time.  
+
+2) To document how the open architecture of forests and
+ tundra during the LGM impacted land surface parameters
+such as albedo or canopy roughness. ",0,18,FALSE,TRUE,FALSE,Regional,North America,"USA, Canada",TRUE,FALSE,2381,509,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,North American Pollen Database,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"Inferred modern biomes matched historic maps well. At 6000 yr BP, 
+biomes reflected warmer/drier interior conditions, but general 
+biome positions stayed close to modern distributions, with no 
+dramatic northward treeline shift. At 18,000 yr BP, steppe and 
+tundra dominated the Midwest and northwest, while eastern 
+forests were highly open, structurally altered, and dominated
+ by boreal conifers.",NA
+58,"Modern pollen–plant diversity relationships for reliable 
+pollen-based reconstruction of past plant taxonomic and 
+functional diversity: A case study in southwest Shandong, China","Xie, S.",2024,Ecological Indicators,https://doi.org/10.1016/j.ecolind.2024.112739,"Palynological diversity, Floristic diversity,
+ Richness, Evenness, Shannon-wiener index,
+ Functional diversity, Community weighted mean abundance,
+ Functional dispersion","They aimed to thoroughly investigate the relationships
+ between palynological and floristic diversity by combining different taxonomic and functional diversity indices with the understanding of pollen source area estimated from the Extended R-Value (ER-V) model.","1) Which are the most informative indices in pollen signal (richness, evenness, ShannonWiener index, functional composition, and functional dispersion) in terms of representing plant diversity that could be incorporated into the reconstruction of the long-term plant diversity dynamics? 2) How does the pollen-plant diversity association vary at different spatial scales of vegetation survey?",0,0,NA,NA,NA,Regional,Asia,China,TRUE,FALSE,36,NA,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,NA,FALSE,TRUE,TRUE,NA,NA,FALSE,TRUE,FALSE,TRUE,BIEN,FALSE,FALSE,TRUE,"Missing data collected
+ from Flora Reipulicae
+ Popularis Sinicae (FRPS)",TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,NA,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,NA,"Our results confirm that pollen data performs well in presenting
+ plant taxonomic and functional diversity, which provides a solid theoretical basis for quantitative reconstruction of the long-term plant diversity dynamics and response of ecosystem functions to the environment in the future. Furthermore, the results demonstrate that the spatial scale of vegetation survey plays an important role in the representation of pollen diversity.",NA
+59,"Palaeovegetation of China: a pollen data-based  synthesis
+ for the mid-Holocene and last glacial maximum","Yu, G.",2000,Journal of Biogeography,https://doi.org/10.1046/j.1365-2699.2000.00431.x,"Pollen data, plant functional types, biomes, 
+vegetation changes, China, mid-Holocene, last glacial maximum.","To reconstruct the geographical distribution of major vegetation types (biomes)
+ across China at 6000 and 18,000 yr BP using an objective biomization procedure.","1) To compile a comprehensive modern and fossil pollen dataset
+ for China; 
+2) to test the applicability of the biomization method
+ across a complex topoclimatic template; 
+3) to document regional
+ shifts in ecosystems during the mid-Holocene and Last Glacial
+ Maximum; 
+4) and to provide standardized data for testing global
+ climate models.",0,18,FALSE ,TRUE,FALSE,Regional,Asia,China,TRUE,FALSE,658,155,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,NA,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The modern validation shows a high degree of fidelity with actual vegetation 
+zones. At 6000 BP, a stronger summer monsoon forced forest biomes to 
+expand extensively northward and westward; temperate deciduous forest
+ shifted approximately 800 km north of its modern limit. At 18,000 BP, 
+extreme cold and dry conditions eliminated temperate deciduous forests, 
+moving steppe and desert biomes eastward to the modern coastline. 
+Boreal taiga moved south into areas currently dominated by temperate 
+ecosystems.",NA
+60,Pollen-based biome reconstructions for China at 0 and 6000 years,"Yu, G.",2008,Journal of Biogeography, https://doi.org/10.1046/j.1365-2699.1998.00237.x,"Pollen, biomization, China, mid-Holocene, 
+vegetation patterns","To test the applicability of the European biomization method to modern
+ surface pollen samples from China and apply it to fossil pollen data to
+ map vegetation patterns 6000 years ago.","1) To evaluate if fuzzy logic biomization can accurately capture 
+the complex latitudinal and altitudinal vegetation gradients of China.  
+
+2) To map China's vegetation during the mid-Holocene (6000)
+ using available palynological records.  
+
+3) To provide qualitative climate interpretations regarding the
+ response of the Asian monsoon system to mid-Holocene orbital forcing. ",0,6,FALSE,TRUE,FALSE,Regional,Asia,China,TRUE,FALSE,83,113,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,TRUE,TRUE,FALSE,NA,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Prentice et al. (1996),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,NA,"The biomization procedure successfully reproduced the modern 
+east-to-west and latitudinal vegetation zones of China. At 6000 yr BP,
+ forest zones shifted significantly northward (temperate deciduous 
+forests moved 500–600 km and broad-leaved evergreen forests 
+moved ~300 km north). Deserts and steppes shrank in the northwest, 
+while forests climbed to higher elevations on the Tibetan Plateau, 
+reducing the extent of alpine tundra.",NA
+61,"European Forest Cover During the Past 12,000 Years: 
+A Palynological Reconstruction Based on Modern Analogs 
+and Remote Sensing","Zanon, M.",2018,"frontiers in Plant 
+Science",10.3389/fpls.2018.00253,"Modern Analog Technique, forest cover, pollen data, 
+remote sensing, Europe, Younger Dryas, Holocene","To present a continuous, spatially explicit, and quantitative pollen-based
+ reconstruction of European forest cover changes over the last 12,000 
+years using a modified Modern Analog Technique (MAT) paired with 
+modern satellite vegetation imagery.","1) To overcome the structural over/under-representation 
+biases of standard Arboreal Pollen (AP) percentages without 
+relying on complex, parameter-heavy mechanistic models.
+
+2) To pair a massive fossil pollen dataset with a modern 
+surface pollen calibration database that maps directly to 
+modern satellite-derived (MODIS) continuous forest cover maps.
+
+3) To analyze and map continuous 200-year temporal 
+intervals to observe how post-glacial climate fluctuations 
+and expanding agricultural civilizations reshaped European 
+forest architecture throughout the Holocene.",0,12,TRUE,TRUE,FALSE,Continental,Europe,NA,TRUE,FALSE,NA,NA,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,"European Pollen Database, European Modern Pollen Database, 
+PANGEA",TRUE,NA,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"Prentice et al. (1996), Peyron et al. (1998)",FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,"Modern Analog Technique (MAT), PFT transformation, squared chord distance, quantile-mapping bias correction, REVEALS comparison, 4-D interpolation, cross-validation","Post-glacial warming caused a rapid expansion of forest canopy
+ across Europe between 12,000 and 8,500 BP. A ""green period"" 
+of maximum forest cover extent occurred between ~8,500 and 
+6,000 cal. BP, where dense forest canopy dominated the continent. 
+This peak was followed by a progressive, long-term deforestation 
+trend that significantly accelerated after 1,500 BP due to escalating
+ human land clearance. Deforestation patterns were strongly 
+diachronic, with Western Europe and the British Isles becoming
+ open landscapes thousands of years before the heavy forests
+ of Eastern Europe were systematically cleared.",NA
+62,Holocene vegetation evolution on the Tibetan Plateau: An integrated approach utilising plant functional types,"Zhang, Y. ",2025,"Palaeogeography, Palaeoclimatology, Palaeoecology",https://doi.org/10.1016/j.palaeo.2025.112749,"Tibetan Plateau, Holocene, Plant diversity, Climate change, Human activities",To explore the large-scale vegetation patterns and regional plant diversity evolutionary characteristics across the Tibetan Plateau (TP) since the Holocene using a plant functional type (PFT) approach.,"1) To compile and standardize high-resolution pollen records from 58 fossil sites across the plateau. 
+2) To evaluate the relationship between past plant diversity, distinct climate shifts, and late-Holocene human activities. 
+3) To identify the structural baseline of modern vegetation distribution patterns from past Holocene assemblages",0,11.4,TRUE,TRUE,TRUE,Regional,Asia,China,TRUE,FALSE,NA,58,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,Late Quaternary Pollen Database of East Asia,TRUE ,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,NA,TRUE,FALSE,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Utescher et al. (2021),FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,NA,"The results show that: (1) The overall plant diversity in the TP since the Holocene shows a trend of increasing in the early and middle stages and decreasing in the late stage. Plant diversity responded to the 8.2 and 4.2 ka B.P. cold events, while the continuous decrease in biodiversity since 1000 cal.a B.P. is related to human activities. Among them, the impact of human activities on plant diversity in the northern part of the plateau occurred earlier than that in the southern part. (2) During the Holocene, the pollen content at each fossil site on the plateau changed significantly, but the changes in pollen groups were not noticeable. Zonal PFTs persisted, and their proportions fluctuated slightly, indicating that the vegetation composition on the TP was relatively stable during this period. (3) From the perspective of regional vegetation distribution, the vegetation composition in the northern and southern parts of the plateau shows a relatively stable situation.",NA
