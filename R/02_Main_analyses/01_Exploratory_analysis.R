@@ -248,7 +248,7 @@ ggplot(
 
 ### sankey diagram with networkD3 ----
 
-#### it require node and links ----
+#### it requires node and links ----
 
 links1 <- sankey_data_all_year_groups |>
   count(journal, region, name = "value")
