@@ -15,7 +15,7 @@
 # 1. Set up  -----
 #----------------------------------------------------------#
 
-# packages ----
+# packages 
 
 install.packages("remotes")
 install.packages("ggalluvial")
@@ -31,7 +31,7 @@ library(ggalluvial)
 library(tidyverse)
 library(here)
 
-# Load the table with case studies ----
+# Load the table with case studies 
 
 case_studies <- readr::read_csv("Data/Processed/case_studies_clean.csv")
 
