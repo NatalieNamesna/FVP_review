@@ -281,13 +281,13 @@ figure_sankey_2
 saveWidget(
   figure_sankey_2,
   "figure_sankey.html",
-  file = here("Outputs/Figure_sankey_2.html"),
+  file = here("Outputs/Figures/Figure_sankey_2.html"),
   selfcontained = TRUE
 )
 
 webshot(
-  url = here("Outputs/Figure_sankey_2.html"),
-  file = here("Outputs/Figure_sankey_2.png"),
+  url = here("Outputs/Figures/Figure_sankey_2.html"),
+  file = here("Outputs/Figures/Figure_sankey_2.png"),
   vwidth = 1800,
   vheight = 1000,
   zoom = 3
