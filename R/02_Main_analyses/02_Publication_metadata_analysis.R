@@ -22,6 +22,8 @@ install.packages("ggalluvial")
 remotes::install_github("davidsjoberg/ggsankey")
 install.packages("networkD3")
 install.packages("htmlwidgets")
+install.packages("webshot2")
+library(webshot2)
 library(htmlwidgets)
 library(networkD3)
 library(ggsankey)
@@ -80,31 +82,58 @@ sankey_data_all <-
 sankey_data_all_year_groups <- sankey_data_all |> 
   mutate(
     year_group = case_when(
-      year >= 1995 & year <= 2000 ~ "1995–2000",
-      year >= 2001 & year <= 2005 ~ "2001–2005",
-      year >= 2006 & year <= 2010 ~ "2006–2010",
-      year >= 2011 & year <= 2015 ~ "2011–2015",
-      year >= 2016 & year <= 2020 ~ "2016–2020",
-      year >= 2021 & year <= 2025 ~ "2021–2025",
+      year >= 1995 & year <= 2000 ~ "1995-2000",
+      year >= 2001 & year <= 2005 ~ "2001-2005",
+      year >= 2006 & year <= 2010 ~ "2006-2010",
+      year >= 2011 & year <= 2015 ~ "2011-2015",
+      year >= 2016 & year <= 2020 ~ "2016-2020",
+      year >= 2021 & year <= 2025 ~ "2021-2025",
       TRUE ~ "Other"
     )
   )
+
+## define the order of years ----
+year_order <- c(
+  "1995-2000",
+  "2001-2005",
+  "2006-2010",
+  "2011-2015",
+  "2016-2020",
+  "2021-2025"
+)
+
+## define the order of journal and year ----
+journal_order <-
+  sankey_data_all_year_groups |>
+  count(journal, sort = TRUE) |>
+  pull(journal)
+
+region_order <-
+  sankey_data_all_year_groups |>
+  count(region, sort = TRUE) |>
+  pull(region)
+
+
 
 
 ## making sankey diagram ----
 
 ### sankey diagram with ggalluvial ----
 ggplot(
-  sankey_data_all,
+  sankey_data_all_year_groups,
   aes(axis1 = journal,
       axis2 = region,
-      axis3 = factor(year))
+      axis3 = factor(year_group))
 ) +
-  geom_alluvium(aes(fill = region), width = 1/12) +
-  geom_stratum(width = 1/8) +
+  geom_alluvium(aes(fill = region, width = 1/12), curve_type = "sine") +
+  geom_stratum( width = 1/8) +
   geom_text(stat = "stratum", aes(label = after_stat(stratum))) +
   scale_x_discrete(limits = c("Journal", "Region", "Year")) +
-  theme_minimal()
+  theme_minimal() +
+  ggtitle("Sankey diagram for journal, year and region of the case studies")
+
+
+
 
 ### sankey diagram with networkD3 ----
 
@@ -122,6 +151,14 @@ nodes <- data.frame(
     links1$region,
     links2$year_group
   ))
+)
+
+nodes <- data.frame(
+  name = c(
+    journal_order,
+    region_order,
+    year_order
+  )
 )
 
 #### create source and target IDs ----
@@ -218,9 +255,11 @@ figure_sankey_2 <- sankeyNetwork(
   NodeGroup = "group",
   LinkGroup = "group",
   colourScale = colourScale,
-  fontSize = 20,
-  nodeWidth = 35,
-  nodePadding = 12
+  width = 1800,
+  height = 1000,
+  fontSize = 16,
+  nodeWidth = 40,
+  nodePadding = 16
 )
 
 figure_sankey_2 <- onRender(
@@ -236,4 +275,27 @@ function(el, x) {
 )
 
 figure_sankey_2
+
+#### save it ----
+# nevim jak to ulozit, aby se mi neusekly ty nazvy journals...
+saveWidget(
+  figure_sankey_2,
+  "figure_sankey.html",
+  file = here("Outputs/Figure_sankey_2.html"),
+  selfcontained = TRUE
+)
+
+webshot(
+  url = here("Outputs/Figure_sankey_2.html"),
+  file = here("Outputs/Figure_sankey_2.png"),
+  vwidth = 1800,
+  vheight = 1000,
+  zoom = 3
+)
+
+
+
+
+
+
 
