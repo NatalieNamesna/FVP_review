@@ -47,7 +47,7 @@ case_studies_journal <- case_studies |>
 
 
 # plot the number of case studies published in a particular journals ----
-ggplot(
+plot_case_studies_journal <- ggplot(
   data = case_studies_journal,
   mapping = aes(
     y=  reorder(journal, n),
@@ -75,6 +75,10 @@ ggplot(
    plot.margin = margin(15, 10, 10, 15)
   )
 
+ggplot2::ggsave(
+  plot = plot_case_studies_journal,
+  filename = here::here("OUtputs/Figures/plot_case_studies_journal.png")) 
+
 
 #----------------------------------------------------------#
 # 4. Year   -----
@@ -86,7 +90,7 @@ case_studies_year <- case_studies |>
   count(year, name= "n", sort = TRUE)
 
 # plot the number of case studies published in a particular years ----
-ggplot(
+plot_case_studies_year <- ggplot(
   data = case_studies_year,
   mapping = aes(
     y=  reorder(year, n),
@@ -114,6 +118,9 @@ ggplot(
     plot.margin = margin(15, 10, 10, 15)
   )
 
+ggplot2::ggsave(
+  plot = plot_case_studies_year,
+  filename = here::here("OUtputs/Figures/plot_case_studies_year.png")) 
 
 #----------------------------------------------------------#
 # 5. Region   -----
@@ -137,7 +144,7 @@ case_studies_region <- case_studies |>
 sort(unique(case_studies_region$region))
 
 # plot the number of case studies focused on a particular region----
-ggplot(
+plot_case_studies_region <- ggplot(
   data = case_studies_region,
   mapping = aes(
     y=  reorder(region, n),
@@ -164,6 +171,10 @@ ggplot(
     plot.title.position = "plot",
     plot.margin = margin(15, 10, 10, 15)
   )
+
+ggplot2::ggsave(
+  plot = plot_case_studies_region,
+  filename = here::here("OUtputs/Figures/plot_case_studies_region.png")) 
 
 
 #----------------------------------------------------------#
@@ -194,7 +205,7 @@ case_studies_pollen_database <- case_studies |>
 sort(unique(case_studies_pollen_database$pollen_database))
 
 # Plot the number of case studies that used a particular pollen database ----
-ggplot(
+plot_case_studies_pollen_database <- ggplot(
   data = case_studies_pollen_database,
   mapping = aes(
     y=  reorder(pollen_database, n),
@@ -222,10 +233,13 @@ ggplot(
     plot.margin = margin(15, 10, 10, 15)
   )
 
+ggplot2::ggsave(
+  plot = plot_case_studies_pollen_database,
+  filename = here::here("OUtputs/Figures/plot_case_studies_pollen_database.png")) 
 
 
 #----------------------------------------------------------#
-# 2. Trait database   -----
+# 8. Trait database   -----
 #----------------------------------------------------------#
 
 # table with number of observations ----
@@ -246,7 +260,7 @@ case_studies_trait_database <- case_studies |>
 sort(unique(case_studies_trait_database$trait_database))
 
 # Plot the number of case studies that used a particular trait database ----
-ggplot(
+plot_case_studies_trait_database <- ggplot(
   data = case_studies_trait_database,
   mapping = aes(
     y=  reorder(trait_database, n),
@@ -274,7 +288,9 @@ ggplot(
     plot.margin = margin(15, 10, 10, 15)
   )
 
-
+ggplot2::ggsave(
+  plot = plot_case_studies_trait_database,
+  filename = here::here("OUtputs/Figures/plot_case_studies_trait_database.png")) 
 
 
 
