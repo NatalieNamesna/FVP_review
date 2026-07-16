@@ -126,7 +126,7 @@ waffle_chart_pollen = ggplot(case_studies_pollen_waffle, aes(fill = value, value
     # Title
     plot.title.position = "plot",
     plot.title = element_textbox(margin = margin(30, 0, 10, 0),
-                                 size = 12,
+                                 size = 20,
                                  face = "bold",
                                  width = unit(55, "lines")),
     
