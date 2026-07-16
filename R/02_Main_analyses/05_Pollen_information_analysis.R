@@ -82,6 +82,7 @@ case_studies_pollen_waffle <- case_studies_pollen |>
     value = case_when(
       is.na(value) ~ "Not reported",
       value == "NA" ~ "Not reported",
+      value == "TRUE\r\n" ~ "Not reported",
       value == TRUE ~ "TRUE",
       value == FALSE ~ "FALSE")) |> 
   count(variable, value, name = "count")
@@ -93,10 +94,6 @@ case_studies_pollen_waffle <- case_studies_pollen_waffle |>
     value = c("TRUE", "FALSE", "Not reported"),
     fill = list(count = 0)
   )
-
-# to vim, ze by se delat nemelo, ale nemuzu prijit, proc tam tenhle radek byl
-case_studies_pollen_waffle <- case_studies_pollen_waffle |> 
-  slice(-31)
 
 
 # waffle plot ----
@@ -114,28 +111,28 @@ waffle_chart_pollen = ggplot(case_studies_pollen_waffle, aes(fill = value, value
   theme_minimal()+
   theme(
     axis.title = element_blank(),
-    axis.text.x = element_text( size=3),
-    axis.text.y = element_text( size=3),
-    strip.text = element_text(size = 3),
+    axis.text.x = element_text( size=8),
+    axis.text.y = element_text( size=8),
+    strip.text = element_text(size = 8),
     
     # Legend
     legend.title = element_blank(),
     legend.spacing = unit(1, 'cm'),
     legend.key.height= unit(0.6, 'cm'),
     legend.key.width= unit(0.6, 'cm'),
-    legend.text = element_text(colour = "black", size = 3),
+    legend.text = element_text(colour = "black", size = 8),
     
     
     # Title
     plot.title.position = "plot",
     plot.title = element_textbox(margin = margin(30, 0, 10, 0),
-                                 size = 6,
+                                 size = 12,
                                  face = "bold",
                                  width = unit(55, "lines")),
     
     # Sub-title
     plot.subtitle = element_text(margin = margin(10, 0, 20, 0),
-                                 size = 4,
+                                 size = 10,
                                  color = "grey15"),
 
     plot.background = element_rect(color="white", fill="white"),
@@ -147,7 +144,10 @@ waffle_chart_pollen = ggplot(case_studies_pollen_waffle, aes(fill = value, value
 waffle_chart_pollen
 
 
-
+## save it ----
+ggplot2::ggsave(
+  plot = waffle_chart_pollen,
+  filename = here::here("Outputs/Figures/waffle_chart_pollen.png")) 
 
 
 
