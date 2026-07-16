@@ -106,15 +106,19 @@ plot_case_studies_time_coverage <- ggplot(case_studies_time_coverage, aes(y = re
                 colour_x = "black", colour_xend = "black") +
   labs(
     title = "Time coverage of each case study",
-    x = "Time_kyr",
-    y = "Case_study_id",
+    x = "Time (kyr)",
+    y = "Individual case studies",
   )+
-  scale_x_continuous(limits = c(0, 130), breaks = seq(0, 130, by = 5)) +
-  scale_y_discrete(expand = expansion(add = 0.5)) +
+  scale_x_continuous(
+    trans = "reverse",
+    limits = c(0, 130),
+    breaks = seq(0, 130, by = 5)
+  ) +
+  scale_y_discrete(position = "right") +
   coord_cartesian(xlim = c(0, 130), expand = TRUE) +
   theme_minimal(base_size = 15) +
   theme(
-    axis.text.y = element_text(margin = margin(r= -10)),
+    axis.text.y = ggplot2::element_blank(),
     legend.position = "none",
     legend.title = element_blank(),
     plot.title = element_text(
