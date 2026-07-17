@@ -22,6 +22,10 @@ devtools::install_github("liamgilbey/ggwaffle")
 install.packages("waffle", repos = "https://cinc.rud.is")
 install.packages("ggtext")
 install.packages("showtext")
+install.packages("sysfonts")
+install.packages("rcartocolor")
+library(rcartocolor)
+library(sysfonts)
 library(showtext)
 library(ggtext)
 library(waffle)
@@ -31,6 +35,7 @@ library(ggplot2)
 library(ggtext)
 library(sf) 
 library(here)
+library(dplyr)
 
 # Load the table with case studies
 
@@ -143,6 +148,132 @@ waffle_chart_traits
 ggplot2::ggsave(
   plot = waffle_chart_traits,
   filename = here::here("Outputs/Figures/waffle_chart_traits.png")) 
+
+
+#----------------------------------------------------------#
+# 3.   Waffle chart for traits -----
+#----------------------------------------------------------#
+
+# table for waffle chart ----
+
+case_studies_traits_waffle_2 <- case_studies_traits |> 
+  select(id,
+         traits_did_the_authors_use_plant_height,
+         traits_did_the_authors_use_leaf_morphology,
+         traits_did_the_authors_use_sla,
+         traits_did_the_authors_use_la,
+         traits_did_the_authors_use_leaf_p,
+         traits_did_the_authors_use_leaf_n,
+         traits_did_the_authors_use_leaf_c,
+         traits_did_the_authors_use_ldmc,
+         traits_did_the_authors_use_seed_traits,
+         traits_did_the_authors_use_wood_traits,
+         traits_others
+  ) |> 
+  mutate(
+    ID = as.character(id),
+    plant_height = as.character(traits_did_the_authors_use_plant_height),
+    leaf_morphology = as.character(traits_did_the_authors_use_leaf_morphology),
+    SLA = as.character(traits_did_the_authors_use_sla),
+    LA = as.character(traits_did_the_authors_use_la),
+    leaf_P = as.character(traits_did_the_authors_use_leaf_p),
+    leaf_N = as.character(traits_did_the_authors_use_leaf_n),
+    leaf_C = as.character(traits_did_the_authors_use_leaf_c),
+    LDMC = as.character(traits_did_the_authors_use_ldmc),
+    seed_traits = as.character(traits_did_the_authors_use_seed_traits),
+    wood_traits = as.character(traits_did_the_authors_use_wood_traits),
+   others = as.character(traits_others)
+    
+  ) |> 
+  select(14:24)|> 
+  pivot_longer(
+    everything(),
+    names_to = "variable",
+    values_to = "value"
+  ) |> 
+  mutate(
+    value = case_when(
+      is.na(value) ~ "Not reported",
+      value == "NA" ~ "Not reported",
+      value == "TRUE\r\n" ~ "Not reported",
+      value == "FASLE" ~ "FALSE",
+      value == TRUE ~ "TRUE",
+      value == FALSE ~ "FALSE"))
+
+# counts
+case_studies_traits_waffle_2_n <- case_studies_traits_waffle_2 |> 
+  count(variable, value, name = "count") 
+
+# fill
+case_studies_traits_waffle_2 <- case_studies_traits_waffle_2 |>
+  complete(
+    variable,
+    value = c("TRUE", "FALSE"),
+    fill = list(count = 0)
+  )
+
+#select only leaf traits ----
+waffle_leaf_traits <- case_studies_traits_waffle_2_n |> 
+  slice(1:14)
+
+# font ----
+font_add(
+  family = "Font Awesome 7",
+  regular = "Data/Input/fonts/Font Awesome 7 Free-Solid-900.otf"
+)
+showtext_auto()
+showtext_opts(dpi = 300)
+
+
+# basic plot leaf traits ----
+waffle_chart_leaf_traits <- ggplot(data = waffle_leaf_traits) +
+  geom_pictogram(
+    mapping = aes(
+      label = value,
+      color = value,
+      values = count
+    ),
+    flip = TRUE,
+    n_rows = 10,
+    size = 2,
+    family = "Font Awesome 7"
+  ) +
+  facet_wrap(~variable,
+             nrow = 1,
+             strip.position = "bottom"
+  )
+
+waffle_chart_leaf_traits
+
+
+# add icons to leaf traits waffle ----
+icons_plot_leaf_traits <- waffle_chart_leaf_traits +
+  scale_label_pictogram(
+    values = "leaf",
+    guide = "none"
+  )
+icons_plot_leaf_traits
+
+
+# advanced styling ----
+bg_col <- "#FAFAFA"
+text_col <- "black"
+
+display_carto_all(
+  n = 2, type = "qualitative"
+)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
