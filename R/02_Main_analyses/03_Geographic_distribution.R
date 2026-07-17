@@ -23,6 +23,9 @@ install.packages("viridis")
 install.packages("maps")
 install.packages("rnaturalearth")
 install.packages("rnaturalearthdata")
+install.packages("ggview")
+library(ggview)
+library(readxl)
 library(rnaturalearth)
 library(viridis)
 library(tidyverse)
@@ -158,7 +161,7 @@ combined_plot_map_countries
 ## save it ---
 ggplot2::ggsave(
   plot = combined_plot_map_countries,
-  filename = here::here("Outputs/Combined_plot_map_countries.png"),
+  filename = here::here("Outputs/Figures/Combined_plot_map_countries.png"),
   width = 20,
   height = 30) 
 
@@ -202,6 +205,7 @@ case_studies_map_region_n <- case_studies_map_region |>
 world_sf_continent <- ne_countries(returnclass = "sf")
 world_sf_continent <- world_sf_continent |> 
   filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
+
 
 # Join my data with the full world map ----
 world_sf_region <- world_sf_continent |> 
@@ -295,11 +299,312 @@ combined_plot_map_continents
 ## save it ---
 ggplot2::ggsave(
   plot = combined_plot_map_continents,
-  filename = here::here("Outputs/Combined_plot_map_continents.png"),
+  filename = here::here("Outputs/Figures/Combined_plot_map_continents.png"),
   width = 20,
   height = 30) 
 
 
+#----------------------------------------------------------#
+# 3. Map regions, histogram as legend  -----
+#----------------------------------------------------------#
+
+# journal data ----
+case_studies_map_region
+case_studies_map_region_n
+world_sf_region
+
+# getting map of continents ----
+
+world_sf_continent <- ne_countries(returnclass = "sf")
+world_sf_continent <- world_sf_continent |> 
+  filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
+
+# plot map ----
+ggplot() +
+  geom_sf(data = world_sf_continent, fill = "#DEB887", color = "white", linewidth = 0.25) 
+# Albers projection
+#coord_sf(crs = st_crs("ESRI:102003"))
+
+
+# Get x-axis limits of the bounding box for the state data ----
+bbox <- st_bbox(world_sf_continent)
+
+# expand the map to fit the legend ----
+xlim_expanded <- c(
+  bbox["xmin"],
+  bbox["xmax"] + 0.5 * (bbox["xmax"] - bbox["xmin"])
+)
+
+# y axis ----
+y_expand <-  0.3 * (bbox["ymax"] - bbox["ymin"])
+
+ylim_expanded <- c(
+  bbox["ymin"] - y_expand,
+  bbox["ymax"] + y_expand
+)
+
+# show the expanded map ----
+ggplot() +
+  geom_sf(data = world_sf_continent, fill = "#DEB887", color = "white", linewidth = 0.25) +
+  coord_sf( xlim = xlim_expanded, ylim = ylim_expanded)
+
+
+# the map with horizontal legend ----
+
+ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = world_sf_region, aes(fill = number_of_studies), linewidth = 0
+  ) +
+  # Show the unemployment legend as steps instead of a standard gradient
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = c(1, 5, 10, 15, 20, 25, 29),
+    labels = c("1", "5", "10", "15", "20", "25", "29"),
+    limits = c(1, 29)
+  ) +
+  # Yay labels
+  labs(
+    title = "Geographic distribution of case studies",
+    subtitle = "...",
+    fill = "Number of studies"
+  ) +
+  # Use Albers projection and new x-axis limits
+  coord_sf( xlim = xlim_expanded) +
+  # Theme adjustments
+  # theme_fancy_map() +
+  theme(
+    legend.position = "inside",
+    legend.position.inside = c(0.93, 0.32),
+    legend.direction = "horizontal",
+    legend.text = element_text(size = rel(0.55)),
+    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
+    legend.title.position = "bottom",
+    legend.key.width = unit(1.55, "lines"),
+    legend.key.height = unit(0.7, "lines")
+  )
+
+
+# the map with nice legend ----
+
+## legend ----
+legend_plot <- ggplot(
+  case_studies_map_region_n,
+  aes(
+    y = reorder(region, number_of_studies),
+    x = number_of_studies,
+    fill = number_of_studies
+  )
+) +
+  geom_col(width = 0.8, colour = "white") +
+  
+  scale_fill_distiller(
+    palette = "YlGnBu",
+    direction = 1,
+    guide = "none"
+  ) +
+  scale_x_continuous(
+    breaks = c(1, 5, 10, 15, 20, 25, 29),
+    limits = c(0, 29),
+    expand = c(0, 0)
+  ) +
+  
+
+  labs(
+    x = "Number of studies",
+    y = NULL
+  ) +
+  
+  theme_minimal(base_size = 8) +
+  theme(
+    axis.text.y = element_text(size = 8, face = "bold"),
+    axis.text.x = element_text(, size = 7),
+    axis.ticks.x = element_line(),
+    axis.line.x = element_line(colour = "black"),
+    axis.title.x = element_text(face = "bold", size = 10),
+    panel.grid = element_blank(),
+    plot.margin = margin(0,0,0,0),
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background  = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+    )
+  
+
+legend_plot
+
+## plot map ----
+map_continents <- ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = world_sf_region, aes(fill = number_of_studies), color = NA, linewidth = 0
+  ) +
+  # don't actually show the legend
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = c(1, 5, 10, 15, 20, 25, 29),
+    labels = c("1", "5", "10", "15", "20", "25", "29"),
+    limits = c(1, 29), 
+    guide = "none"
+  ) +
+  # Yay labels
+  labs(
+    title = "Geographic distribution of case studies",
+    subtitle = "...",
+    caption = "Inspired by: Andrew Heiss, TidyTuesday"
+  ) +
+  # Use new x-axis limits
+  coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) 
+
+## add the legend to the map ----
+
+combined_plot_map_regions_2 <- map_continents + 
+  inset_element(legend_plot, left = 0.68,
+                bottom = 0.05,
+                right = 0.98,
+                top = 0.8)
+
+combined_plot_map_regions_2 
+
+
+## save it ----
+
+ggplot2::ggsave(
+  plot = combined_plot_map_regions_2,
+  filename = here::here("Outputs/Figures/Combined_plot_map_continents_2.png")) 
+
+
+#----------------------------------------------------------#
+# 4. Map countries, histogram as legend  -----
+#----------------------------------------------------------#
+
+# journal data ----
+case_studies_map_country
+case_studies_map_country_n
+world_sf_region
+
+# getting map of countrie ----
+
+world_sf_country
+
+
+# plot map ----
+ggplot() +
+  geom_sf(data = world_sf_country, fill = "#DEB887", color = "white", linewidth = 0.25) 
+# Albers projection
+#coord_sf(crs = st_crs("ESRI:102003"))
+
+
+# Get x-axis limits of the bounding box for the state data ----
+bbox_2 <- st_bbox(world_sf_country)
+
+# expand the map to fit the legend ----
+xlim_expanded_2 <- c(
+  bbox_2["xmin"],
+  bbox_2["xmax"] + 0.7 * (bbox_2["xmax"] - bbox_2["xmin"])
+)
+
+# y-axis ----
+y_expand_2 <-  0.5 * (bbox_2["ymax"] - bbox_2["ymin"])
+
+ylim_expanded_2 <- c(
+  bbox_2["ymin"] - y_expand_2,
+  bbox_2["ymax"] + y_expand_2
+)
+
+# show the expanded map ----
+ggplot() +
+  geom_sf(data = world_sf_country, fill = "#DEB887", color = "white", linewidth = 0.25) +
+  coord_sf( xlim = xlim_expanded_2)
+
+# the map with nice legend ----
+
+case_studies_map_country_n_2 <- case_studies_map_country_n |> 
+  slice(-1)
+
+## legend ----
+legend_plot_2 <- ggplot(
+  case_studies_map_country_n_2,
+  aes(
+    y = reorder(country, number_of_studies),
+    x = number_of_studies,
+    fill = number_of_studies
+  )
+) +
+  geom_col(width = 0.8, colour = "white") +
+  
+  scale_fill_distiller(
+    palette = "YlGnBu",
+    direction = 1,
+    guide = "none"
+  ) +
+  scale_x_continuous(
+    breaks = c(1:13),
+    limits = c(0, 13),
+    expand = c(0, 0)
+  ) +
+  
+  
+  labs(
+    x = "Number of studies",
+    y = NULL
+  ) +
+  
+  theme_minimal(base_size = 8) +
+  theme(
+    axis.text.y = element_text(size = 7, face = "bold"),
+    axis.text.x = element_text(size = 7),
+    axis.ticks.x = element_line(),
+    axis.line.x = element_line(colour = "black"),
+    axis.title.x = element_text(face = "bold", size = 8),
+    panel.grid = element_blank(),
+    plot.margin = margin(0,0,0,0),
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background  = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+  )
+
+
+legend_plot_2
+
+## plot map ----
+map_countries <- ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = world_sf_country, aes(fill = number_of_studies), color = NA, linewidth = 0
+  ) +
+  # don't actually show the legend
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = c(1:13),
+    # labels = c("1", "5", "10", "15", "20", "25", "29"),
+    limits = c(1, 13), 
+    guide = "none"
+  ) +
+  # Yay labels
+  labs(
+    title = "Geographic distribution of case studies - countries",
+    subtitle = "...",
+    caption = "Inspired by: Andrew Heiss, TidyTuesday"
+  ) +
+  # Use new x-axis limits
+  coord_sf( xlim = xlim_expanded_2, ylim = ylim_expanded_2) 
+
+## add the legend to the map ----
+
+combined_plot_map_countries_2 <- map_countries + 
+  inset_element(legend_plot_2, left = 0.6,
+                bottom = 0.01,
+                right = 0.99,
+                top = 0.99)
+
+combined_plot_map_countries_2 
+
+
+## save it ----
+
+ggplot2::ggsave(
+  plot = combined_plot_map_countries_2,
+  filename = here::here("Outputs/Figures/Combined_plot_map_countries_2.png")) 
 
 
 
