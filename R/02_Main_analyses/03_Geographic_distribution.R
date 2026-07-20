@@ -24,9 +24,12 @@ install.packages("maps")
 install.packages("rnaturalearth")
 install.packages("rnaturalearthdata")
 install.packages("ggview")
+install.packages("rnaturalearthhires")
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
 library(ggview)
 library(readxl)
-library(rnaturalearth)
 library(viridis)
 library(tidyverse)
 library(here)
@@ -202,14 +205,45 @@ case_studies_map_region_n <- case_studies_map_region |>
 
 # getting map of continents ----
 
-world_sf_continent <- ne_countries(returnclass = "sf")
+world_sf_continent <- ne_countries(returnclass = "sf") # countries + info about continents
+world_sf_continent_2 <- ne_states(returnclass = "sf") # states
 world_sf_continent <- world_sf_continent |> 
+  filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
+world_sf_continent_2 <- world_sf_continent_2 |> 
   filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
 
 
+# problem with Russia - splitting into European and Asian part ----
+## Download Russia's states/regions (level 1)
+russia_states <- ne_states(country = "Russia", returnclass = "sf")
+
+## Define European vs Asian Federal Districts ----
+# European: Central, Southern, Northwestern, North Caucasian, Volga
+# Asian: Ural, Siberian, Far Eastern
+
+russia_states <- russia_states |> 
+  mutate(
+    continent = ifelse(
+      russia_states$region %in% c("Central", "Southern", "Northwestern", "North Caucasian", "Volga"),
+      "Europe", "Asia"
+    )
+  )
+
+## World without Russia ----
+world_without_russia <- world_sf_continent |> 
+  filter(admin != "Russia")
+
+
+# New world with splitted Russia ----
+world_sf_continent_3 <- bind_rows(
+  world_without_russia,
+  russia_states
+)
+
 # Join my data with the full world map ----
-world_sf_region <- world_sf_continent |> 
-  left_join(case_studies_map_region_n, by = c("continent" = "region")) 
+world_sf_region <- world_sf_continent_3 |> 
+  left_join(case_studies_map_region_n, by = c("continent" = "region"))
+
 
 
 # create a chart ----
@@ -309,12 +343,11 @@ ggplot2::ggsave(
 #----------------------------------------------------------#
 
 # journal data ----
-case_studies_map_region
-case_studies_map_region_n
-world_sf_region
+case_studies_map_region # id of study + continent
+case_studies_map_region_n # continent with number of studies
+world_sf_region # world map connected with case_studies_map_region_n
 
 # getting map of continents ----
-
 world_sf_continent <- ne_countries(returnclass = "sf")
 world_sf_continent <- world_sf_continent |> 
   filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
@@ -349,40 +382,6 @@ ggplot() +
   coord_sf( xlim = xlim_expanded, ylim = ylim_expanded)
 
 
-# the map with horizontal legend ----
-
-ggplot() +
-  # Add counties filled with unemployment levels
-  geom_sf(
-    data = world_sf_region, aes(fill = number_of_studies), linewidth = 0
-  ) +
-  # Show the unemployment legend as steps instead of a standard gradient
-  scale_fill_stepsn(
-    colours = scales::brewer_pal(palette = "YlGnBu")(9),
-    breaks = c(1, 5, 10, 15, 20, 25, 29),
-    labels = c("1", "5", "10", "15", "20", "25", "29"),
-    limits = c(1, 29)
-  ) +
-  # Yay labels
-  labs(
-    title = "Geographic distribution of case studies",
-    subtitle = "...",
-    fill = "Number of studies"
-  ) +
-  # Use Albers projection and new x-axis limits
-  coord_sf( xlim = xlim_expanded) +
-  # Theme adjustments
-  # theme_fancy_map() +
-  theme(
-    legend.position = "inside",
-    legend.position.inside = c(0.93, 0.32),
-    legend.direction = "horizontal",
-    legend.text = element_text(size = rel(0.55)),
-    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
-    legend.title.position = "bottom",
-    legend.key.width = unit(1.55, "lines"),
-    legend.key.height = unit(0.7, "lines")
-  )
 
 
 # the map with nice legend ----
@@ -482,7 +481,7 @@ case_studies_map_country
 case_studies_map_country_n
 world_sf_region
 
-# getting map of countrie ----
+# getting map of countries ----
 
 world_sf_country
 
