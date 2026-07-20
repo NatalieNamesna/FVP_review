@@ -22,15 +22,31 @@ devtools::install_github("liamgilbey/ggwaffle")
 install.packages("waffle", repos = "https://cinc.rud.is")
 install.packages("ggtext")
 install.packages("showtext")
+install.packages("sysfonts")
+install.packages("rcartocolor")
+install.packages("GGally")
+install.packages("glue")
+install.packages("marquee")
+install.packages("readr")
+install.packages("stringr")
+
+
+library(rcartocolor)
+library(sysfonts)
 library(showtext)
 library(ggtext)
 library(waffle)
-library(ggwaffle)
 library(tidyverse)
 library(ggplot2)
 library(ggtext)
 library(sf) 
 library(here)
+library(dplyr)
+library(GGally)
+library(glue)
+library(marquee)
+library(readr)
+library(stringr)
 
 # Load the table with case studies
 
@@ -172,7 +188,7 @@ showtext_opts(dpi = 300)
 
 
 # basic plot leaf traits ----
-waffle_chart_leaf_traits <- ggplot(data = waffle_leaf_traits) +
+waffle_chart_pollen <- ggplot(data = case_studies_pollen_waffle) +
   geom_pictogram(
     mapping = aes(
       label = value,
@@ -189,17 +205,17 @@ waffle_chart_leaf_traits <- ggplot(data = waffle_leaf_traits) +
              strip.position = "bottom"
   )
 
-waffle_chart_leaf_traits
+waffle_chart_pollen
 
 
 # add icons to leaf traits waffle ----
-icons_plot_leaf_traits <- waffle_chart_leaf_traits +
+icons_plot_pollen <- waffle_chart_pollen +
   scale_label_pictogram(
-    values = "leaf",
+    values = "circle",
     guide = "none"
   )
 
-icons_plot_leaf_traits
+icons_plot_pollen
 
 
 # advanced styling ----
@@ -210,31 +226,30 @@ display_carto_all(
   n = 2, type = "qualitative"
 )
 
-
-# colors ----
-col_palette <- carto_pal(
-  n = length(unique(waffle_leaf_traits$value)) + 1,
+# color ----
+col_palette_pollen <- carto_pal(
+  n = length(unique(case_studies_pollen_waffle$value)) + 1,
   name = "Vivid"
-)[1:length(unique(waffle_leaf_traits$value))]
+)[1:length(unique(case_studies_pollen_waffle$value))]
 
 # vector of T and F
-true_false <- unique(waffle_leaf_traits$value)
+true_false_NA <- unique(case_studies_pollen_waffle$value)
 
 # T and F now have their own colors
-names(col_palette) <- true_false
+names(col_palette_pollen) <- true_false_NA
 
 # plot with new colors and icons
-col_plot_leaf_traits <- icons_plot_leaf_traits +
+col_plot_pollen <- icons_plot_pollen +
   scale_color_manual(
-    values = col_palette,
+    values = col_palette_pollen,
     guide = "none"
   )
 
 # Adding style text ----
 
 ## title and caption ----
-title <- "**Which leaf traits were used in the case studies?**"
-cap <- "**Data**: Analyses of 62 case studies | **Graphic**: N. Namesna, inspired by N. Rennie "
+title_4 <- "**Which information about pollen were used in the case studies?**"
+cap_4 <- "**Data**: Analyses of 62 case studies | **Graphic**: N. Namesna, inspired by N. Rennie "
 
 
 source_caption <- function(source, graphic, sep = " | ") {
@@ -244,31 +259,31 @@ source_caption <- function(source, graphic, sep = " | ") {
   return(caption)
 }
 
-cap <- source_caption(
+cap_4 <- source_caption(
   source = "62 case studies",
   graphic = "N. Namesna, inspired by N. Rennie"
 )
-cap
+cap_4
 
 ## subtitle ----
-st <- marquee_glue(
-  "The analysis of 62 case studies. It shows how many case studies used a particular leaf trait - 
-   {.{col_palette[[2]]} {names(col_palette)[[2]]}}, or not - 
-  {.{col_palette[[1]]} {names(col_palette)[[1]]}} in their analyses."
+st_4 <- marquee_glue(
+  "The analysis of 62 case studies. It shows which information about pollen were used in the case studies:  
+  {.{col_palette_3[[3]]} {names(col_palette_3)[[3]]}}, {.{col_palette_3[[2]]} {names(col_palette_3)[[2]]}}, {.{col_palette_3[[1]]} {names(col_palette_3)[[1]]}}. "
 )
 
+
 # text plot ----
-text_plot_leaf_traits <- col_plot_leaf_traits +
+text_plot_pollen <- col_plot_pollen +
   labs(
-    title = title,
-    subtitle = st,
-    caption = cap
+    title = title_4,
+    subtitle = st_4,
+    caption = cap_4
   )
-text_plot_leaf_traits
+text_plot_pollen
 
 
 # scale plot ----
-scale_plot_leaf_traits <- text_plot_leaf_traits +
+scale_plot_pollen <- text_plot_pollen +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
@@ -279,7 +294,7 @@ scale_plot_leaf_traits <- text_plot_leaf_traits +
 
 
 # final touches ----
-scale_plot_leaf_traits +
+scale_plot_pollen +
   theme_minimal(
     base_size = 9
   )  +
@@ -316,13 +331,13 @@ scale_plot_leaf_traits +
       margin = margin(t = 5)
     ),
     strip.text = element_marquee(
-      size = 15,
+      size = 13,
       # face = "bold"
     ),
     panel.spacing.x = unit(0.15, "lines"),
     axis.text.y = element_marquee(size = 4)
     
-  )
+  ) + facet_wrap(~variable, ncol = 5, strip.position = "bottom") 
 
 
 # save it ----
