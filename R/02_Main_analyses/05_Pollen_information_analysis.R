@@ -352,6 +352,18 @@ ggplot2::ggsave(
 
 
 
+#-----------------------------------------------------------------------------#
+
+# 4. waffle plot for choosing method ----
+
+#-----------------------------------------------------------------------------#
+
+# data ----
+case_studies_pollen_method_waffle <- case_studies_pollen_waffle |> 
+  slice(1:12)
+
+
+
 
 
 
