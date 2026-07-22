@@ -47,6 +47,7 @@ library(glue)
 library(marquee)
 library(readr)
 library(stringr)
+library(patchwork)
 
 
 # Load the table with case studies
@@ -169,7 +170,7 @@ ggplot2::ggsave(
 # table for waffle chart ----
 
 case_studies_traits_waffle_2 <- case_studies_traits |> 
-  select(id,
+  select(
          traits_did_the_authors_use_plant_height,
          traits_did_the_authors_use_leaf_morphology,
          traits_did_the_authors_use_sla,
@@ -183,7 +184,6 @@ case_studies_traits_waffle_2 <- case_studies_traits |>
          traits_others
   ) |> 
   mutate(
-    ID = as.character(id),
     plant_height = as.character(traits_did_the_authors_use_plant_height),
     leaf_morphology = as.character(traits_did_the_authors_use_leaf_morphology),
     SLA = as.character(traits_did_the_authors_use_sla),
@@ -197,7 +197,7 @@ case_studies_traits_waffle_2 <- case_studies_traits |>
    others = as.character(traits_others)
     
   ) |> 
-  select(14:24)|> 
+  select(12:22)|> 
   pivot_longer(
     everything(),
     names_to = "variable",
@@ -217,10 +217,10 @@ case_studies_traits_waffle_2_n <- case_studies_traits_waffle_2 |>
   count(variable, value, name = "count") 
 
 # fill
-case_studies_traits_waffle_2 <- case_studies_traits_waffle_2 |>
+case_studies_traits_waffle_2_n <- case_studies_traits_waffle_2_n |>
   complete(
     variable,
-    value = c("TRUE", "FALSE"),
+    value = c("TRUE", "FALSE", "Not reported"),
     fill = list(count = 0)
   )
 
@@ -232,7 +232,7 @@ case_studies_traits_waffle_2 <- case_studies_traits_waffle_2 |>
 
 
 waffle_leaf_traits <- case_studies_traits_waffle_2_n |> 
-  slice(1:14)
+  slice(c(1:18, 28, 29, 30 ))
 
 # font ----
 font_add(
@@ -267,7 +267,7 @@ waffle_chart_leaf_traits
 # add icons to leaf traits waffle ----
 icons_plot_leaf_traits <- waffle_chart_leaf_traits +
   scale_label_pictogram(
-    values = "leaf",
+    values = "circle",
     guide = "none"
   )
 
@@ -284,16 +284,13 @@ display_carto_all(
 
 
 # colors ----
-col_palette <- carto_pal(
-  n = length(unique(waffle_leaf_traits$value)) + 1,
-  name = "Vivid"
-)[1:length(unique(waffle_leaf_traits$value))]
+col_palette <- c("#E84746", "#BFC2C1", "#509B51")
 
 # vector of T and F
-true_false <- unique(waffle_leaf_traits$value)
+true_false_NA_leaf_traits <- unique(waffle_leaf_traits$value)
 
 # T and F now have their own colors
-names(col_palette) <- true_false
+names(col_palette) <- true_false_NA_leaf_traits
 
 # plot with new colors and icons
 col_plot_leaf_traits <- icons_plot_leaf_traits +
@@ -304,37 +301,16 @@ col_plot_leaf_traits <- icons_plot_leaf_traits +
 
 # Adding style text ----
 
-## title and caption ----
-title <- "**Which leaf traits were used in the case studies?**"
-cap <- "**Data**: Analyses of 62 case studies | **Graphic**: N. Namesna, inspired by N. Rennie "
+## title ----
+title <- "Leaf traits"
 
-
-source_caption <- function(source, graphic, sep = " | ") {
-  caption <- glue::glue(
-    "**Data**: {source}{sep}**Graphic**: {graphic}"
-  )
-  return(caption)
-}
-
-cap <- source_caption(
-  source = "62 case studies",
-  graphic = "N. Namesna, inspired by N. Rennie"
-)
-cap
-
-## subtitle ----
-st <- marquee_glue(
-  "The analysis of 62 case studies. It shows how many case studies used a particular leaf trait - 
-   {.{col_palette[[2]]} {names(col_palette)[[2]]}}, or not - 
-  {.{col_palette[[1]]} {names(col_palette)[[1]]}} in their analyses."
-)
 
 # text plot ----
 text_plot_leaf_traits <- col_plot_leaf_traits +
   labs(
-    title = title,
-    subtitle = st,
-    caption = cap
+    title = title
+    #subtitle = st,
+   # caption = cap
   )
 text_plot_leaf_traits
 
@@ -351,15 +327,15 @@ scale_plot_leaf_traits <- text_plot_leaf_traits +
 
 
 # final touches ----
-scale_plot_leaf_traits +
+waffle_plot_leaf_traits_2 <- scale_plot_leaf_traits +
   theme_minimal(
     base_size = 9
   )  +
   theme(
     # spacing around text and plot
-    plot.title.position = "plot",
-    plot.caption.position = "plot",
-    plot.margin = margin(10, 20, 10, 20),
+    plot.title.position = "panel",
+   # plot.caption.position = "plot",
+    plot.margin = margin(0, 0, 0, 0),
     # background and grid lines
     plot.background = element_rect(
       fill = bg_col, color = bg_col
@@ -373,35 +349,37 @@ scale_plot_leaf_traits +
     # format text with marquee
     plot.title = element_marquee(
       color = text_col,
-      width = 1,
-      size = 30
+    #  width = 1,
+      size = 20,
+     # face = "bold"
     ),
-    plot.subtitle = element_marquee(
-      color = text_col,
-      width = 1,
-      size = 20
-    ),
-    plot.caption = element_marquee(
-      hjust = 0,
-      lineheight = 0.5,
-      size = 15,
-      margin = margin(t = 5)
-    ),
+   # plot.subtitle = element_marquee(
+     # color = text_col,
+    #  width = 1,
+    #  size = 20
+   # ),
+   # plot.caption = element_marquee(
+     # hjust = 0,
+     # lineheight = 0.5,
+     # size = 15,
+     # margin = margin(t = 5)
+    #),
       strip.text = element_marquee(
         size = 15,
        # face = "bold"
       ),
     panel.spacing.x = unit(0.15, "lines"),
-    axis.text.y = element_marquee(size = 4)
+    axis.text.y = element_marquee(size = 3)
    
-    )
+    ) + facet_wrap(~variable, ncol = 2, strip.position = "bottom") 
+  
 
 
 # save it ----
 # nefunguje to
 ggplot2::ggsave(
-  plot = scale_plot_leaf_traits,
-  filename = here::here("Outputs/Figures/scale_plot_leaf_traits.png"),
+  plot = waffle_plot_leaf_traits_2,
+  filename = here::here("Outputs/Figures/scale_plot_leaf_traits_2.png"),
   width = 10,       # Explicitly set width in inches
   height = 8,       # Explicitly set height in inches
   dpi = 300         # Matches your showtext resolution!
@@ -416,7 +394,7 @@ ggplot2::ggsave(
 
 
 waffle_traits_other <- case_studies_traits_waffle_2_n |> 
-  slice(15:22)
+  slice(c(19:27, 31, 32, 33 ))
 
 # font ----
 font_add(
@@ -451,7 +429,7 @@ waffle_chart_traits_other
 # add icons to leaf traits waffle ----
 icons_plot_traits_other <- waffle_chart_traits_other +
   scale_label_pictogram(
-    values = "seedling",
+    values = "circle",
     guide = "none"
   )
 
@@ -459,7 +437,7 @@ icons_plot_traits_other
 
 
 # advanced styling ----
-bg_col <- "#FAFAFA"
+bg_col <-  "#FAFAFA"
 text_col <- "black"
 
 display_carto_all(
@@ -468,16 +446,13 @@ display_carto_all(
 
 
 # colors ----
-col_palette_2 <- carto_pal(
-  n = length(unique(waffle_traits_other$value)) + 1,
-  name = "Vivid"
-)[1:length(unique(waffle_traits_other$value))]
+col_palette_2 <-  c("#E84746",  "#BFC2C1", "#509B51")
 
 # vector of T and F
-true_false_2 <- unique(waffle_traits_other$value)
+true_false_NA_traits_other <- unique(waffle_traits_other$value)
 
 # T and F now have their own colors
-names(col_palette_2) <- true_false_2
+names(col_palette_2) <- true_false_NA_traits_other
 
 # plot with new colors and icons
 col_plot_traits_other <- icons_plot_traits_other +
@@ -489,36 +464,12 @@ col_plot_traits_other <- icons_plot_traits_other +
 # Adding style text ----
 
 ## title and caption ----
-title_2 <- "**Which functional traits were used in the case studies?**"
-cap_2 <- "**Data**: Analyses of 62 case studies | **Graphic**: N. Namesna, inspired by N. Rennie "
-
-
-source_caption <- function(source, graphic, sep = " | ") {
-  caption <- glue::glue(
-    "**Data**: {source}{sep}**Graphic**: {graphic}"
-  )
-  return(caption)
-}
-
-cap_2 <- source_caption(
-  source = "62 case studies",
-  graphic = "N. Namesna, inspired by N. Rennie"
-)
-cap_2
-
-## subtitle ----
-st_2 <- marquee_glue(
-  "The analysis of 62 case studies. It shows how many case studies used a particular plant funtional trait - 
-   {.{col_palette[[2]]} {names(col_palette)[[2]]}}, or not - 
-  {.{col_palette[[1]]} {names(col_palette)[[1]]}} in their analyses."
-)
+title_2 <- "Other traits"
 
 # text plot ----
 text_plot_traits_other <- col_plot_traits_other +
   labs(
-    title = title_2,
-    subtitle = st_2,
-    caption = cap_2
+    title = title_2
   )
 text_plot_traits_other
 
@@ -535,15 +486,15 @@ scale_plot_traits_other <- text_plot_traits_other +
 
 
 # final touches ----
-scale_plot_traits_other +
+waffle_plot_traits_other_2 <- scale_plot_traits_other +
   theme_minimal(
     base_size = 9
   )  +
   theme(
     # spacing around text and plot
-    plot.title.position = "plot",
-    plot.caption.position = "plot",
-    plot.margin = margin(10, 20, 10, 20),
+    plot.title.position = "panel",
+  #  plot.caption.position = "plot",
+    plot.margin = margin(0, 0, 0, 0),
     # background and grid lines
     plot.background = element_rect(
       fill = bg_col, color = bg_col
@@ -554,38 +505,29 @@ scale_plot_traits_other +
     ),
     panel.grid.minor = element_blank(),
     axis.text.x = element_blank(),
+ # axis.text.y = element_blank(),
     # format text with marquee
     plot.title = element_marquee(
       color = text_col,
-      width = 1,
-      size = 30
-    ),
-    plot.subtitle = element_marquee(
-      color = text_col,
-      width = 1,
-      size = 20
-    ),
-    plot.caption = element_marquee(
-      hjust = 0,
-      lineheight = 0.5,
-      size = 15,
-      margin = margin(t = 5)
+     # width = 1,
+      size = 20,
+     # face = "bold"
     ),
     strip.text = element_marquee(
       size = 15,
       # face = "bold"
     ),
     panel.spacing.x = unit(0.15, "lines"),
-    axis.text.y = element_marquee(size = 4)
+     axis.text.y = element_marquee(size = 3)
     
-  )
+  ) + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
 
 
 # save it ----
 # nefunguje to
 ggplot2::ggsave(
-  plot = scale_plot_traits_other,
-  filename = here::here("Outputs/Figures/scale_plot_traits_other.png"),
+  plot = waffle_plot_traits_other_2,
+  filename = here::here("Outputs/Figures/waffle_plot_traits_other_2.png"),
   width = 10,       # Explicitly set width in inches
   height = 8,       # Explicitly set height in inches
   dpi = 300         # Matches your showtext resolution!
@@ -594,7 +536,74 @@ ggplot2::ggsave(
 
 #-----------------------------------------------------------------------------#
 
-# 6. waffle chart for traits information ----
+# 6. combined picture for all traits ----
+
+#-----------------------------------------------------------------------------#
+
+# we will combined these two plots -----
+waffle_plot_traits_other_2
+waffle_plot_leaf_traits_2
+
+
+# color palette ----
+col_palette
+col_palette_2
+
+# title and caption ----
+title_combined_traits_plot <- "Which plant traits did the case studies use?"
+
+
+# subtitle ----
+st_combined_traits_plot <- marquee_glue(
+"The analysis of 62 case studies.\n
+It shows how many case studies used a particular plant funtional trait - {.{col_palette[[3]]} {names(col_palette)[[3]]}}, or not - {.{col_palette[[1]]} {names(col_palette)[[1]]}},\n
+or used PFTs instead of plant traits - {.{col_palette[[2]]} {names(col_palette)[[2]]}} in their analyses."
+)
+
+# Remove space between two plots
+p1_clean <- waffle_plot_traits_other_2 + theme(plot.margin = margin(0, 0, 0, 0, "pt"))
+p2_clean <- waffle_plot_leaf_traits_2 + theme(plot.margin = margin(0, 0, 0, 0, "pt"))
+
+
+# combined plot ----
+combined_traits_plot <-
+  p1_clean +
+  p2_clean +
+  plot_layout(
+   # ncol = 2,
+   # heights = c(2, 2),
+    widths = c(1, 1),
+    guides = "collect"
+  ) +
+  theme(
+    plot.margin = margin(0, 0, 0, 0),
+  ) +
+  plot_annotation(
+    title = title_combined_traits_plot,
+   subtitle = st_combined_traits_plot,
+    theme = theme(
+      plot.title = element_marquee(
+        size = 30,
+        width = 1,
+      #  face = "bold",
+        hjust = 0
+      ),
+      plot.subtitle = element_marquee(
+        size = 15,
+        hjust = 0,
+        width = 1
+      )
+    )
+  ) 
+
+combined_traits_plot
+
+
+
+
+#-----------------------------------------------------------------------------#
+
+# 7. waffle chart for traits information ----
 
 #-----------------------------------------------------------------------------#
 
