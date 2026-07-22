@@ -209,8 +209,8 @@ world_sf_continent <- ne_countries(returnclass = "sf") # countries + info about 
 world_sf_continent_2 <- ne_states(returnclass = "sf") # states
 world_sf_continent <- world_sf_continent |> 
   filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
-world_sf_continent_2 <- world_sf_continent_2 |> 
-  filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
+# world_sf_continent_2 <- world_sf_continent_2 |> 
+ # filter(!continent %in% c("Antarctica", "Seven seas (open ocean)"))
 
 
 # problem with Russia - splitting into European and Asian part ----
