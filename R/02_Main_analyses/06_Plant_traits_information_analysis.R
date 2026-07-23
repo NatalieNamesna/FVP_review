@@ -730,7 +730,7 @@ waffle_plot_traits_info_source <- scale_plot_traits_info_source +
     panel.spacing.x = unit(0.15, "lines"),
     axis.text.y = element_marquee(size = 3)
     
-  ) + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  ) + facet_wrap(~variable, ncol = 2, strip.position = "bottom")
 
 waffle_plot_traits_info_source
 
@@ -846,7 +846,7 @@ waffle_plot_traits_processing <- scale_plot_traits_processing +
     # spacing around text and plot
     plot.title.position = "panel",
     #  plot.caption.position = "plot",
-    plot.margin = margin(0, 0, 0, 0),
+    plot.margin = margin(0,0,0,0),
     # background and grid lines
     plot.background = element_rect(
       fill = bg_col, color = bg_col
@@ -980,7 +980,7 @@ waffle_plot_traits_pft <- scale_plot_traits_pft +
     # spacing around text and plot
     plot.title.position = "panel",
     #  plot.caption.position = "plot",
-    plot.margin = margin(0, 0, 0, 0),
+    plot.margin = margin(0,0,0,0),
     # background and grid lines
     plot.background = element_rect(
       fill = bg_col, color = bg_col
@@ -995,8 +995,9 @@ waffle_plot_traits_pft <- scale_plot_traits_pft +
     # format text with marquee
     plot.title = element_marquee(
       color = text_col,
-      width = 1,
+     # width = 1,
       size = 20,
+      margin=margin(0,0,0,0)
       # face = "bold"
     ),
     strip.text = element_marquee(
@@ -1081,7 +1082,7 @@ combined_traits_plot_processing_pft_info <-
   combined_traits_plot_processing_pft +
   plot_layout(
     ncol = 2,
-    # heights = c(2, 2),
+   # heights = c(2, 2),
     widths = c(1, 1),
     guides = "collect"
   ) +
