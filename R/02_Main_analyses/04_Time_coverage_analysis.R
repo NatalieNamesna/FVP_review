@@ -222,8 +222,13 @@ ggplot2::ggsave(
 
 # separate multiple databases in to more rows ----
 case_studies_time_coverage_database <- case_studies_time_coverage |> 
+  arrange(case_study, desc(time_old_kyr)) |>
+  mutate(
+    case_study = factor(case_study, levels = rev(case_study))
+  ) |> 
   separate_longer_delim(pollen_database, delim = ",") |> 
   mutate(pollen_database = str_trim(pollen_database))
+  
 
 # new dataset for points as name of database ---
 database_points <- case_studies_time_coverage_database |> 
@@ -372,11 +377,145 @@ ggplot2::ggsave(
 
 
 
-
-
 #----------------------------------------------------------#
 # 4. Dumbbell plot for time coverage + pft -----
 #----------------------------------------------------------#
+
+# sort case studies to have them in groups based on their geographic region ----
+case_studies_time_coverage_pft <-
+  case_studies_time_coverage |>
+  group_by(pft) |> 
+  mutate(
+    case_study = factor(case_study, levels = rev(case_study))
+  )
+
+# Dumbbell plot with ggalt and geom_dumbbell ----
+
+plot_case_studies_time_coverage_pft <- ggplot(case_studies_time_coverage_pft, aes(y = case_study)) +
+  # Pleistocene
+  geom_rect(
+    aes(xmin = 11.7, xmax = 130,
+        ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    fill = "#8A9497",
+    alpha = 0.15
+  ) +
+  annotate("text",
+           x = 123,
+           y = 64,
+           label = "Pleistocene",
+           vjust = 1,
+           fontface = "bold",
+           size = 4
+           # ,angle = 90
+  ) +
+  
+  ## LGM
+  geom_rect(
+    aes(xmin = 19, xmax = 26.5,
+        ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    fill = "#BFEFFF",
+    alpha = 0.20
+  ) +
+  annotate("text",
+           x = 23,
+           y = 64,
+           label = "LGM",
+           vjust = 1,
+           fontface = "bold",
+           size = 4
+           # , angle = 90
+  ) +
+  ## Holocene
+  geom_rect(
+    aes(xmin = 0, xmax = 11.7,
+        ymin = -Inf, ymax = Inf),
+    inherit.aes = FALSE,
+    fill = "#D5D5D5",
+    alpha = 0.20
+  ) +
+  annotate("text",
+           x = 6,
+           y = 64,
+           label = "Holocene",
+           vjust = 1,
+           fontface = "bold",
+           size = 4
+           # ,angle = 90
+  ) +
+  # dumbbell
+  geom_segment(
+    aes(
+      x = time_young_kyr,
+      xend = time_old_kyr,
+      yend = case_study,
+      colour = pft
+    ),
+    linewidth = 1.5
+  ) +
+  
+  geom_point(
+    aes(
+      x = time_young_kyr,
+      color = pft
+    ),
+    size = 3
+  ) +
+  
+  geom_point(
+    aes(
+      x = time_old_kyr,
+      color = pft
+    ),
+    size = 3
+  ) +
+  
+  scale_colour_manual(
+    name = "PFTs",
+    values = c(
+      "TRUE" = "#0072B2",
+      "FALSE" = "#E69F00"
+    )
+  ) +
+  labs(
+    title = "Time coverage of each case study + if they used PFTs",
+    x = "Time (kyr)",
+    y = "Individual case studies"
+  ) +
+  scale_x_continuous(
+    trans = "reverse",
+    limits = c(0, 130),
+    breaks = seq(0, 130, by = 10)
+  ) +
+  scale_y_discrete(position = "right") +
+  coord_cartesian(xlim = c(0, 130), expand = TRUE) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_text(size = 15),
+    axis.title.y = element_text( size = 15),
+    legend.position = "right",
+    legend.title = element_text("PFTs", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2,2,2,1, "cm")
+  )
+
+
+plot_case_studies_time_coverage_pft
+
+
+
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_time_coverage_pft,
+  filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_pft.png")) 
 
 
 
