@@ -301,6 +301,56 @@ ggplot2::ggsave(
 
 
 
+#----------------------------------------------------------#
+# 3. Year, n studies, pft  -----
+#----------------------------------------------------------#
+
+# data ----
+
+# dataset with regions 
+case_studies_year_pft <- case_studies |>
+  select(id, year, source_of_fuctional_information_plant_functional_types) |>
+  mutate(
+    PFTs = source_of_fuctional_information_plant_functional_types
+  ) |> 
+  count(year, PFTs)
+
+
+# plot how many studies were published in each year + region ----
+plot_case_studies_year_pft <- case_studies_year_pft |> 
+  ggplot(aes(x = year, y = n, fill = PFTs)) +
+  xlim(0,7) +
+  geom_col()+
+  labs(
+    title = "The number of case studies published in a particular years + if they used PFTs",
+    x = "Year",
+    y = "Number of studies",
+  )+
+  scale_x_continuous(breaks = sort(unique(case_studies_year_pft$year))) +
+  scale_y_continuous(breaks = seq(0, 10, by = 1)) +
+  # coord_cartesian(expand = FALSE) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_text(size = 15),
+    axis.title.y = element_text( size = 15),
+    legend.position = "right",
+    legend.title = element_text("PFTs", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2,2,2,1, "cm")
+  )
+
+plot_case_studies_year_pft
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_year_pft,
+  filename = here::here("OUtputs/plot_case_studies_year_pft.png")) 
 
 
 
