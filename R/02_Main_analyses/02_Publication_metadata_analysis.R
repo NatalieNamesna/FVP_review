@@ -237,3 +237,102 @@ function(el, x) {
 
 figure_sankey_2
 
+
+#----------------------------------------------------------#
+# 3. Year, n studies, continent  -----
+#----------------------------------------------------------#
+
+# data ----
+
+# dataset with regions 
+case_studies_year_region <- case_studies |>
+  select(id, year, region) |>
+  mutate(
+    Region = region,
+    Region = str_replace_all(Region, "\\r\\n|\\n|\\r", " "),
+    Region = str_squish(Region),
+    Region = str_to_title(Region),
+    Region = str_replace_all(Region, "North America", "North America")   # optional
+  ) |>
+  separate_longer_delim(Region, delim = ",") |>
+  mutate(
+    Region = str_trim(Region)
+  ) |>
+  count(year, Region)
+
+
+unique(case_studies_year_region$Region)
+  
+# plot how many studies were published in each year + region ----
+plot_case_studies_year_region <- case_studies_year_region |> 
+  ggplot(aes(x = year, y = n, fill = Region)) +
+  xlim(0,7) +
+  geom_col()+
+  labs(
+    title = "The number of case studies published in a particular years + their geographic regions",
+    x = "Year",
+    y = "Number of studies",
+  )+
+  scale_x_continuous(breaks = sort(unique(case_studies_year_region$year))) +
+  scale_y_continuous(breaks = seq(0, 10, by = 1)) +
+  # coord_cartesian(expand = FALSE) +
+  theme_minimal(base_size = 15) +
+    theme(
+      axis.text.y = element_text(size = 10),
+      axis.text.x = element_text(size = 10),
+      axis.title.x = element_text(size = 15),
+      axis.title.y = element_text( size = 15),
+      legend.position = "right",
+      legend.title = element_text("Region", size = 16, face = "bold"),
+      legend.text = element_text(size = 15),
+      plot.title = element_text(
+        face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+      ),
+      plot.title.position = "plot",
+      plot.margin = margin(2,2,2,1, "cm")
+    )
+
+plot_case_studies_year_region
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_year_region,
+  filename = here::here("OUtputs/plot_case_studies_year_region.png")) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
