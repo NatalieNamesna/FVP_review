@@ -22,8 +22,6 @@ install.packages("ggalluvial")
 remotes::install_github("davidsjoberg/ggsankey")
 install.packages("networkD3")
 install.packages("htmlwidgets")
-install.packages("webshot2")
-library(webshot2)
 library(htmlwidgets)
 library(networkD3)
 library(ggsankey)
@@ -38,7 +36,7 @@ library(here)
 case_studies <- readr::read_csv("Data/Processed/case_studies_clean.csv")
 
 #----------------------------------------------------------#
-# 2. Journal, Year, Region   -----
+# 2. Journal, Year, Region - Sankey diagram  -----
 #----------------------------------------------------------#
 
 # tables with IDs of case studies ----
@@ -82,58 +80,31 @@ sankey_data_all <-
 sankey_data_all_year_groups <- sankey_data_all |> 
   mutate(
     year_group = case_when(
-      year >= 1995 & year <= 2000 ~ "1995-2000",
-      year >= 2001 & year <= 2005 ~ "2001-2005",
-      year >= 2006 & year <= 2010 ~ "2006-2010",
-      year >= 2011 & year <= 2015 ~ "2011-2015",
-      year >= 2016 & year <= 2020 ~ "2016-2020",
-      year >= 2021 & year <= 2025 ~ "2021-2025",
+      year >= 1995 & year <= 2000 ~ "1995–2000",
+      year >= 2001 & year <= 2005 ~ "2001–2005",
+      year >= 2006 & year <= 2010 ~ "2006–2010",
+      year >= 2011 & year <= 2015 ~ "2011–2015",
+      year >= 2016 & year <= 2020 ~ "2016–2020",
+      year >= 2021 & year <= 2025 ~ "2021–2025",
       TRUE ~ "Other"
     )
   )
-
-## define the order of years ----
-year_order <- c(
-  "1995-2000",
-  "2001-2005",
-  "2006-2010",
-  "2011-2015",
-  "2016-2020",
-  "2021-2025"
-)
-
-## define the order of journal and year ----
-journal_order <-
-  sankey_data_all_year_groups |>
-  count(journal, sort = TRUE) |>
-  pull(journal)
-
-region_order <-
-  sankey_data_all_year_groups |>
-  count(region, sort = TRUE) |>
-  pull(region)
-
-
 
 
 ## making sankey diagram ----
 
 ### sankey diagram with ggalluvial ----
 ggplot(
-  sankey_data_all_year_groups,
+  sankey_data_all,
   aes(axis1 = journal,
       axis2 = region,
-      axis3 = factor(year_group))
+      axis3 = factor(year))
 ) +
-  geom_alluvium(aes(fill = region, width = 1/12), curve_type = "sine") +
-  geom_stratum( width = 1/8) +
+  geom_alluvium(aes(fill = region), width = 1/12) +
+  geom_stratum(width = 1/8) +
   geom_text(stat = "stratum", aes(label = after_stat(stratum))) +
   scale_x_discrete(limits = c("Journal", "Region", "Year")) +
-  theme_minimal() +
-  ggtitle("Sankey diagram for journal, year and region of the case studies")
-
-
-
+  theme_minimal()
 
 ### sankey diagram with networkD3 ----
 
@@ -151,14 +122,6 @@ nodes <- data.frame(
     links1$region,
     links2$year_group
   ))
-)
-
-nodes <- data.frame(
-  name = c(
-    journal_order,
-    region_order,
-    year_order
-  )
 )
 
 #### create source and target IDs ----
@@ -255,11 +218,9 @@ figure_sankey_2 <- sankeyNetwork(
   NodeGroup = "group",
   LinkGroup = "group",
   colourScale = colourScale,
-  width = 1800,
-  height = 1000,
-  fontSize = 16,
-  nodeWidth = 40,
-  nodePadding = 16
+  fontSize = 20,
+  nodeWidth = 35,
+  nodePadding = 12
 )
 
 figure_sankey_2 <- onRender(
@@ -276,22 +237,198 @@ function(el, x) {
 
 figure_sankey_2
 
-#### save it ----
-# nevim jak to ulozit, aby se mi neusekly ty nazvy journals...
-saveWidget(
-  figure_sankey_2,
-  "figure_sankey.html",
-  file = here("Outputs/Figures/Figure_sankey_2.html"),
-  selfcontained = TRUE
-)
 
-webshot(
-  url = here("Outputs/Figures/Figure_sankey_2.html"),
-  file = here("Outputs/Figures/Figure_sankey_2.png"),
-  vwidth = 1800,
-  vheight = 1000,
-  zoom = 3
-)
+#----------------------------------------------------------#
+# 3. Year, n studies, continent  -----
+#----------------------------------------------------------#
+
+# data ----
+
+# dataset with regions 
+case_studies_year_region <- case_studies |>
+  select(id, year, region) |>
+  mutate(
+    Region = region,
+    Region = str_replace_all(Region, "\\r\\n|\\n|\\r", " "),
+    Region = str_squish(Region),
+    Region = str_to_title(Region),
+    Region = str_replace_all(Region, "North America", "North America")   # optional
+  ) |>
+  separate_longer_delim(Region, delim = ",") |>
+  mutate(
+    Region = str_trim(Region)
+  ) |>
+  count(year, Region)
+
+
+unique(case_studies_year_region$Region)
+  
+# plot how many studies were published in each year + region ----
+plot_case_studies_year_region <- case_studies_year_region |> 
+  ggplot(aes(x = year, y = n, fill = Region)) +
+  xlim(0,7) +
+  geom_col()+
+  labs(
+    title = "The number of case studies published in a particular years + their geographic regions",
+    x = "Year",
+    y = "Number of studies",
+  )+
+  scale_x_continuous(breaks = sort(unique(case_studies_year_region$year))) +
+  scale_y_continuous(breaks = seq(0, 10, by = 1)) +
+  # coord_cartesian(expand = FALSE) +
+  theme_minimal(base_size = 15) +
+    theme(
+      axis.text.y = element_text(size = 10),
+      axis.text.x = element_text(size = 10),
+      axis.title.x = element_text(size = 15),
+      axis.title.y = element_text( size = 15),
+      legend.position = "right",
+      legend.title = element_text("Region", size = 16, face = "bold"),
+      legend.text = element_text(size = 15),
+      plot.title = element_text(
+        face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+      ),
+      plot.title.position = "plot",
+      plot.margin = margin(2,2,2,1, "cm")
+    )
+
+plot_case_studies_year_region
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_year_region,
+  filename = here::here("OUtputs/plot_case_studies_year_region.png")) 
+
+
+
+#----------------------------------------------------------#
+# 3. Year, n studies, pft  -----
+#----------------------------------------------------------#
+
+# data ----
+
+# dataset with regions 
+case_studies_year_pft <- case_studies |>
+  select(id, year, source_of_fuctional_information_plant_functional_types) |>
+  mutate(
+    PFTs = source_of_fuctional_information_plant_functional_types
+  ) |> 
+  count(year, PFTs)
+
+
+# plot how many studies were published in each year + region ----
+plot_case_studies_year_pft <- case_studies_year_pft |> 
+  ggplot(aes(x = year, y = n, fill = PFTs)) +
+  xlim(0,7) +
+  geom_col()+
+  labs(
+    title = "The number of case studies published in a particular years + if they used PFTs",
+    x = "Year",
+    y = "Number of studies",
+  )+
+  scale_x_continuous(breaks = sort(unique(case_studies_year_pft$year))) +
+  scale_y_continuous(breaks = seq(0, 10, by = 1)) +
+  # coord_cartesian(expand = FALSE) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_text(size = 15),
+    axis.title.y = element_text( size = 15),
+    legend.position = "right",
+    legend.title = element_text("PFTs", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2,2,2,1, "cm")
+  )
+
+plot_case_studies_year_pft
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_year_pft,
+  filename = here::here("OUtputs/plot_case_studies_year_pft.png")) 
+
+
+
+#----------------------------------------------------------#
+# 4. Cummulative plot: Year, n studies, pft  -----
+#----------------------------------------------------------#
+
+# data ----
+
+# dataset with regions 
+case_studies_year_region_cumulative <- case_studies |>
+  select(id, year, region) |>
+  mutate(
+    Region = region,
+    Region = str_replace_all(Region, "\\r\\n|\\n|\\r", " "),
+    Region = str_squish(Region),
+    Region = str_to_title(Region),
+    Region = str_replace_all(Region, "North America", "North America")   # optional
+  ) |>
+  separate_longer_delim(Region, delim = ",") |>
+  mutate(
+    Region = str_trim(Region)
+  ) |>
+  group_by(Region) |> 
+  arrange(year) |> 
+  mutate(cumulative_count = row_number())
+
+
+
+plot_case_studies_year_region_cumulative <- ggplot(case_studies_year_region_cumulative, aes(x = year, y = cumulative_count, color = Region, group = Region)) +
+  geom_line(size = 1) +
+  geom_point(size = 2) +
+  labs(title = "Cumulative count of case studies",
+       x = "Year",
+       y = "Cumulative Count",
+       color = "Region") +
+  scale_x_continuous(breaks = sort(unique(case_studies_year_region_cumulative$year))) +
+  scale_y_continuous(breaks = seq(0, 30, by = 1)) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_text(size = 15),
+    axis.title.y = element_text( size = 15),
+    legend.position = "right",
+    legend.title = element_text("Region", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2,2,2,1, "cm")
+  )
+
+plot_case_studies_year_region_cumulative
+
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_year_region_cumulative,
+  filename = here::here("OUtputs/plot_case_studies_year_region_cumulative.png")) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
