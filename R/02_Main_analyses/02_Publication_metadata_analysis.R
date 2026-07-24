@@ -36,7 +36,7 @@ library(here)
 case_studies <- readr::read_csv("Data/Processed/case_studies_clean.csv")
 
 #----------------------------------------------------------#
-# 2. Journal, Year, Region   -----
+# 2. Journal, Year, Region - Sankey diagram  -----
 #----------------------------------------------------------#
 
 # tables with IDs of case studies ----
