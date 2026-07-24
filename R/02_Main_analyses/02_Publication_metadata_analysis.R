@@ -374,9 +374,11 @@ case_studies_year_region_cumulative <- case_studies |>
   mutate(
     Region = str_trim(Region)
   ) |>
-  group_by(Region) |> 
-  arrange(year) |> 
-  mutate(cumulative_count = row_number())
+  group_by(Region, year) |> 
+  dplyr::count() |>
+  dplyr::group_by(Region) |> 
+arrange(year, .by_group = TRUE) |> 
+  mutate(cumulative_count = cumsum(n))
 
 
 
