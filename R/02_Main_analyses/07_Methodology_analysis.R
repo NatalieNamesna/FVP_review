@@ -140,7 +140,7 @@ waffle_chart_link_method <- ggplot(data = case_studies_link_method_waffle) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 10,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
