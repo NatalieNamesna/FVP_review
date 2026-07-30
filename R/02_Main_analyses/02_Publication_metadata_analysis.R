@@ -395,7 +395,7 @@ arrange(year, .by_group = TRUE) |>
 
 plot_case_studies_year_region_cumulative <- ggplot(case_studies_year_region_cumulative, aes(x = year, y = cumulative_count, color = Region, group = Region)) +
   geom_line(size = 1) +
-  geom_point(size = 2) +
+ # geom_point(size = 2) +
   labs(title = "Cumulative count of case studies",
        x = "Year",
        y = "Cumulative Count",
@@ -426,8 +426,38 @@ ggplot2::ggsave(
   filename = here::here("OUtputs/plot_case_studies_year_region_cumulative.png")) 
 
 
+# cummulative barplot ----
+plot_case_studies_year_region_cumulative_bar <- ggplot(case_studies_year_region_cumulative,
+                                                       aes(year, cumulative_count, fill = fct_rev(as.factor(Region)))) +
+  geom_col() +
+  scale_fill_discrete(name = "Region") +
+  labs(title = "Cumulative count of case studies",
+       x = "Year",
+       y = "Cumulative Count",
+       color = "Region") +
+  scale_x_continuous(breaks = sort(unique(case_studies_year_region_cumulative$year))) +
+  scale_y_continuous(breaks = seq(0, 60, by = 1)) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 8),
+    axis.text.x = element_text(size = 8),
+    axis.title.x = element_text(size = 15),
+    axis.title.y = element_text( size = 15),
+    legend.position = "right",
+    legend.title = element_text("Region", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2,2,2,1, "cm")
+  )
 
+plot_case_studies_year_region_cumulative_bar
 
+ggplot2::ggsave(
+  plot = plot_case_studies_year_region_cumulative_bar,
+  filename = here::here("Outputs/Figures/plot_case_studies_year_region_cumulative_bar.png"))
 
 
 
