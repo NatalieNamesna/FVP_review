@@ -694,6 +694,30 @@ showtext_auto()
 showtext_opts(dpi = 300)
 
 
+facet_names_trait_info <- c(
+  database =
+    str_wrap(
+      "Was the trait data obtained from the database?",
+      width = 30
+    ),
+ other_source =
+    str_wrap(
+      "Was the trait data obtained from the other source?",
+      width = 30
+    ),
+  published_study =
+    str_wrap(
+      "Was the trait data obtained from the published study?",
+      width = 30
+    ),
+  unpublished_study =
+    str_wrap(
+      "Was the trait data obtained from the unpublished study?",
+      width = 30
+    )
+)
+
+
 # basic plot leaf traits ----
 waffle_chart_traits_info_source <- ggplot(data = waffle_traits_info_source) +
   geom_pictogram(
@@ -704,12 +728,13 @@ waffle_chart_traits_info_source <- ggplot(data = waffle_traits_info_source) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_trait_info)
   )
 
 waffle_chart_traits_info_source
@@ -762,10 +787,15 @@ scale_plot_traits_info_source <- text_plot_traits_info_source +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+    # labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -790,31 +820,31 @@ waffle_plot_traits_info_source <- scale_plot_traits_info_source +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
-      size = 20,
-      # face = "bold"
+    plot.title = element_text(
+      size = 15,
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 12,
-      # face = "bold"
-    ),
-    panel.spacing.x = unit(0.15, "lines"),
-    axis.text.y = element_marquee(size = 3)
     
-  ) + facet_wrap(~variable, ncol = 2, strip.position = "bottom")
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
+    ),
+    panel.spacing.x = unit(0.1, "lines"),
+    axis.text.y = element_blank()
+    
+  )  + facet_wrap(~variable, ncol = 2, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_trait_info))
+
 
 waffle_plot_traits_info_source
 
 # save it ----
-# nefunguje to
 ggplot2::ggsave(
   plot = waffle_plot_traits_info_source,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_info_source.png"),
-  width = 10,       # Explicitly set width in inches
-  height = 8,       # Explicitly set height in inches
-  dpi = 300  )       # Matches your showtext resolution!
+  filename = here::here("Outputs/Figures/waffle_plot_traits_info_source.png"))
 
 #-----------------------------------------------------------------------------#
 
@@ -836,6 +866,14 @@ showtext_auto()
 showtext_opts(dpi = 300)
 
 
+facet_names_trait_processing <- c(
+  gap_filling =
+    str_wrap(
+      "Was the gap filling of trait information used?",
+      width = 30
+    ))
+
+
 # basic plot leaf traits ----
 waffle_chart_traits_processing <- ggplot(data = waffle_traits_processing) +
   geom_pictogram(
@@ -846,12 +884,13 @@ waffle_chart_traits_processing <- ggplot(data = waffle_traits_processing) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_trait_processing)
   )
 
 waffle_chart_traits_processing
@@ -904,10 +943,15 @@ scale_plot_traits_processing <- text_plot_traits_processing +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+   #  labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -932,23 +976,30 @@ waffle_plot_traits_processing <- scale_plot_traits_processing +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
-      size = 20,
-      # face = "bold"
+    plot.title = element_text(
+      size = 15,
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 12,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+    axis.text.y = element_blank()
     
-  ) + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_trait_processing))
 
 waffle_plot_traits_processing
 
+# save it ----
+ggplot2::ggsave(
+  plot = waffle_plot_traits_processing,
+  filename = here::here("Outputs/Figures/waffle_plot_traits_processing.png"))
 
 #-----------------------------------------------------------------------------#
 
@@ -969,6 +1020,13 @@ font_add(
 showtext_auto()
 showtext_opts(dpi = 300)
 
+facet_names_trait_info_type <- c(
+  plant_functional_types =
+    str_wrap(
+      "Were the Plant functional types used as a source of functional information?",
+      width = 30
+    ))
+
 
 # basic plot leaf traits ----
 waffle_chart_traits_pft <- ggplot(data = waffle_traits_pft) +
@@ -980,12 +1038,13 @@ waffle_chart_traits_pft <- ggplot(data = waffle_traits_pft) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_trait_info_type)
   )
 
 waffle_chart_traits_pft
@@ -1041,7 +1100,13 @@ scale_plot_traits_pft <- text_plot_traits_pft +
     labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+
 
 
 # final touches ----
@@ -1066,23 +1131,30 @@ waffle_plot_traits_pft <- scale_plot_traits_pft +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-     # width = 1,
-      size = 20,
-      margin=margin(0,0,0,0)
-      # face = "bold"
+    plot.title = element_text(
+      size = 15,
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 12,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+    axis.text.y = element_blank()
     
-  ) + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_trait_info_type))
 
 waffle_plot_traits_pft
+
+# save it ----
+ggplot2::ggsave(
+  plot = waffle_plot_traits_pft,
+  filename = here::here("Outputs/Figures/waffle_plot_traits_pft.png")) 
 
 
 #-----------------------------------------------------------------------------#
@@ -1100,9 +1172,6 @@ waffle_plot_traits_processing
 col_palette_6
 col_palette_5
 
-# Remove space between two plots
-p1_clean <- waffle_plot_traits_other_2 + theme(plot.margin = margin(0, 0, 0, 0, "pt"))
-p2_clean <- waffle_plot_leaf_traits_2 + theme(plot.margin = margin(0, 0, 0, 0, "pt"))
 
 
 # combined plot ----
@@ -1152,7 +1221,7 @@ st_combined_traits_plot_processing_pft_info <- marquee_glue(
 # combined plot ----
 combined_traits_plot_processing_pft_info <-
   waffle_plot_traits_info_source +
-  combined_traits_plot_processing_pft +
+ combined_traits_plot_processing_pft +
   plot_layout(
     ncol = 2,
    # heights = c(2, 2),
@@ -1160,20 +1229,20 @@ combined_traits_plot_processing_pft_info <-
     guides = "collect"
   ) +
   theme(
-    plot.margin = margin(0, 0, 0, 0),
+    plot.margin = margin(20, 0, 20, 0),
   ) +
   plot_annotation(
     title = title_combined_traits_plot_processing_pft_info,
     subtitle = st_combined_traits_plot_processing_pft_info,
     theme = theme(
-      plot.title = element_marquee(
-        size = 30,
-        width = 1,
+      plot.title = element_text(
+        size = 20,
+       # width = 1,
         #  face = "bold",
         hjust = 0
       ),
       plot.subtitle = element_marquee(
-        size = 15,
+        size = 10,
         hjust = 0,
         width = 1
       )
@@ -1182,7 +1251,10 @@ combined_traits_plot_processing_pft_info <-
 
 combined_traits_plot_processing_pft_info
 
-
+# save it ----
+ggplot2::ggsave(
+  plot = combined_traits_plot_processing_pft_info,
+  filename = here::here("Outputs/Figures/combined_traits_plot_processing_pft_info.png")) 
 
 
 
