@@ -370,6 +370,29 @@ font_add(
 showtext_auto()
 showtext_opts(dpi = 300)
 
+facet_names_pollen_method <- c(
+choosing_method =
+    str_wrap( 
+      "Was any method for choosing pollen records applied?",
+      width = 30
+    ),
+  choosing_method_info =
+    str_wrap(
+      "Was the selection of pollen records based on the amount of information available?",
+      width = 30
+    ),
+  choosing_method_length =
+    str_wrap(
+      "Was the selection of pollen records based on the their length?",
+      width = 30
+    ),
+  choosing_method_taxa =
+    str_wrap(
+      "Was the selection of pollen records based on the available plant taxa?",
+      width = 30
+    )
+)
+
 
 # basic plot ----
 waffle_chart_pollen_method <- ggplot(data = case_studies_pollen_method_waffle) +
@@ -381,12 +404,13 @@ waffle_chart_pollen_method <- ggplot(data = case_studies_pollen_method_waffle) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_pollen_method)
   )
 
 waffle_chart_pollen_method
@@ -424,7 +448,7 @@ col_plot_pollen_method <- icons_plot_pollen_method +
 # Adding style text ----
 
 ## title and caption ----
-title_pollen_method <- "Method of choosing pollen records"
+title_pollen_method <- "Methods of choosing pollen records"
 
 # text plot ----
 text_plot_pollen_method <- col_plot_pollen_method +
@@ -439,10 +463,15 @@ scale_plot_pollen_method <- text_plot_pollen_method +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+  #  labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -467,23 +496,32 @@ waffle_plot_pollen_method <- scale_plot_pollen_method +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
+    plot.title = element_text(
       size = 15,
-      # face = "bold"
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 11,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+    axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_pollen_method))
 
 
 waffle_plot_pollen_method
+
+
+ggplot2::ggsave(
+  plot = waffle_plot_pollen_method,
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_method.png")) 
+
 
 
 
@@ -506,6 +544,23 @@ font_add(
 showtext_auto()
 showtext_opts(dpi = 300)
 
+facet_names_pollen_processing <- c(
+  age_depth_recalculation =
+    str_wrap(
+      "Was the age depth recalculation applied?",
+      width = 30
+    ),
+  counts_correction =
+    str_wrap(
+      "Was the counts correction applied?",
+      width = 30
+    ),
+  harmonisation =
+    str_wrap(
+      "Was the taxonomic harmonisation applied?",
+      width = 30
+    )
+)
 
 # basic plot ----
 waffle_chart_pollen_process <- ggplot(data = case_studies_pollen_process_waffle) +
@@ -517,12 +572,13 @@ waffle_chart_pollen_process <- ggplot(data = case_studies_pollen_process_waffle)
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_pollen_processing)
   )
 
 waffle_chart_pollen_process
@@ -575,10 +631,16 @@ scale_plot_pollen_process <- text_plot_pollen_process +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+   # labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+
 
 
 # final touches ----
@@ -603,23 +665,30 @@ waffle_plot_pollen_process <- scale_plot_pollen_process +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = ,
+    plot.title = element_text(
       size = 15,
-      # face = "bold"
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 11,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+    axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_pollen_processing))
 
 
 waffle_plot_pollen_process
+
+
+
+
 
 #-----------------------------------------------------------------------------#
 
@@ -640,6 +709,31 @@ showtext_auto()
 showtext_opts(dpi = 300)
 
 
+facet_names_pollen_source <- c(
+  database =
+    str_wrap(
+      "Was the pollen data obtained from the database?",
+      width = 30
+    ),
+  experimental_study =
+    str_wrap(
+      "Was the pollen data obtained from the experimental study?",
+      width = 30
+    ),
+  published_study =
+    str_wrap(
+      "Was the pollen data obtained from the published study?",
+      width = 30
+    ),
+  unpublished_study =
+    str_wrap(
+      "Was the pollen data obtained from the unpublished study?",
+      width = 30
+    )
+)
+
+
+
 # basic plot ----
 waffle_chart_pollen_source <- ggplot(data = case_studies_pollen_source_waffle) +
   geom_pictogram(
@@ -650,12 +744,13 @@ waffle_chart_pollen_source <- ggplot(data = case_studies_pollen_source_waffle) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_pollen_source)
   )
 
 waffle_chart_pollen_source
@@ -708,10 +803,16 @@ scale_plot_pollen_source <- text_plot_pollen_source +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+   # labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+
 
 
 # final touches ----
@@ -736,20 +837,23 @@ waffle_plot_pollen_source <- scale_plot_pollen_source +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
+    plot.title = element_text(
       size = 15,
-      # face = "bold"
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 11,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+    axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_pollen_source))
 
 
 waffle_plot_pollen_source
@@ -831,13 +935,13 @@ combined_plot_pollen <- combined_plot_pollen +
     title = title_combined_plot_pollen,
     subtitle = st_combined_plot_pollen,
     theme = theme(
-      plot.title = element_marquee(
-        size = 30,
-        width = 1,
+      plot.title = element_text(
+        size = 20,
+      #  width = 1,
         hjust = 0
       ),
       plot.subtitle = element_marquee(
-        size = 15,
+        size = 10,
         hjust = 0,
         width = 1
       )
@@ -846,6 +950,9 @@ combined_plot_pollen <- combined_plot_pollen +
 
 combined_plot_pollen
 
+ggplot2::ggsave(
+  plot = combined_plot_pollen,
+  filename = here::here("Outputs/Figures/combined_plot_pollen.png")) 
 
 
 
