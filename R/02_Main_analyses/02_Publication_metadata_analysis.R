@@ -321,6 +321,17 @@ plot_case_studies_year_pft <- case_studies_year_pft |>
   ggplot(aes(x = year, y = n, fill = PFTs)) +
   xlim(0,7) +
   geom_col()+
+  scale_fill_manual(
+    values = c(
+      "FALSE" = "#509B51",
+      "TRUE" = "#E84746"
+    ),
+    labels = c(
+      "FALSE" = "Plant traits",
+      "TRUE" = "PFTs"
+    ),
+    name = NULL
+  ) +
   labs(
     title = "The number of case studies published in a particular years + if they used PFTs",
     x = "Year",
@@ -336,7 +347,7 @@ plot_case_studies_year_pft <- case_studies_year_pft |>
     axis.title.x = element_text(size = 15),
     axis.title.y = element_text( size = 15),
     legend.position = "right",
-    legend.title = element_text("PFTs", size = 16, face = "bold"),
+    legend.title = element_blank(),
     legend.text = element_text(size = 15),
     plot.title = element_text(
       face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
@@ -350,7 +361,7 @@ plot_case_studies_year_pft
 # save it ----
 ggplot2::ggsave(
   plot = plot_case_studies_year_pft,
-  filename = here::here("OUtputs/plot_case_studies_year_pft.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_year_pft.png")) 
 
 
 
