@@ -242,6 +242,45 @@ font_add(
 showtext_auto()
 showtext_opts(dpi = 300)
 
+facet_names_leaf_traits <- c(
+  LA =
+    str_wrap(
+      "Was the LA as a plant trait used?",
+      width = 30
+    ),
+  LDMC =
+    str_wrap(
+      "Was the LDMC as a plant trait used?",
+      width = 30
+    ),
+  SLA =
+    str_wrap(
+      "Was the SLA as a plant trait used?",
+      width = 30
+    ),
+  leaf_P =
+    str_wrap(
+      "Was the leaf P as a plant trait used?",
+      width = 30
+    ),
+  leaf_N =
+    str_wrap(
+      "Was the leaf N as a plant trait used?",
+      width = 30
+    ),
+  leaf_C =
+    str_wrap(
+      "Was the leaf C as a plant trait used?",
+      width = 30
+    ),
+  leaf_morphology =
+    str_wrap(
+      "Was the leaf morphology as a plant trait used?",
+      width = 30
+    )
+  
+  )
+
 
 # basic plot leaf traits ----
 waffle_chart_leaf_traits <- ggplot(data = waffle_leaf_traits) +
@@ -253,12 +292,13 @@ waffle_chart_leaf_traits <- ggplot(data = waffle_leaf_traits) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_leaf_traits)
   )
 
 waffle_chart_leaf_traits
@@ -320,10 +360,15 @@ scale_plot_leaf_traits <- text_plot_leaf_traits +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+   #  labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -347,42 +392,29 @@ waffle_plot_leaf_traits_2 <- scale_plot_leaf_traits +
     panel.grid.minor = element_blank(),
     axis.text.x = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-    #  width = 1,
-      size = 20,
-     # face = "bold"
-    ),
-   # plot.subtitle = element_marquee(
-     # color = text_col,
-    #  width = 1,
-    #  size = 20
-   # ),
-   # plot.caption = element_marquee(
-     # hjust = 0,
-     # lineheight = 0.5,
-     # size = 15,
-     # margin = margin(t = 5)
-    #),
-      strip.text = element_marquee(
-        size = 15,
-       # face = "bold"
-      ),
-    panel.spacing.x = unit(0.15, "lines"),
-    axis.text.y = element_marquee(size = 3)
+   plot.title = element_text(
+     size = 15,
+     face = "bold",
+     lineheight = 1.0
+   ),
    
-    ) + facet_wrap(~variable, ncol = 2, strip.position = "bottom") 
-  
+   strip.text = element_text(
+     size = 8,
+     face = "bold",
+     lineheight = 0.9,
+     margin = margin(t = 2, b = 2)
+   ),
+   panel.spacing.x = unit(0.1, "lines"),
+   axis.text.y = element_blank()
+   
+  )  + facet_wrap(~variable, ncol = 2, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_leaf_traits))
 
 
 # save it ----
-# nefunguje to
 ggplot2::ggsave(
   plot = waffle_plot_leaf_traits_2,
-  filename = here::here("Outputs/Figures/scale_plot_leaf_traits_2.png"),
-  width = 10,       # Explicitly set width in inches
-  height = 8,       # Explicitly set height in inches
-  dpi = 300         # Matches your showtext resolution!
+  filename = here::here("Outputs/Figures/waffle_plot_leaf_traits_2.png")
 )
 
 
@@ -405,6 +437,30 @@ showtext_auto()
 showtext_opts(dpi = 300)
 
 
+facet_names_other_traits <- c(
+  plant_height =
+    str_wrap(
+      "Was the plant height used as a plant trait?",
+      width = 30
+    ),
+  seed_traits =
+    str_wrap(
+      "Were the seed traits used as a plant traits?",
+      width = 30
+    ),
+ wood_traits =
+    str_wrap(
+      "Were the wood traits used as a plant traits?",
+      width = 30
+    ),
+  others =
+    str_wrap(
+      "Were any other traits used as a plant traits?",
+      width = 30
+    )
+)
+
+
 # basic plot leaf traits ----
 waffle_chart_traits_other <- ggplot(data = waffle_traits_other) +
   geom_pictogram(
@@ -415,12 +471,13 @@ waffle_chart_traits_other <- ggplot(data = waffle_traits_other) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_other_traits)
   )
 
 waffle_chart_traits_other
@@ -464,7 +521,7 @@ col_plot_traits_other <- icons_plot_traits_other +
 # Adding style text ----
 
 ## title and caption ----
-title_2 <- "Other traits"
+title_2 <- "Non-leaf traits"
 
 # text plot ----
 text_plot_traits_other <- col_plot_traits_other +
@@ -482,7 +539,12 @@ scale_plot_traits_other <- text_plot_traits_other +
     labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -507,30 +569,37 @@ waffle_plot_traits_other_2 <- scale_plot_traits_other +
     axis.text.x = element_blank(),
  # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-     # width = 1,
-      size = 20,
-     # face = "bold"
-    ),
-    strip.text = element_marquee(
-      size = 15,
-      # face = "bold"
-    ),
-    panel.spacing.x = unit(0.15, "lines"),
-     axis.text.y = element_marquee(size = 3)
-    
-  ) + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+ plot.title = element_text(
+   size = 15,
+   face = "bold",
+   lineheight = 1.0
+ ),
+ 
+ strip.text = element_text(
+   size = 8,
+   face = "bold",
+   lineheight = 0.9,
+   margin = margin(t = 2, b = 2)
+ ),
+ panel.spacing.x = unit(0.1, "lines"),
+ axis.text.y = element_blank()
+ 
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_other_traits))
+
+
+waffle_plot_traits_other_2
+
+
+ggplot2::ggsave(
+  plot = waffle_plot_variable_method,
+  filename = here::here("Outputs/Figures/waffle_plot_variable_method.png")) 
 
 
 # save it ----
-# nefunguje to
 ggplot2::ggsave(
   plot = waffle_plot_traits_other_2,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_other_2.png"),
-  width = 10,       # Explicitly set width in inches
-  height = 8,       # Explicitly set height in inches
-  dpi = 300         # Matches your showtext resolution!
+  filename = here::here("Outputs/Figures/waffle_plot_traits_other_2.png")
 )
 
 
@@ -567,8 +636,8 @@ p2_clean <- waffle_plot_leaf_traits_2 + theme(plot.margin = margin(0, 0, 0, 0, "
 
 # combined plot ----
 combined_traits_plot <-
-  p1_clean +
-  p2_clean +
+  waffle_plot_leaf_traits_2 +
+  waffle_plot_traits_other_2 +
   plot_layout(
    # ncol = 2,
    # heights = c(2, 2),
@@ -582,14 +651,14 @@ combined_traits_plot <-
     title = title_combined_traits_plot,
    subtitle = st_combined_traits_plot,
     theme = theme(
-      plot.title = element_marquee(
-        size = 30,
-        width = 1,
+      plot.title = element_text(
+        size = 20,
+       # width = 1,
       #  face = "bold",
         hjust = 0
       ),
       plot.subtitle = element_marquee(
-        size = 15,
+        size = 10,
         hjust = 0,
         width = 1
       )
@@ -598,7 +667,11 @@ combined_traits_plot <-
 
 combined_traits_plot
 
-
+# save it ----
+ggplot2::ggsave(
+  plot = combined_traits_plot,
+  filename = here::here("Outputs/Figures/combined_traits_plot.png")
+)
 
 
 #-----------------------------------------------------------------------------#
