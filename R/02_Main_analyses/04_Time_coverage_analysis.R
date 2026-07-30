@@ -16,12 +16,14 @@
 #----------------------------------------------------------#
 
 install.packages("remotes")
+install.packages("ggbreak")
 remotes::install_github("hrbrmstr/ggalt")
 library(ggalt)
 library(ggplot2)
 library(tidyverse)
 library(here)
 library(extrafont)
+library(ggbreak)
 
 # Load the table with case studies
 
@@ -204,7 +206,9 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
 
 plot_case_studies_time_coverage_region
 
-
+plot_case_studies_time_coverage_region_2 <-
+  plot_case_studies_time_coverage_region +
+  scale_x_break(c(55, 120))
 
 
 # save it ----
@@ -212,7 +216,11 @@ ggplot2::ggsave(
   plot = plot_case_studies_time_coverage_region,
   filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_region.png")) 
 
-       
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_time_coverage_region_2,
+  filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_region_2.png")) 
+
 
 
 
