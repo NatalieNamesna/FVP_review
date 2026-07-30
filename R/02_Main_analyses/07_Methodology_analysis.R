@@ -47,6 +47,7 @@ library(glue)
 library(marquee)
 library(readr)
 library(stringr)
+library(patchwork)
 
 # Load the table with case studies
 
@@ -121,6 +122,29 @@ case_studies_method_waffle <- case_studies_method_waffle |>
 case_studies_link_method_waffle <- case_studies_method_waffle |> 
   slice(c(1:3, 16:24))
 
+facet_names_linking_method <- c(
+  bayesian_modelling =
+    str_wrap(
+      "Was Bayesian modelling used to link functional traits and pollen?",
+      width = 30
+    ),
+  linking_table =
+    str_wrap(
+      "Was a specialized linking table used to link functional traits and pollen?",
+      width = 30
+    ),
+  probabilistic_modelling =
+    str_wrap(
+      "Was probabilistic modelling used to link functional traits and pollen?",
+      width = 30
+    ),
+  traits_aggregation =
+    str_wrap(
+      "Were the traits aggregated at a higher taxonomic level to link functional traits and pollen?",
+      width = 30
+    )
+)
+
 # font ----
 font_add(
   family = "Font Awesome 7",
@@ -134,18 +158,19 @@ showtext_opts(dpi = 300)
 waffle_chart_link_method <- ggplot(data = case_studies_link_method_waffle) +
   geom_pictogram(
     mapping = aes(
-      label = value,
+     label = value,
       color = value,
       values = count
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_linking_method)
   )
 
 waffle_chart_link_method
@@ -183,7 +208,8 @@ col_plot_link_method <- icons_plot_link_method +
 # Adding style text ----
 
 ## title and caption ----
-title_link_method <- "Method of linking plant traits and fossil pollen"
+title_link_method <- str_wrap("Methods of linking plant traits and fossil pollen",
+                              width = 30)
 
 # text plot ----
 text_plot_link_method <- col_plot_link_method +
@@ -198,10 +224,15 @@ scale_plot_link_method <- text_plot_link_method +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+   # labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -226,23 +257,30 @@ waffle_plot_link_method <- scale_plot_link_method +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
+    plot.title = element_text(
       size = 15,
-      # face = "bold"
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 11,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+      axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom", 
+                  labeller = labeller(variable = facet_names_linking_method))
 
 
 waffle_plot_link_method
+
+ggplot2::ggsave(
+  plot = waffle_plot_link_method,
+  filename = here::here("Outputs/Figures/waffle_plot_link_method.png")) 
 
 
 
@@ -264,6 +302,28 @@ font_add(
 showtext_auto()
 showtext_opts(dpi = 300)
 
+facet_names_variable <- c(
+  cwm =
+    str_wrap(
+      "Were Community Weighted Means used?",
+      width = 30
+    ),
+  effect_of_humans =
+    str_wrap(
+      "Was the impact of humans considered?",
+      width = 30
+    ),
+  effect_of_climate =
+    str_wrap(
+      "Was the impact of climate considered?",
+      width = 30
+    ),
+  effect_of_variables =
+    str_wrap(
+      "Was the impact of any variables considered",
+      width = 30
+    )
+)
 
 # basic plot ----
 waffle_chart_variable_method <- ggplot(data = case_studies_variable_method_waffle) +
@@ -275,12 +335,13 @@ waffle_chart_variable_method <- ggplot(data = case_studies_variable_method_waffl
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 1,
+    size = 4,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
              nrow = 1,
-             strip.position = "bottom"
+             strip.position = "bottom",
+             labeller = labeller(variable = facet_names_variable)
   )
 
 waffle_chart_variable_method
@@ -318,7 +379,7 @@ col_plot_variable_method <- icons_plot_variable_method +
 # Adding style text ----
 
 ## title and caption ----
-title_variable_method <- "Testing effect of variables"
+title_variable_method <- "Effects of variables"
 
 # text plot ----
 text_plot_variable_method <- col_plot_variable_method +
@@ -333,10 +394,15 @@ scale_plot_variable_method <- text_plot_variable_method +
   scale_y_continuous(
     expand = c(0, 0),
     breaks = c(1, 2, 3, 4, 5, 6, 7),              # Every 2 rows
-    labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
+ #   labels = c("10","20","30", "40", "50", "60", "70"), # Converts rows back to "counts" if desired
     limits = c(0, 10)                        # Caps it perfectly at your n_rows height
   ) +
-  coord_fixed()
+  coord_fixed() + 
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 
 # final touches ----
@@ -361,23 +427,32 @@ waffle_plot_variable_method <- scale_plot_variable_method +
     axis.text.x = element_blank(),
     # axis.text.y = element_blank(),
     # format text with marquee
-    plot.title = element_marquee(
-      color = text_col,
-      width = 1,
+    plot.title = element_text(
       size = 15,
-      # face = "bold"
+      face = "bold",
+      lineheight = 1.0
     ),
-    strip.text = element_marquee(
-      size = 11,
-      # face = "bold"
+    
+    strip.text = element_text(
+      size = 8,
+      face = "bold",
+      lineheight = 0.9,
+      margin = margin(t = 2, b = 2)
     ),
     panel.spacing.x = unit(0.1, "lines"),
-    axis.text.y = element_marquee(size = 3)
+      axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom")
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+                  labeller = labeller(variable = facet_names_variable))
 
 
 waffle_plot_variable_method
+
+
+ggplot2::ggsave(
+  plot = waffle_plot_variable_method,
+  filename = here::here("Outputs/Figures/waffle_plot_variable_method.png")) 
+
 
 
 
@@ -403,7 +478,7 @@ title_combined_plot_method <- "Information about methods used for linking plant 
 # subtitle ----
 st_combined_plot_method <- marquee_glue(
   "The analysis of 62 case studies.\n
-{.{col_palette_pollen_method[[3]]} {names(col_palette_pollen_method)[[3]]}}, {.{col_palette_pollen_method[[1]]} {names(col_palette_pollen_method)[[1]]}}, {.{col_palette_pollen_method[[2]]} {names(col_palette_pollen_method)[[2]]}} "
+{.{col_palette_link_method[[3]]} {names(col_palette_link_method)[[3]]}}, {.{col_palette_link_method[[1]]} {names(col_palette_link_method)[[1]]}}, {.{col_palette_link_method[[2]]} {names(col_palette_link_method)[[2]]}} "
 )
 
 
@@ -416,9 +491,9 @@ waffle_plot_link_method +
     title = title_combined_plot_method,
     subtitle = st_combined_plot_method,
     theme = theme(
-      plot.title = element_marquee(
-        size = 30,
-        width = 1,
+      plot.title = element_text(
+        size = 20,
+       # width = 1,
         hjust = 0
       ),
       plot.subtitle = element_marquee(
@@ -432,7 +507,9 @@ waffle_plot_link_method +
 combined_plot_method
 
 
-
+ggplot2::ggsave(
+  plot = combined_plot_method,
+  filename = here::here("Outputs/Figures/combined_plot_method.png")) 
 
 
 
