@@ -278,7 +278,7 @@ plot_case_studies_time_coverage_database <- ggplot(case_studies_time_coverage_da
     alpha = 0.15
   ) +
   annotate("text",
-           x = 123,
+           x = 125,
            y = 64,
            label = "Pleistocene",
            vjust = 1,
@@ -387,7 +387,24 @@ plot_case_studies_time_coverage_database <- ggplot(case_studies_time_coverage_da
 
 plot_case_studies_time_coverage_database
 
-
+plot_case_studies_time_coverage_database_2 <-
+  plot_case_studies_time_coverage_database +
+  scale_x_break(c(50, 120), space = 0.2) +
+  theme(
+    axis.text.x.top = element_blank(),
+    axis.ticks.x.top = element_blank(),
+    axis.title.x.top = element_blank()
+  ) +
+  geom_vline(
+    xintercept = 50,
+    linetype = 2,
+    linewidth = 0.5
+  ) +
+  geom_vline(
+    xintercept = 120,
+    linetype = 2,
+    linewidth = 0.5
+  )
 
 
 # save it ----
@@ -395,7 +412,10 @@ ggplot2::ggsave(
   plot = plot_case_studies_time_coverage_database,
   filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_database.png")) 
 
-
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_time_coverage_database_2,
+  filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_database_2.png")) 
 
 
 
