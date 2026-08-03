@@ -426,6 +426,7 @@ ggplot2::ggsave(
 # sort case studies to have them in groups based on their geographic region ----
 case_studies_time_coverage_pft <-
   case_studies_time_coverage |>
+  arrange(desc(time_old_kyr)) |> 
   group_by(pft) |> 
   mutate(
     case_study = factor(case_study, levels = rev(case_study))
@@ -443,7 +444,7 @@ plot_case_studies_time_coverage_pft <- ggplot(case_studies_time_coverage_pft, ae
     alpha = 0.15
   ) +
   annotate("text",
-           x = 123,
+           x = 125,
            y = 64,
            label = "Pleistocene",
            vjust = 1,
@@ -531,7 +532,7 @@ plot_case_studies_time_coverage_pft <- ggplot(case_studies_time_coverage_pft, ae
     breaks = seq(0, 130, by = 10)
   ) +
   scale_y_discrete(position = "right") +
-  coord_cartesian(xlim = c(0, 130), expand = TRUE) +
+ # coord_cartesian(xlim = c(0, 130), expand = TRUE) +
   theme_minimal() +
   theme(
     axis.text.y = element_blank(),
@@ -539,7 +540,7 @@ plot_case_studies_time_coverage_pft <- ggplot(case_studies_time_coverage_pft, ae
     axis.title.x = element_text(size = 15),
     axis.title.y = element_text( size = 15),
     legend.position = "right",
-    legend.title = element_text("PFTs", size = 16, face = "bold"),
+    legend.title = element_blank(),
     legend.text = element_text(size = 15),
     plot.title = element_text(
       face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
@@ -551,7 +552,26 @@ plot_case_studies_time_coverage_pft <- ggplot(case_studies_time_coverage_pft, ae
 
 plot_case_studies_time_coverage_pft
 
+plot_case_studies_time_coverage_pft_2 <-
+  plot_case_studies_time_coverage_pft +
+  scale_x_break(c(50, 120), space = 0.2) +
+  theme(
+    axis.text.x.top = element_blank(),
+    axis.ticks.x.top = element_blank(),
+    axis.title.x.top = element_blank()
+  ) +
+  geom_vline(
+    xintercept = 50,
+    linetype = 2,
+    linewidth = 0.5
+  ) +
+  geom_vline(
+    xintercept = 120,
+    linetype = 2,
+    linewidth = 0.5
+  )
 
+plot_case_studies_time_coverage_pft_2 <- plot_case_studies_time_coverage_pft_2 + scale_color_discrete(labels = c("Plant traits","PFTs"))
 
 
 # save it ----
@@ -560,7 +580,10 @@ ggplot2::ggsave(
   filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_pft.png")) 
 
 
-
+# save it ----
+ggplot2::ggsave(
+  plot = plot_case_studies_time_coverage_pft_2,
+  filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_pft_2.png")) 
 
 
 
