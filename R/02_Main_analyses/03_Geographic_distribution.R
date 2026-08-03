@@ -416,11 +416,11 @@ legend_plot <- ggplot(
   
   theme_minimal(base_size = 8) +
   theme(
-    axis.text.y = element_text(size = 8, face = "bold"),
-    axis.text.x = element_text(, size = 7),
+    axis.text.y = element_text(size = 10, face = "bold"),
+    axis.text.x = element_text(, size = 8),
     axis.ticks.x = element_line(),
     axis.line.x = element_line(colour = "black"),
-    axis.title.x = element_text(face = "bold", size = 10),
+    axis.title.x = element_text(face = "bold", size = 15),
     panel.grid = element_blank(),
     plot.margin = margin(0,0,0,0),
     panel.background = element_rect(fill = "transparent", colour = NA),
@@ -448,11 +448,14 @@ map_continents <- ggplot() +
   # Yay labels
   labs(
     title = "Geographic distribution of case studies",
-    subtitle = "...",
+    subtitle = "",
     caption = "Inspired by: Andrew Heiss, TidyTuesday"
   ) +
   # Use new x-axis limits
-  coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) 
+  coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) +
+  theme(
+    plot.title = element_text(size = 20, face = "bold")
+  )
 
 ## add the legend to the map ----
 
@@ -550,11 +553,11 @@ legend_plot_2 <- ggplot(
   
   theme_minimal(base_size = 8) +
   theme(
-    axis.text.y = element_text(size = 7, face = "bold"),
-    axis.text.x = element_text(size = 7),
+    axis.text.y = element_text(size = 10, face = "bold"),
+    axis.text.x = element_text(size = 8),
     axis.ticks.x = element_line(),
     axis.line.x = element_line(colour = "black"),
-    axis.title.x = element_text(face = "bold", size = 8),
+    axis.title.x = element_text(face = "bold", size = 15),
     panel.grid = element_blank(),
     plot.margin = margin(0,0,0,0),
     panel.background = element_rect(fill = "transparent", colour = NA),
@@ -582,11 +585,14 @@ map_countries <- ggplot() +
   # Yay labels
   labs(
     title = "Geographic distribution of case studies - countries",
-    subtitle = "...",
+    subtitle = "",
     caption = "Inspired by: Andrew Heiss, TidyTuesday"
   ) +
   # Use new x-axis limits
-  coord_sf( xlim = xlim_expanded_2, ylim = ylim_expanded_2) 
+  coord_sf( xlim = xlim_expanded_2, ylim = ylim_expanded_2) +
+  theme(
+    plot.title = element_text(size = 20, face = "bold")
+  )
 
 ## add the legend to the map ----
 
