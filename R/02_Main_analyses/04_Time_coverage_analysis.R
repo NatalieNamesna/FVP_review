@@ -92,7 +92,7 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
     alpha = 0.15
   ) +
   annotate("text",
-           x = 123,
+           x = 125,
            y = 64,
            label = "Pleistocene",
            vjust = 1,
@@ -186,7 +186,7 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
     breaks = seq(0, 130, by = 10)
   ) +
   scale_y_discrete(position = "right") +
-  coord_cartesian(xlim = c(0, 130), expand = TRUE) +
+ # coord_cartesian(xlim = c(0, 130), expand = TRUE) +
   theme_minimal() +
   theme(
     axis.text.y = element_blank(),
@@ -208,8 +208,22 @@ plot_case_studies_time_coverage_region
 
 plot_case_studies_time_coverage_region_2 <-
   plot_case_studies_time_coverage_region +
-  scale_x_break(c(55, 120))
-
+  scale_x_break(c(50, 120), space = 0.2) +
+  theme(
+    axis.text.x.top = element_blank(),
+    axis.ticks.x.top = element_blank(),
+    axis.title.x.top = element_blank()
+  ) +
+  geom_vline(
+    xintercept = 50,
+    linetype = 2,
+    linewidth = 0.5
+  ) +
+  geom_vline(
+    xintercept = 120,
+    linetype = 2,
+    linewidth = 0.5
+  )
 
 # save it ----
 ggplot2::ggsave(
@@ -219,7 +233,7 @@ ggplot2::ggsave(
 # save it ----
 ggplot2::ggsave(
   plot = plot_case_studies_time_coverage_region_2,
-  filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_region_2.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_region_2.png")) 
 
 
 
@@ -230,7 +244,7 @@ ggplot2::ggsave(
 
 # separate multiple databases in to more rows ----
 case_studies_time_coverage_database <- case_studies_time_coverage |> 
-  arrange(case_study, desc(time_old_kyr)) |>
+  arrange(desc(time_old_kyr)) |>
   mutate(
     case_study = factor(case_study, levels = rev(case_study))
   ) |> 
@@ -379,7 +393,7 @@ plot_case_studies_time_coverage_database
 # save it ----
 ggplot2::ggsave(
   plot = plot_case_studies_time_coverage_database,
-  filename = here::here("OUtputs/Figures/plot_case_studies_time_coverage_database.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_database.png")) 
 
 
 
