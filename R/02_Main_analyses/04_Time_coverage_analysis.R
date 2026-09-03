@@ -66,19 +66,43 @@ case_studies_time_coverage <- case_studies |>
 case_studies_time_coverage_region <-
   case_studies_time_coverage |>
   mutate(
-    region_plot = case_when(
+     region_plot = case_when(
       str_detect(region, ",") ~ "Multiple regions",
       TRUE ~ region
-    )
-  )
+    ))
+    
+    
+case_studies_time_coverage_region <- case_studies_time_coverage_region |> 
+  mutate(
+   region_plot = str_replace(region_plot, "Middle East", "Asia"),
+   region_plot = str_replace(region_plot, "Australia And Oceania", "Oceania"),
+   region_plot = str_replace(region_plot, "Latin America", "South America"),
+  region_plot = if_else(is.na(region_plot), "Not Available", region_plot)) 
+  
 
 # sort case studies to have them in groups based on their geographic region ----
+region_order <- case_studies_time_coverage_region |>
+  group_by(region_plot) |>
+  summarise(n_studies = n_distinct(case_study), .groups = "drop") |>
+  arrange(desc(n_studies)) |>
+  pull(region_plot)
+
 case_studies_time_coverage_region <-
   case_studies_time_coverage_region |>
+  mutate(
+    region_plot = factor(region_plot, levels = region_order)
+  ) |>
   arrange(region_plot, desc(time_old_kyr)) |>
   mutate(
     case_study = factor(case_study, levels = rev(case_study))
   )
+
+
+# case_studies_time_coverage_region <-
+ # case_studies_time_coverage_region |>
+ # arrange(region_plot, desc(time_old_kyr)) |>
+ # mutate(
+  #  case_study = factor(case_study, levels = rev(case_study)))
 
 # Dumbbell plot with ggalt and geom_dumbbell ----
 
@@ -165,20 +189,20 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
   scale_colour_manual(
     name = "Region",
     values = c(
-      "Africa" = "#E69F00",
-      "Asia" = "#0072B2",
-      "Europe" = "#009E73",
-      "North America" = "#CC79A7",
-      "South America" = "#D55E00",
-      "Latin America" = "#56B4E9",
-      "Australia And Oceania" = "#F0E442",
-      "Multiple regions" = "grey40"
+      "Africa" = "#FDE725",
+      "Asia" = "#F89540",
+      "Europe" = "#E76F51",
+      "North America" = "#CC4778",
+      "South America" = "#3B0F70",
+      "Oceania" = "#7E03A8",
+      "Multiple regions" = "grey40",
+      "Not Available" = "grey70"
     )
   ) +
   labs(
-    title = "Time coverage of each case study + their geographic location",
+    title = "Time coverage of each individual case study focusing on specific geographic regions",
     x = "Time (kyr)",
-    y = "Individual case studies"
+  #  y = "Individual case studies"
   ) +
   scale_x_continuous(
     trans = "reverse",
@@ -192,7 +216,7 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
     axis.text.y = element_blank(),
     axis.text.x = element_text(size = 10),
     axis.title.x = element_text(size = 15),
-    axis.title.y = element_text( size = 15),
+    axis.title.y = element_blank(),
     legend.position = "right",
     legend.title = element_text("Region", size = 16, face = "bold"),
     legend.text = element_text(size = 15),
