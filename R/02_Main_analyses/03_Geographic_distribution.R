@@ -194,14 +194,18 @@ case_studies_map_region_n <- case_studies_map_region |>
   mutate(
     region = str_replace(region, "Middle East", "Asia"),
     region = str_replace(region, "Australia And Oceania", "Oceania"),
-    region = str_replace(region, "Latin America", "South America")
+    region = str_replace(region, "Latin America", "South America"),
+    region = if_else(is.na(region), "Not Available", region)
   ) |> 
   group_by(region) |>
   summarise(
     number_of_studies = n(),
     ids = list(id),
     .groups = "drop"
-  ) 
+  ) |> 
+  arrange(number_of_studies) %>%    # First sort by val. This sort the dataframe but NOT the factor levels
+  mutate(
+    region = factor(region, levels=region))
 
 # getting map of continents ----
 
@@ -382,33 +386,40 @@ ggplot() +
   coord_sf( xlim = xlim_expanded, ylim = ylim_expanded)
 
 
-
-
 # the map with nice legend ----
+map_grey <- c(
+  "#F2F2F2",
+  "#D9D9D9",
+  "#BDBDBD",
+  "#969696",
+  "#737373",
+  "#404040",
+  "#1A1A1A"
+)
 
 ## legend ----
 legend_plot <- ggplot(
   case_studies_map_region_n,
   aes(
-    y = reorder(region, number_of_studies),
+    y = region,
     x = number_of_studies,
     fill = number_of_studies
   )
 ) +
   geom_col(width = 0.8, colour = "white") +
   
-  scale_fill_distiller(
-    palette = "YlGnBu",
-    direction = 1,
+  scale_fill_stepsn(
+    colours = map_grey,
+    breaks = c(1, 2, 7, 8, 12, 18, 29),
+    labels = c("1", "2", "7", "8", "12", "18", "29"),
+    limits = c(1, 29),
     guide = "none"
-  ) +
+  )+
   scale_x_continuous(
-    breaks = c(1, 5, 10, 15, 20, 25, 29),
+    breaks = c(1, 2, 7, 8, 12, 18, 29),
     limits = c(0, 29),
     expand = c(0, 0)
   ) +
-  
-
   labs(
     x = "Number of studies",
     y = NULL
@@ -416,7 +427,7 @@ legend_plot <- ggplot(
   
   theme_minimal(base_size = 8) +
   theme(
-    axis.text.y = element_text(size = 10, face = "bold"),
+    axis.text.y = element_text(colour = "black", size = 10, face = "bold"),
     axis.text.x = element_text(, size = 8),
     axis.ticks.x = element_line(),
     axis.line.x = element_line(colour = "black"),
@@ -435,27 +446,32 @@ legend_plot
 map_continents <- ggplot() +
   # Add counties filled with unemployment levels
   geom_sf(
-    data = world_sf_region, aes(fill = number_of_studies), color = NA, linewidth = 0
+    data = world_sf_region, aes(fill = number_of_studies), color = "black", linewidth = 0.05
   ) +
   # don't actually show the legend
   scale_fill_stepsn(
-    colours = scales::brewer_pal(palette = "YlGnBu")(9),
-    breaks = c(1, 5, 10, 15, 20, 25, 29),
-    labels = c("1", "5", "10", "15", "20", "25", "29"),
-    limits = c(1, 29), 
+    colours = map_grey,
+    breaks = c(1, 2, 7, 8, 12, 18, 29),
+    labels = c("1", "2", "7", "8", "12", "18", "29"),
+    limits = c(1, 29),
     guide = "none"
   ) +
   # Yay labels
   labs(
-    title = "Geographic distribution of case studies",
+    title = "The numbner of case studies focusing on specific geographic regions.",
     subtitle = "",
-    caption = "Inspired by: Andrew Heiss, TidyTuesday"
+  #  caption = "Inspired by: Andrew Heiss, TidyTuesday"
   ) +
   # Use new x-axis limits
   coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) +
   theme(
     plot.title = element_text(size = 20, face = "bold")
-  )
+  ) +
+  theme(
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background  = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+  ) 
 
 ## add the legend to the map ----
 
@@ -463,7 +479,10 @@ combined_plot_map_regions_2 <- map_continents +
   inset_element(legend_plot, left = 0.68,
                 bottom = 0.05,
                 right = 0.98,
-                top = 0.8)
+                top = 0.8) +
+  theme(
+    plot.background  = element_rect(fill = "transparent", colour = NA)
+  )
 
 combined_plot_map_regions_2 
 

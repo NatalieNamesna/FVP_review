@@ -242,6 +242,18 @@ figure_sankey_2
 # 3. Year, n studies, continent  -----
 #----------------------------------------------------------#
 
+# Region colours used consistently across figures ----
+
+region_colours <- c(
+  "Africa"        = "#FDE725",
+  "Asia"          = "#F89540",
+  "Europe"        = "#E76F51",
+  "North America" = "#CC4778",
+  "Oceania"       = "#7E03A8",
+  "South America" = "#3B0F70",
+  "Not Available" = "grey70"
+)
+
 # data ----
 
 # dataset with regions 
@@ -252,7 +264,11 @@ case_studies_year_region <- case_studies |>
     Region = str_replace_all(Region, "\\r\\n|\\n|\\r", " "),
     Region = str_squish(Region),
     Region = str_to_title(Region),
-    Region = str_replace_all(Region, "North America", "North America")   # optional
+    Region = str_replace_all(Region, "North America", "North America"),
+    Region = str_replace(Region, "Middle East", "Asia"),
+    Region = str_replace(Region, "Australia And Oceania", "Oceania"),
+    Region = str_replace(Region, "Latin America", "South America"),# optional
+    Region = if_else(is.na(Region), "Not Available", Region) 
   ) |>
   separate_longer_delim(Region, delim = ",") |>
   mutate(
@@ -269,19 +285,22 @@ plot_case_studies_year_region <- case_studies_year_region |>
   xlim(0,7) +
   geom_col()+
   labs(
-    title = "The number of case studies published in a particular years + their geographic regions",
-    x = "Year",
-    y = "Number of studies",
+    title = "The number of case studies published in a given year, focusing on specific geographic regions.",
+    # x = "Year",
+    # y = "Number of studies",
   )+
   scale_x_continuous(breaks = sort(unique(case_studies_year_region$year))) +
   scale_y_continuous(breaks = seq(0, 10, by = 1)) +
   # coord_cartesian(expand = FALSE) +
+  scale_fill_manual(
+    values = region_colours
+  ) +
   theme_minimal(base_size = 15) +
     theme(
       axis.text.y = element_text(size = 10),
       axis.text.x = element_text(size = 10),
-      axis.title.x = element_text(size = 15),
-      axis.title.y = element_text( size = 15),
+      axis.title.x = element_blank(), #element_text(size = 15),
+      axis.title.y = element_blank(), #element_text( size = 15),
       legend.position = "right",
       legend.title = element_text("Region", size = 16, face = "bold"),
       legend.text = element_text(size = 15),
@@ -289,15 +308,21 @@ plot_case_studies_year_region <- case_studies_year_region |>
         face = "bold", size = 20, vjust = 1, margin=margin(0,0,10,0)
       ),
       plot.title.position = "plot",
-      plot.margin = margin(2,2,2,1, "cm")
-    )
+      plot.margin = margin(2,2,2,1, "cm"),
+      panel.grid.major = element_blank(),
+      #panel.grid.minor = element_blank(),
+     # axis.line = element_line(color = "black"),
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background  = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+  ) 
 
 plot_case_studies_year_region
 
 # save it ----
 ggplot2::ggsave(
   plot = plot_case_studies_year_region,
-  filename = here::here("OUtputs/plot_case_studies_year_region.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_year_region.png")) 
 
 
 
