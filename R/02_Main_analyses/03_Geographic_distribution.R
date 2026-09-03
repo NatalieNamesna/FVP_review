@@ -454,11 +454,11 @@ map_continents <- ggplot() +
     breaks = c(1, 2, 7, 8, 12, 18, 29),
     labels = c("1", "2", "7", "8", "12", "18", "29"),
     limits = c(1, 29),
-    guide = "none"
+   guide = "none"
   ) +
   # Yay labels
   labs(
-    title = "The numbner of case studies focusing on specific geographic regions.",
+    title = "The number of case studies focusing on specific geographic regions.",
     subtitle = "",
   #  caption = "Inspired by: Andrew Heiss, TidyTuesday"
   ) +
@@ -492,6 +492,47 @@ combined_plot_map_regions_2
 ggplot2::ggsave(
   plot = combined_plot_map_regions_2,
   filename = here::here("Outputs/Figures/Combined_plot_map_continents_2.png")) 
+
+#---------------------------------------------------------#
+
+
+
+## plot map ----
+map_continents_simple <- ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = world_sf_region, aes(fill = number_of_studies), color = "black", linewidth = 0.05
+  ) +
+  # don't actually show the legend
+  scale_fill_stepsn(
+    colours = map_grey,
+    breaks = c(1, 2, 7, 8, 12, 18, 29),
+    labels = c("1", "2", "7", "8", "12", "18", "29"),
+    limits = c(1, 29),
+    # guide = "none"
+  ) +
+  # Yay labels
+  labs(
+    title = "The number of case studies focusing on specific geographic regions.",
+    subtitle = "",
+    #  caption = "Inspired by: Andrew Heiss, TidyTuesday"
+  ) +
+  # Use new x-axis limits
+  # coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) +
+  theme(
+    plot.title = element_text(size = 20, face = "bold")
+  ) +
+  theme(
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background  = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA),
+    legend.title = element_blank()
+  ) 
+
+
+ggplot2::ggsave(
+  plot = map_continents_simple,
+  filename = here::here("Outputs/Figures/map_continents_simple.png")) 
 
 
 #----------------------------------------------------------#
