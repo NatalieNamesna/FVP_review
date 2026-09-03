@@ -325,6 +325,45 @@ ggplot2::ggsave(
   filename = here::here("Outputs/Figures/plot_case_studies_year_region.png")) 
 
 
+plot_case_studies_year_region_2 <- case_studies_year_region |> 
+  ggplot(aes(x = n, y = factor(year), fill = Region)) +
+  geom_col() +
+  labs(
+    title = "The number of case studies published in a given year, focusing on specific geographic regions."
+  ) +
+  scale_x_continuous(breaks = seq(0, 10, by = 1)) +
+  scale_fill_manual(
+    values = region_colours
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_text("Region", size = 16, face = "bold"),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold",
+      size = 20,
+      vjust = 1,
+      margin = margin(0, 0, 10, 0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2, 2, 2, 1, "cm"),
+    panel.grid.major = element_blank(),
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+  ) + guides(fill = guide_legend(nrow = 1))
+
+
+
+ggplot2::ggsave(
+  plot = plot_case_studies_year_region_2,
+  filename = here::here("Outputs/Figures/plot_case_studies_year_region_2.png"))
 
 #----------------------------------------------------------#
 # 3. Year, n studies, pft  -----
