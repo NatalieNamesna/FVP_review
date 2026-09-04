@@ -20,6 +20,12 @@ install.packages("wordcloud2")
 install.packages("webshot")
 install.packages("htmlwidgets")
 library("htmlwidgets")
+install.packages(c("tidyverse", "treemap", "ggfittext", "scales", "ggtext"))
+library(tidyverse)
+library(treemap)
+library(ggfittext)
+library(scales)
+library(ggtext)
 library(webshot)
 library(tidyverse)
 library(here)
@@ -57,7 +63,7 @@ case_studies_journal <- case_studies |>
          journal = str_replace(journal, "Veget Hist Archaeobot", "Vegetation History and Archeobotany")) |> 
   count(journal, name= "n", sort = TRUE)
 
-unique(case_studies_journal$journal)
+reorder(case_studies_journal$journal, case_studies_journal$n)
 
 # basic plot: the number of case studies published in a particular journals ----
 plot_case_studies_journal <- ggplot(
@@ -94,14 +100,11 @@ ggplot2::ggsave(
 
 # wordcloud: the number of case studies published in a particular journals ----
 
-wordcloud2(case_studies_journal, size=0.5, color=rep_len( c("#FDE725", "#F89540", "#E76F51", "#CC4778", "#7E03A8", "#3B0F70", "grey70"), 
-                                              nrow(case_studies_journal) ), minRotation = -pi/16, maxRotation = -pi/16, rotateRatio = 3)
-
 ## save wordcloud ----
 # install webshot
 webshot::install_phantomjs()
 
-word_cloud_journal <- wordcloud2(case_studies_journal, size=0.4, color=rep_len( c("#FDE725", "#F89540", "#E76F51", "#CC4778", "#7E03A8", "#3B0F70", "grey70"), 
+word_cloud_journal <- wordcloud2(case_studies_journal, size=0.4, color=rep_len( c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000"), 
                                                                                  nrow(case_studies_journal) ), minRotation = -pi/16, maxRotation = -pi/16, rotateRatio = 3)
 saveWidget(word_cloud_journal,"tmp.html",selfcontained = F)
 
@@ -228,7 +231,10 @@ case_studies_pollen_database <- case_studies |>
          pollen_database = str_squish(pollen_database),         
          pollen_database = str_to_lower(pollen_database),
          pollen_database = str_to_title(pollen_database), 
-         pollen_database = str_replace(pollen_database, "Pangea", "Pangaea")) |> 
+         pollen_database = str_replace(pollen_database, "Pangea", "Pangaea"),
+         pollen_database = str_replace(pollen_database, "Latin America Pollen Database", "Latin American Pollen Database"),
+         pollen_database = str_replace(pollen_database, "Se Australian Pollen Database", "SE Australian Pollen Database"),
+         pollen_database = if_else(is.na(pollen_database), "Not Available", pollen_database)) |> 
   count(pollen_database, name= "n", sort = TRUE)
   
 
@@ -267,6 +273,63 @@ ggplot2::ggsave(
   plot = plot_case_studies_pollen_database,
   filename = here::here("OUtputs/Figures/plot_case_studies_pollen_database.png")) 
 
+# Plot the number of case studies that used a particular pollen database - treemap----
+
+# new column for Neotoma ---
+case_studies_pollen_database_categorised <- case_studies_pollen_database |> 
+  mutate(
+    is_it_Neotoma = if_else(
+      str_detect(
+        pollen_database,
+        "Neotoma|European Modern Pollen Database V.2|European Modern Pollen Database|Latin American Pollen Database|European Pollen Database|North American Pollen Database"
+      ),
+      "Neotoma",
+      "Other"
+    ),
+    is_it_Neotoma = if_else(
+      pollen_database == "Not Available",
+      "Not Available", is_it_Neotoma
+    ),
+    label = paste0(pollen_database, "\n(n = ", n, ")"),
+    id_tree = row_number()
+  )
+
+
+# palette
+tree_colours_pollen <- c(
+  "Neotoma" =  "#56B4E9",
+  "Not Available" = "gray",
+  "Other"   = "#E69F00"
+  
+)
+
+pollen_database__tree <- treemap(
+  case_studies_pollen_database_categorised,
+  index = "label",
+  vSize = "n",
+  type = "categorical",
+  vColor = "is_it_Neotoma",
+  algorithm = "pivotSize",
+  sortID = "id_tree",
+  mirror.y = TRUE,
+  mirror.x = TRUE,
+  border.lwds = 0.7,
+  aspRatio = 5/3,
+  
+  # colours
+  palette = tree_colours_pollen,
+  
+  # labels
+  fontsize.labels = 12,
+  fontcolor.labels = "white",
+  fontface.labels = 1,
+  
+  # remove legend title
+  title.legend = ""
+)
+
+
+
 
 #----------------------------------------------------------#
 # 8. Trait database   -----
@@ -283,7 +346,8 @@ case_studies_trait_database <- case_studies |>
        #  trait_database = str_to_lower(trait_database),
        #  trait_database = str_to_title(trait_database),
          trait_database = str_replace(trait_database, "Flora Europea", "Flora Europaea"),
-         trait_database = str_replace(trait_database, "LEDA trait database", "LEDA")) |> 
+         trait_database = str_replace(trait_database, "LEDA trait database", "LEDA"),
+       trait_database = if_else(is.na(trait_database), "Not Available", trait_database)) |> 
   count(trait_database, name= "n", sort = TRUE)
 
 
@@ -322,9 +386,53 @@ ggplot2::ggsave(
   plot = plot_case_studies_trait_database,
   filename = here::here("OUtputs/Figures/plot_case_studies_trait_database.png")) 
 
+# Plot the number of case studies that used a particular trait database - treemap----
+case_studies_trait_database_tree <- case_studies_trait_database |> 
+  mutate(
+    label = paste0(trait_database, "\n(n = ", n, ")"),
+    id_tree = row_number()
+  )
+
+case_studies_trait_database_tree <- case_studies_trait_database |> 
+  mutate(
+    database_type = if_else(
+      trait_database == "Not Available",
+      "Not Available",
+      "Trait database"
+    ),
+    label = paste0(trait_database, "\n(n = ", n, ")"),
+    id_tree = row_number()
+  )
+
+# palette
+tree_colours_traits <- c(
+  "Not Available" = "gray",
+  "Trait database" =  "#009E73")
 
 
-
-
+trait_database_tree <- treemap(
+  case_studies_trait_database_tree,
+  index = "label",
+  vSize = "n",
+  type = "categorical",
+  vColor = "database_type",
+  algorithm = "pivotSize",
+  sortID = "id_tree",
+  mirror.y = TRUE,
+  mirror.x = TRUE,
+  border.lwds = 0.7,
+  aspRatio = 5/3,
+  
+  # colours
+  palette = tree_colours_traits,
+  
+  # labels
+  fontsize.labels = 12,
+  fontcolor.labels = "white",
+  fontface.labels = 1,
+  
+  # remove legend title
+  title.legend = ""
+)
 
 
