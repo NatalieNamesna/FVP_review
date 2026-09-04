@@ -16,11 +16,16 @@
 #----------------------------------------------------------#
 
 # packages
-
+install.packages("wordcloud2")
+install.packages("webshot")
+install.packages("htmlwidgets")
+library("htmlwidgets")
+library(webshot)
 library(tidyverse)
 library(here)
 library(dplyr)
 library(ggplot2)
+library(wordcloud2)
 
 # Load the table with case studies
 case_studies <- readr::read_csv("Data/Processed/case_studies_clean.csv")
@@ -42,11 +47,19 @@ case_studies_journal <- case_studies |>
   mutate(journal = str_trim(journal),           
          journal = str_squish(journal),         
          journal = str_to_title(journal),
-         journal = str_replace(journal, "&", "And")) |> 
+         journal = str_replace(journal, "&", "And"),
+         journal = str_replace(journal, "Journal Of Quartenary Science", "Journal Of Quaternary Science"),
+         journal = str_replace(journal, "Plos One", "PLOS One"),
+         journal = str_replace(journal, "Of", "of"),
+         journal = str_replace(journal, "The", "the"),
+         journal = str_replace(journal, "In", "in"),
+         journal = str_replace(journal, "And", "and"),
+         journal = str_replace(journal, "Veget Hist Archaeobot", "Vegetation History and Archeobotany")) |> 
   count(journal, name= "n", sort = TRUE)
 
+unique(case_studies_journal$journal)
 
-# plot the number of case studies published in a particular journals ----
+# basic plot: the number of case studies published in a particular journals ----
 plot_case_studies_journal <- ggplot(
   data = case_studies_journal,
   mapping = aes(
@@ -77,8 +90,25 @@ plot_case_studies_journal <- ggplot(
 
 ggplot2::ggsave(
   plot = plot_case_studies_journal,
-  filename = here::here("OUtputs/Figures/plot_case_studies_journal.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_journal.png")) 
 
+# wordcloud: the number of case studies published in a particular journals ----
+
+wordcloud2(case_studies_journal, size=0.5, color=rep_len( c("#FDE725", "#F89540", "#E76F51", "#CC4778", "#7E03A8", "#3B0F70", "grey70"), 
+                                              nrow(case_studies_journal) ), minRotation = -pi/16, maxRotation = -pi/16, rotateRatio = 3)
+
+## save wordcloud ----
+# install webshot
+webshot::install_phantomjs()
+
+word_cloud_journal <- wordcloud2(case_studies_journal, size=0.4, color=rep_len( c("#FDE725", "#F89540", "#E76F51", "#CC4778", "#7E03A8", "#3B0F70", "grey70"), 
+                                                                                 nrow(case_studies_journal) ), minRotation = -pi/16, maxRotation = -pi/16, rotateRatio = 3)
+saveWidget(word_cloud_journal,"tmp.html",selfcontained = F)
+
+# and in png or pdf
+webshot("tmp.html",file = here::here("Outputs/Figures/wourd_cloud_journal.png"), vwidth = 1000,   # Set large width
+        vheight = 1000,  # Set large height
+        delay = 10)      # Gives the JavaScript animation time to complete )
 
 #----------------------------------------------------------#
 # 4. Year   -----

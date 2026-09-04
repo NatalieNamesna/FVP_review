@@ -526,7 +526,7 @@ map_continents_simple <- ggplot() +
     panel.background = element_rect(fill = "transparent", colour = NA),
     plot.background  = element_rect(fill = "transparent", colour = NA),
     legend.background = element_rect(fill = "transparent", colour = NA),
-    legend.title = element_blank()
+    legend.title = element_text("Number of case studies", size = 16, face = "bold")
   ) 
 
 

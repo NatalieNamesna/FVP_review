@@ -319,17 +319,18 @@ plot_case_studies_year_region <- case_studies_year_region |>
 
 plot_case_studies_year_region
 
-# save it ----
+# save it
 ggplot2::ggsave(
   plot = plot_case_studies_year_region,
   filename = here::here("Outputs/Figures/plot_case_studies_year_region.png")) 
 
-
+# plot how many studies were published in each year + region - horizontal ----
 plot_case_studies_year_region_2 <- case_studies_year_region |> 
   ggplot(aes(x = n, y = factor(year), fill = Region)) +
   geom_col() +
   labs(
-    title = "The number of case studies published in a given year, focusing on specific geographic regions."
+    title = "The number of case studies published in a given year, focusing on specific geographic regions.",
+    x = "Number of scase studies"
   ) +
   scale_x_continuous(breaks = seq(0, 10, by = 1)) +
   scale_fill_manual(
@@ -339,7 +340,7 @@ plot_case_studies_year_region_2 <- case_studies_year_region |>
   theme(
     axis.text.y = element_text(size = 10),
     axis.text.x = element_text(size = 10),
-    axis.title.x = element_blank(),
+    axis.title.x = element_text( size = 15),
     axis.title.y = element_blank(),
     legend.position = "bottom",
     legend.direction = "horizontal",

@@ -217,7 +217,8 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
     axis.text.x = element_text(size = 10),
     axis.title.x = element_text(size = 15),
     axis.title.y = element_blank(),
-    legend.position = "right",
+    legend.position = "bottom",
+    legend.direction = "horizontal",
     legend.title = element_text("Region", size = 16, face = "bold"),
     legend.text = element_text(size = 15),
     plot.title = element_text(
@@ -225,7 +226,7 @@ plot_case_studies_time_coverage_region <- ggplot(case_studies_time_coverage_regi
     ),
     plot.title.position = "plot",
     plot.margin = margin(2,2,2,1, "cm")
-  )
+  )  + guides(fill = guide_legend(nrow = 1))
 
 
 plot_case_studies_time_coverage_region
@@ -398,7 +399,8 @@ plot_case_studies_time_coverage_database <- ggplot(case_studies_time_coverage_da
     axis.text.x = element_text(size = 10),
     axis.title.x = element_text(size = 15),
     axis.title.y = element_text( size = 15),
-    legend.position = "right",
+    legend.position = "bottom",
+    legend.direction = "horizontal",
     legend.title = element_text("Database", size = 16, face = "bold"),
     legend.text = element_text(size = 15),
     plot.title = element_text(
