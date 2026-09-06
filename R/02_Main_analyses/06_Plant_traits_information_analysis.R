@@ -753,7 +753,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_4 <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_4 <-  c( "#E58606",  "grey70", "#52BCA3")
 
 # vector of T and F
 true_false_NA_traits_info_source <- unique(waffle_traits_info_source$value)
@@ -834,7 +834,7 @@ waffle_plot_traits_info_source <- scale_plot_traits_info_source +
     panel.spacing.x = unit(0.1, "lines"),
     axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 2, strip.position = "bottom",
+  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
                   labeller = labeller(variable = facet_names_trait_info))
 
 
@@ -1063,7 +1063,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_6 <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_6 <-  c( "#56B4E9",  "grey70", "#CC79A7")  
 
 # vector of T and F
 true_false_NA_traits_pft <- unique(waffle_traits_pft$value)
@@ -1150,10 +1150,15 @@ waffle_plot_traits_pft <- scale_plot_traits_pft +
 
 waffle_plot_traits_pft
 
+# better sizing
+waffle_plot_traits_pft_2 <- waffle_plot_traits_pft / plot_spacer() + 
+  plot_layout(heights = c(1, 4))
+
+
 # save it ----
 ggplot2::ggsave(
-  plot = waffle_plot_traits_pft,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_pft.png")) 
+  plot = waffle_plot_traits_pft_2,
+  filename = here::here("Outputs/Figures/waffle_plot_traits_pft_2.png")) 
 
 
 #-----------------------------------------------------------------------------#
