@@ -430,7 +430,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_pollen_method <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_pollen_method <-  c( "#E58606",  "grey70", "#52BCA3")
 
 # vector of T and F
 true_false_NA_pollen_method <- unique(case_studies_pollen_method_waffle$value)
@@ -598,7 +598,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_pollen_process <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_pollen_process <-  c( "#E58606",  "grey70", "#52BCA3")
 
 # vector of T and F
 true_false_NA_pollen_process <- unique(case_studies_pollen_process_waffle$value)
@@ -687,6 +687,9 @@ waffle_plot_pollen_process <- scale_plot_pollen_process +
 waffle_plot_pollen_process
 
 
+ggplot2::ggsave(
+  plot = waffle_plot_pollen_process,
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_process.png")) 
 
 
 
@@ -770,8 +773,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_pollen_source <-  c("#E84746",  "#BFC2C1", "#509B51")
-
+col_palette_pollen_source <-  c( "#E58606",  "grey70", "#52BCA3") 
 # vector of T and F
 true_false_NA_pollen_source <- unique(case_studies_pollen_source_waffle$value)
 
@@ -858,7 +860,9 @@ waffle_plot_pollen_source <- scale_plot_pollen_source +
 
 waffle_plot_pollen_source
 
-
+ggplot2::ggsave(
+  plot = waffle_plot_pollen_source,
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_source.png")) 
 
 #-----------------------------------------------------------------------------#
 
