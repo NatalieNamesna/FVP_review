@@ -324,7 +324,7 @@ display_carto_all(
 
 
 # colors ----
-col_palette <- c("#E84746", "#BFC2C1", "#509B51")
+col_palette <- c( "#E58606",  "grey70", "#52BCA3") 
 
 # vector of T and F
 true_false_NA_leaf_traits <- unique(waffle_leaf_traits$value)
@@ -407,7 +407,7 @@ waffle_plot_leaf_traits_2 <- scale_plot_leaf_traits +
    panel.spacing.x = unit(0.1, "lines"),
    axis.text.y = element_blank()
    
-  )  + facet_wrap(~variable, ncol = 2, strip.position = "bottom",
+  )  + facet_wrap(~variable, ncol = 7, nrow = 1, strip.position = "bottom",
                   labeller = labeller(variable = facet_names_leaf_traits))
 
 
@@ -503,7 +503,7 @@ display_carto_all(
 
 
 # colors ----
-col_palette_2 <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_2 <-  c( "#E58606",  "grey70", "#52BCA3") 
 
 # vector of T and F
 true_false_NA_traits_other <- unique(waffle_traits_other$value)
@@ -584,22 +584,21 @@ waffle_plot_traits_other_2 <- scale_plot_traits_other +
  panel.spacing.x = unit(0.1, "lines"),
  axis.text.y = element_blank()
  
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+  )  + facet_wrap(~variable, ncol = 4, nrow = 1, strip.position = "bottom",
                   labeller = labeller(variable = facet_names_other_traits))
 
 
 waffle_plot_traits_other_2
 
-
-ggplot2::ggsave(
-  plot = waffle_plot_variable_method,
-  filename = here::here("Outputs/Figures/waffle_plot_variable_method.png")) 
+# better sizing
+waffle_plot_traits_other_3 <- waffle_plot_traits_other_2 / plot_spacer() + 
+  plot_layout(heights = c(1, 4))
 
 
 # save it ----
 ggplot2::ggsave(
-  plot = waffle_plot_traits_other_2,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_other_2.png")
+  plot = waffle_plot_traits_other_3,
+  filename = here::here("Outputs/Figures/waffle_plot_traits_other_3.png")
 )
 
 
