@@ -388,8 +388,8 @@ plot_case_studies_year_pft <- case_studies_year_pft |>
   geom_col()+
   scale_fill_manual(
     values = c(
-      "FALSE" = "#509B51",
-      "TRUE" = "#E84746"
+      "FALSE" = "#52BCA3",
+      "TRUE" = "#E58606"
     ),
     labels = c(
       "FALSE" = "Plant traits",
@@ -428,6 +428,55 @@ ggplot2::ggsave(
   plot = plot_case_studies_year_pft,
   filename = here::here("Outputs/Figures/plot_case_studies_year_pft.png")) 
 
+# plot how many studies were published in each year + functional info - horizontal ----
+plot_case_studies_year_pft_2 <- case_studies_year_pft |> 
+  ggplot(aes(x = n, y = factor(year), fill = PFTs)) +
+  geom_col() +
+  labs(
+    title = "The number of case studies published in a given year, and the type of proxy used for functional diversity.",
+    x = "Number of scase studies"
+  ) +
+  scale_x_continuous(breaks = seq(0, 10, by = 1)) +
+  scale_fill_manual(
+    values = c(
+      "FALSE" = "#56B4E9",
+      "TRUE" = "#CC79A7"
+    ),
+    labels = c(
+      "FALSE" = "Plant traits",
+      "TRUE" = "PFTs"
+    ),
+    name = NULL
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    axis.text.y = element_text(size = 10),
+    axis.text.x = element_text(size = 10),
+    axis.title.x = element_text( size = 15),
+    axis.title.y = element_blank(),
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_blank(),
+    legend.text = element_text(size = 15),
+    plot.title = element_text(
+      face = "bold",
+      size = 20,
+      vjust = 1,
+      margin = margin(0, 0, 10, 0)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(2, 2, 2, 1, "cm"),
+    panel.grid.major = element_blank(),
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA)
+  ) + guides(fill = guide_legend(nrow = 1))
+
+
+
+ggplot2::ggsave(
+  plot = plot_case_studies_year_pft_2,
+  filename = here::here("Outputs/Figures/plot_case_studies_year_pft_2.png"))
 
 
 #----------------------------------------------------------#
