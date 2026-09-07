@@ -126,24 +126,25 @@ facet_names_linking_method <- c(
   bayesian_modelling =
     str_wrap(
       "Was Bayesian modelling used to link functional traits and pollen?",
-      width = 30
+      width = 50
     ),
   linking_table =
     str_wrap(
       "Was a specialized linking table used to link functional traits and pollen?",
-      width = 30
+      width = 50
     ),
   probabilistic_modelling =
     str_wrap(
       "Was probabilistic modelling used to link functional traits and pollen?",
-      width = 30
+      width = 50
     ),
   traits_aggregation =
     str_wrap(
       "Were the traits aggregated at a higher taxonomic level to link functional traits and pollen?",
-      width = 30
+      width = 50
     )
 )
+
 
 # font ----
 font_add(
@@ -164,7 +165,7 @@ waffle_chart_link_method <- ggplot(data = case_studies_link_method_waffle) +
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 4,
+    size = 8,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
@@ -190,7 +191,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_link_method <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_link_method <-  c( "#E58606",  "grey70", "#52BCA3")
 
 # vector of T and F
 true_false_NA_link_method <- unique(case_studies_link_method_waffle$value)
@@ -264,7 +265,7 @@ waffle_plot_link_method <- scale_plot_link_method +
     ),
     
     strip.text = element_text(
-      size = 8,
+      size = 12,
       face = "bold",
       lineheight = 0.9,
       margin = margin(t = 2, b = 2)
@@ -272,7 +273,7 @@ waffle_plot_link_method <- scale_plot_link_method +
     panel.spacing.x = unit(0.1, "lines"),
       axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom", 
+  )  + facet_wrap(~variable, ncol = 2,, nrow = 2,  strip.position = "bottom", 
                   labeller = labeller(variable = facet_names_linking_method))
 
 
@@ -306,22 +307,22 @@ facet_names_variable <- c(
   cwm =
     str_wrap(
       "Were Community Weighted Means used?",
-      width = 30
+      width = 50
     ),
   effect_of_humans =
     str_wrap(
       "Was the impact of humans considered?",
-      width = 30
+      width = 50
     ),
   effect_of_climate =
     str_wrap(
       "Was the impact of climate considered?",
-      width = 30
+      width = 50
     ),
   effect_of_variables =
     str_wrap(
       "Was the impact of any variables considered",
-      width = 30
+      width = 50
     )
 )
 
@@ -335,7 +336,7 @@ waffle_chart_variable_method <- ggplot(data = case_studies_variable_method_waffl
     ),
     flip = TRUE,
     n_rows = 10,
-    size = 4,
+    size = 8,
     family = "Font Awesome 7"
   ) +
   facet_wrap(~variable,
@@ -361,7 +362,7 @@ bg_col <- "#FAFAFA"
 text_col <- "black"
 
 # colors ----
-col_palette_variable_method <-  c("#E84746",  "#BFC2C1", "#509B51")
+col_palette_variable_method <-  c( "#E58606",  "grey70", "#52BCA3")
 
 # vector of T and F
 true_false_NA_variable_method <- unique(case_studies_variable_method_waffle$value)
@@ -434,7 +435,7 @@ waffle_plot_variable_method <- scale_plot_variable_method +
     ),
     
     strip.text = element_text(
-      size = 8,
+      size = 12,
       face = "bold",
       lineheight = 0.9,
       margin = margin(t = 2, b = 2)
@@ -442,7 +443,7 @@ waffle_plot_variable_method <- scale_plot_variable_method +
     panel.spacing.x = unit(0.1, "lines"),
       axis.text.y = element_blank()
     
-  )  + facet_wrap(~variable, ncol = 1, strip.position = "bottom",
+  )  + facet_wrap(~variable, ncol = 2, nrow = 2, strip.position = "bottom",
                   labeller = labeller(variable = facet_names_variable))
 
 
