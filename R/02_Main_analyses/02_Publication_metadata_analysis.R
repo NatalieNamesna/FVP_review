@@ -360,11 +360,11 @@ plot_case_studies_year_region_2 <- case_studies_year_region |>
     legend.background = element_rect(fill = "transparent", colour = NA)
   ) + guides(fill = guide_legend(nrow = 1))
 
-
+install.packages("svglite")
 
 ggplot2::ggsave(
   plot = plot_case_studies_year_region_2,
-  filename = here::here("Outputs/Figures/plot_case_studies_year_region_2.png"))
+  filename = here::here("Outputs/Figures/plot_case_studies_year_region_2.pdf"))
 
 #----------------------------------------------------------#
 # 3. Year, n studies, pft  -----
