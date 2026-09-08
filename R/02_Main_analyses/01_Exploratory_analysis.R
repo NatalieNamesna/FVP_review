@@ -300,7 +300,7 @@ case_studies_pollen_database_categorised <- case_studies_pollen_database |>
       pollen_database == "Not Available",
       "Not Available", is_it_Neotoma
     ),
-    label = paste0(pollen_database, "\n(n = ", n, ")"),
+    label = paste0(pollen_database, "\n(n\u00A0=\u00A0", n, ")"),
     id_tree = row_number()
   )
 
@@ -330,7 +330,7 @@ pollen_database__tree <- treemap(
   palette = tree_colours_pollen,
   
   # labels
-  fontsize.labels = 12,
+  fontsize.labels = 15,
   fontcolor.labels = "white",
   fontface.labels = 1,
   
@@ -338,7 +338,32 @@ pollen_database__tree <- treemap(
   title.legend = ""
 )
 
+#tree map with treemapify ----
 
+library(ggplot2)
+install.packages("treemapify")
+library(treemapify)
+
+tree_map_pollen_database <- ggplot(case_studies_pollen_database_categorised, 
+                                   aes(area = n, fill = is_it_Neotoma, label = label)) +
+  geom_treemap(color = "black", size = 0.7) +
+  geom_treemap_text(
+    family = "Arial",     # Sets font family to Arial
+    colour = "black", 
+    place = "centre", 
+    grow = TRUE,          # Dynamically resizes text to fill each box
+    reflow = TRUE         # Automatically wraps long text lines
+  ) +
+  scale_fill_manual(values = tree_colours_pollen) +
+  theme_void(base_family = "Arial") + # Ensures any theme elements (like legend) use Arial
+  theme(
+    legend.title = element_blank(),
+    legend.text = element_text(family = "Arial", size = 11)
+  )
+
+ggplot2::ggsave(
+  plot = tree_map_pollen_database,
+  filename = here::here("OUtputs/Figures/tree_map_pollen_database.pdf"))
 
 
 #----------------------------------------------------------#
@@ -410,7 +435,7 @@ case_studies_trait_database_tree <- case_studies_trait_database |>
       "Not Available",
       "Trait database"
     ),
-    label = paste0(trait_database, "\n(n = ", n, ")"),
+    label = paste0(trait_database, "\n(n\u00A0=\u00A0", n, ")"),
     id_tree = row_number()
   )
 
@@ -445,4 +470,26 @@ trait_database_tree <- treemap(
   title.legend = ""
 )
 
+#tree map with treemapify ----
+
+tree_map_trait_database <- ggplot(case_studies_trait_database_tree, 
+                                   aes(area = n, fill = database_type, label = label)) +
+  geom_treemap(color = "black", size = 0.7) +
+  geom_treemap_text(
+    family = "Arial",     # Sets font family to Arial
+    colour = "black", 
+    place = "centre", 
+    grow = TRUE,          # Dynamically resizes text to fill each box
+    reflow = TRUE         # Automatically wraps long text lines
+  ) +
+  scale_fill_manual(values = tree_colours_traits) +
+  theme_void(base_family = "Arial") + # Ensures any theme elements (like legend) use Arial
+  theme(
+    legend.title = element_blank(),
+    legend.text = element_text(family = "Arial", size = 11)
+  )
+
+ggplot2::ggsave(
+  plot = tree_map_trait_database,
+  filename = here::here("OUtputs/Figures/tree_map_trait_database.pdf"))
 
