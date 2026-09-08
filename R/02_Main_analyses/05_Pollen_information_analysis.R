@@ -520,7 +520,7 @@ waffle_plot_pollen_method
 
 ggplot2::ggsave(
   plot = waffle_plot_pollen_method,
-  filename = here::here("Outputs/Figures/waffle_plot_pollen_method.png")) 
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_method.pdf")) 
 
 
 
@@ -689,7 +689,7 @@ waffle_plot_pollen_process
 
 ggplot2::ggsave(
   plot = waffle_plot_pollen_process,
-  filename = here::here("Outputs/Figures/waffle_plot_pollen_process.png")) 
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_process.pdf")) 
 
 
 
@@ -862,7 +862,7 @@ waffle_plot_pollen_source
 
 ggplot2::ggsave(
   plot = waffle_plot_pollen_source,
-  filename = here::here("Outputs/Figures/waffle_plot_pollen_source.png")) 
+  filename = here::here("Outputs/Figures/waffle_plot_pollen_source.pdf")) 
 
 #-----------------------------------------------------------------------------#
 
@@ -956,7 +956,7 @@ combined_plot_pollen
 
 ggplot2::ggsave(
   plot = combined_plot_pollen,
-  filename = here::here("Outputs/Figures/combined_plot_pollen.png")) 
+  filename = here::here("Outputs/Figures/combined_plot_pollen.pdf")) 
 
 
 
