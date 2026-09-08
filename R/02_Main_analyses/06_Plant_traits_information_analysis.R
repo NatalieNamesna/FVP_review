@@ -414,7 +414,7 @@ waffle_plot_leaf_traits_2 <- scale_plot_leaf_traits +
 # save it ----
 ggplot2::ggsave(
   plot = waffle_plot_leaf_traits_2,
-  filename = here::here("Outputs/Figures/waffle_plot_leaf_traits_2.png")
+  filename = here::here("Outputs/Figures/waffle_plot_leaf_traits_2.pdf")
 )
 
 
@@ -598,7 +598,7 @@ waffle_plot_traits_other_3 <- waffle_plot_traits_other_2 / plot_spacer() +
 # save it ----
 ggplot2::ggsave(
   plot = waffle_plot_traits_other_3,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_other_3.png")
+  filename = here::here("Outputs/Figures/waffle_plot_traits_other_3.pdf")
 )
 
 
@@ -843,7 +843,7 @@ waffle_plot_traits_info_source
 # save it ----
 ggplot2::ggsave(
   plot = waffle_plot_traits_info_source,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_info_source.png"))
+  filename = here::here("Outputs/Figures/waffle_plot_traits_info_source.pdf"))
 
 #-----------------------------------------------------------------------------#
 
@@ -1158,7 +1158,7 @@ waffle_plot_traits_pft_2 <- waffle_plot_traits_pft / plot_spacer() +
 # save it ----
 ggplot2::ggsave(
   plot = waffle_plot_traits_pft_2,
-  filename = here::here("Outputs/Figures/waffle_plot_traits_pft_2.png")) 
+  filename = here::here("Outputs/Figures/waffle_plot_traits_pft_2.pdf")) 
 
 
 #-----------------------------------------------------------------------------#
