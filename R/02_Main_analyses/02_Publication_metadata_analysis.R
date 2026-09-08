@@ -476,7 +476,7 @@ plot_case_studies_year_pft_2 <- case_studies_year_pft |>
 
 ggplot2::ggsave(
   plot = plot_case_studies_year_pft_2,
-  filename = here::here("Outputs/Figures/plot_case_studies_year_pft_2.png"))
+  filename = here::here("Outputs/Figures/plot_case_studies_year_pft_2.pdf"))
 
 
 #----------------------------------------------------------#
