@@ -491,7 +491,7 @@ combined_plot_map_regions_2
 
 ggplot2::ggsave(
   plot = combined_plot_map_regions_2,
-  filename = here::here("Outputs/Figures/Combined_plot_map_continents_2.png")) 
+  filename = here::here("Outputs/Figures/Combined_plot_map_continents_2.pdf")) 
 
 #---------------------------------------------------------#
 
