@@ -258,7 +258,7 @@ ggplot2::ggsave(
 # save it ----
 ggplot2::ggsave(
   plot = plot_case_studies_time_coverage_region_2,
-  filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_region_2.png")) 
+  filename = here::here("Outputs/Figures/plot_case_studies_time_coverage_region_2.pdf")) 
 
 
 
