@@ -34,6 +34,8 @@ library(dplyr)
 library(ggplot2)
 library(wordcloud2)
 library(wordcloud)
+library(webshot2)
+
 
 
 # Load the table with case studies
@@ -102,14 +104,6 @@ ggplot2::ggsave(
   filename = here::here("Outputs/Figures/plot_case_studies_journal.png")) 
 
 # wordcloud: the number of case studies published in a particular journals ----
-word_cloud_journal <- wordcloud2(case_studies_journal, size=0.4, color=rep_len( c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000"), 
-    
-## save wordcloud ----
-library(wordcloud2)
-library(htmlwidgets)
-library(webshot2)
-
-# 1. Store your wordcloud object
 word_cloud_journal <- wordcloud2(
   case_studies_journal, 
   size = 0.4, 
@@ -121,11 +115,11 @@ word_cloud_journal <- wordcloud2(
   maxRotation = -pi/16, 
   rotateRatio = 3
 )
+    
+## save wordcloud ----
 
-# 2. Save widget to temporary HTML
 saveWidget(word_cloud_journal, "temp_wc.html", selfcontained = TRUE)
 
-# 3. Render HTML output into SVG format
 webshot("temp_wc.html", "word_cloud_journal.pdf", delay = 5)
 
 
