@@ -17,6 +17,7 @@
 
 # packages
 install.packages("wordcloud2")
+install.packages("wordcloud")
 install.packages("webshot")
 install.packages("htmlwidgets")
 library("htmlwidgets")
@@ -32,6 +33,8 @@ library(here)
 library(dplyr)
 library(ggplot2)
 library(wordcloud2)
+library(wordcloud)
+
 
 # Load the table with case studies
 case_studies <- readr::read_csv("Data/Processed/case_studies_clean.csv")
@@ -99,19 +102,32 @@ ggplot2::ggsave(
   filename = here::here("Outputs/Figures/plot_case_studies_journal.png")) 
 
 # wordcloud: the number of case studies published in a particular journals ----
-
-## save wordcloud ----
-# install webshot
-webshot::install_phantomjs()
-
 word_cloud_journal <- wordcloud2(case_studies_journal, size=0.4, color=rep_len( c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000"), 
-                                                                                 nrow(case_studies_journal) ), minRotation = -pi/16, maxRotation = -pi/16, rotateRatio = 3)
-saveWidget(word_cloud_journal,"tmp.html",selfcontained = F)
+    
+## save wordcloud ----
+library(wordcloud2)
+library(htmlwidgets)
+library(webshot2)
 
-# and in png or pdf
-webshot("tmp.html",file = here::here("Outputs/Figures/wourd_cloud_journal.png"), vwidth = 1000,   # Set large width
-        vheight = 1000,  # Set large height
-        delay = 10)      # Gives the JavaScript animation time to complete )
+# 1. Store your wordcloud object
+word_cloud_journal <- wordcloud2(
+  case_studies_journal, 
+  size = 0.4, 
+  color = rep_len(
+    c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000"), 
+    nrow(case_studies_journal)
+  ), 
+  minRotation = -pi/16, 
+  maxRotation = -pi/16, 
+  rotateRatio = 3
+)
+
+# 2. Save widget to temporary HTML
+saveWidget(word_cloud_journal, "temp_wc.html", selfcontained = TRUE)
+
+# 3. Render HTML output into SVG format
+webshot("temp_wc.html", "word_cloud_journal.pdf", delay = 5)
+
 
 #----------------------------------------------------------#
 # 4. Year   -----
