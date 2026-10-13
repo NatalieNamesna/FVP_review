@@ -425,19 +425,25 @@ legend_plot <- ggplot(
     y = NULL
   ) +
   
-  theme_minimal(base_size = 8) +
+  theme_minimal(base_size = 4) +
   theme(
-    axis.text.y = element_text(colour = "black", size = 10, face = "bold"),
-    axis.text.x = element_text(, size = 8),
+    axis.text.y = element_text(colour = "black", size = 4, face = "bold"),
+    axis.text.x = element_text(, size = 4),
     axis.ticks.x = element_line(),
     axis.line.x = element_line(colour = "black"),
-    axis.title.x = element_text(face = "bold", size = 15),
+    axis.title.x = element_text(face = "bold", size = 4),
     panel.grid = element_blank(),
-    plot.margin = margin(0,0,0,0),
+    plot.margin = margin(0,3,0,0),
     panel.background = element_rect(fill = "transparent", colour = NA),
     plot.background  = element_rect(fill = "transparent", colour = NA),
     legend.background = element_rect(fill = "transparent", colour = NA)
-    )
+    ) +
+  ggview::canvas(
+    width = 1961 / 4,
+    height = 400,
+    units = "px"
+    
+  )
   
 
 legend_plot
@@ -458,20 +464,33 @@ map_continents <- ggplot() +
   ) +
   # Yay labels
   labs(
-    title = "The number of case studies focusing on specific geographic regions.",
-    subtitle = "",
+    #title = "The number of case studies focusing on specific geographic regions.",
+    subtitle = ""
   #  caption = "Inspired by: Andrew Heiss, TidyTuesday"
   ) +
   # Use new x-axis limits
-  coord_sf( xlim = xlim_expanded, ylim = ylim_expanded) +
-  theme(
-    plot.title = element_text(size = 20, face = "bold")
-  ) +
-  theme(
-    panel.background = element_rect(fill = "transparent", colour = NA),
-    plot.background  = element_rect(fill = "transparent", colour = NA),
-    legend.background = element_rect(fill = "transparent", colour = NA)
-  ) 
+  coord_sf( 
+    #xlim = xlim_expanded, ylim = ylim_expanded
+    ) +
+  theme_void()+
+  #theme(
+  #  line = element_line(linewidth = 0.05),
+  #  axis.text.y = element_text(colour = "black", size = 4, ),
+  #  axis.text.x = element_text(size = 4),
+  #  axis.ticks.x = element_line(),
+  #  axis.line.x = element_line(colour = "black"),
+  #  axis.title.x = element_text(size = 4),
+  #  panel.background = element_rect(fill = "transparent", colour = NA),
+  #  plot.background  = element_rect(fill = "transparent", colour = NA),
+  #  legend.background = element_rect(fill = "transparent", colour = NA)
+  #) +
+  ggview::canvas(
+    width = 1961 / 4,
+    height = 400,
+    units = "px"
+  )
+
+map_continents
 
 ## add the legend to the map ----
 

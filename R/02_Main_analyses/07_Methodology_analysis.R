@@ -281,7 +281,8 @@ waffle_plot_link_method
 
 ggplot2::ggsave(
   plot = waffle_plot_link_method,
-  filename = here::here("Outputs/Figures/waffle_plot_link_method.pdf")) 
+  filename = here::here("Outputs/Figures/waffle_plot_link_method.pdf"),
+  ) 
 
 
 
