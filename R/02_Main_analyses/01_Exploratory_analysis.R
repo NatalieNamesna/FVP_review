@@ -111,13 +111,11 @@ word_cloud_journal <- wordcloud2(
     c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000"), 
     nrow(case_studies_journal)
   ), 
- minRotation = -pi/16, 
- maxRotation = -pi/16,  
- rotateRatio = 0
+  minRotation = -pi/16, 
+  maxRotation = -pi/16, 
+  rotateRatio = 3
 )
     
-word_cloud_journal
-
 ## save wordcloud ----
 
 saveWidget(word_cloud_journal, "temp_wc.html", selfcontained = TRUE)
