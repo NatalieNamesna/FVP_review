@@ -2,7 +2,7 @@
 
 | | |
 | --- | --- |
-| **Project** | ![Manuscript](https://img.shields.io/badge/manuscript-in%20review-E58606?style=flat-square&logo=readthedocs&logoColor=white) [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-52BCA3?style=flat-square&logo=creativecommons&logoColor=white)](LICENSE) <!-- After the first release, add: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) --> |
+| **Project** | ![Manuscript](https://img.shields.io/badge/manuscript-in%20review-E58606?style=flat-square&logo=readthedocs&logoColor=white) [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-52BCA3?style=flat-square&logo=creativecommons&logoColor=white)](LICENSE) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23806443-1682D4?style=flat-square&logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.23806443) |
 | **Data** | [![Case studies](https://img.shields.io/badge/case%20studies-62-8E9F7F?style=flat-square&logo=leaflet&logoColor=white)](Data/Input/case_studies_table.csv) [![Variables](https://img.shields.io/badge/variables-65-8E9F7F?style=flat-square)](Data/Input/case_studies_table.csv) [![Years covered](https://img.shields.io/badge/published-1996%E2%80%932025-CC79A7?style=flat-square)](Data/Input/case_studies_table.csv) |
 | **Code** | [![R 4.5.1](https://img.shields.io/badge/R-4.5.1-276DC3?style=flat-square&logo=r&logoColor=white)](https://www.r-project.org/) [![renv](https://img.shields.io/badge/packages-renv%20locked-276DC3?style=flat-square&logo=rstudioide&logoColor=white)](renv.lock) [![Last commit](https://img.shields.io/github/last-commit/NatalieNamesna/FVP_review?style=flat-square&color=56B4E9)](https://github.com/NatalieNamesna/FVP_review/commits) |
 
@@ -36,7 +36,7 @@ The inclusion criterion was that a study linked pollen data with information on 
 
 ## Repository structure
 
-```
+```text
 FVP_review/
 ├── Data/
 │   ├── Input/
@@ -92,7 +92,7 @@ The scripts in `R/02_Main_analyses/` record the exploratory analyses that came b
 
 ## Data availability
 
-Releases of this repository are archived on Zenodo. The DOI will be added here once the first release is published.
+Releases of this repository are archived on Zenodo: [https://doi.org/10.5281/zenodo.23806443](https://doi.org/10.5281/zenodo.23806443). This DOI always resolves to the latest release, and each release also has its own version-specific DOI on Zenodo.
 
 ## License
 
