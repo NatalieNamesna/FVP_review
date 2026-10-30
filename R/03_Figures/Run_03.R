@@ -11,7 +11,7 @@
 #
 #----------------------------------------------------------#
 
-#  Builds and saves all composite figures to Outputs/Figures/Composites.
+#  Builds and saves all composite figures to Outputs/Figures.
 #    Each script is run in its own environment so that no object leaks
 #    from one figure to the next.
 

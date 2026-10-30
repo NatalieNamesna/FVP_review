@@ -80,7 +80,7 @@ path_data_clean <-
   here::here("Data/Processed/case_studies_clean.csv")
 
 dir_figures <-
-  here::here("Outputs/Figures/Composites")
+  here::here("Outputs/Figures")
 
 dir_functions <-
   here::here("R/Functions")
@@ -90,7 +90,7 @@ dir_functions <-
 # 3. Figure dimensions -----
 #----------------------------------------------------------#
 
-# Ecography full page width is 166 mm, which at 300 dpi gives the
+# Full page width is 166 mm, which at 300 dpi gives the
 #    maximum of 1961 px.
 figure_width <- 166
 figure_units <- "mm"
