@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it using the metadata from this file."
+title: "Data and code for: A global review of functional vegetation paleoecology and the integration of plant traits with fossil pollen"
+abstract: >-
+  Dataset and R code accompanying a quantitative bibliometric and
+  methodological review of 62 case studies (published 1996-2025) that link
+  pollen data with plant functional traits or plant functional types. The
+  repository contains the extracted case-study dataset (65 variables per
+  study), the data-processing and analysis scripts, and the scripts that
+  build Figures 1-4 of the manuscript.
+authors:
+  - family-names: "Námešná"
+    given-names: "Natálie"
+    affiliation: "Department of Botany, Faculty of Science, Charles University, Prague, Czech Republic"
+    orcid: "https://orcid.org/0009-0002-4838-5598"
+  - family-names: "Flantua"
+    given-names: "Suzette G. A."
+    affiliation: "Department of Biological Sciences, University of Bergen, Bergen, Norway"
+    orcid: "https://orcid.org/0000-0001-6526-3037"
+  - family-names: "Kuneš"
+    given-names: "Petr"
+    affiliation: "Department of Botany, Faculty of Science, Charles University, Prague, Czech Republic"
+    orcid: "https://orcid.org/0000-0001-9605-8204"
+  - family-names: "Nogué"
+    given-names: "Sandra"
+    affiliation: "Universitat Autònoma de Barcelona, Bellaterra (Cerdanyola del Vallès), Catalonia, Spain"
+    orcid: "https://orcid.org/0000-0003-0093-4252"
+  - family-names: "Šímová"
+    given-names: "Irena"
+    affiliation: "Center for Theoretical Study, Charles University, Prague, Czech Republic"
+    orcid: "https://orcid.org/0000-0002-9474-569X"
+  - family-names: "Williams"
+    given-names: "John W."
+    affiliation: "Department of Geography and Center for Climatic Research, University of Wisconsin-Madison, Madison, USA"
+    orcid: "https://orcid.org/0000-0001-6046-9634"
+  - family-names: "Mottl"
+    given-names: "Ondřej"
+    affiliation: "Department of Botany, Faculty of Science, Charles University, Prague, Czech Republic"
+    orcid: "https://orcid.org/0000-0002-9796-5081"
+repository-code: "https://github.com/NatalieNamesna/FVP_review"
+license: CC-BY-4.0
+keywords:
+  - functional paleoecology
+  - fossil pollen
+  - plant functional traits
+  - plant functional types
+  - literature review
