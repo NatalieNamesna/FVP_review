@@ -102,7 +102,7 @@ The bundled Font Awesome Free font (`Data/Input/fonts/`) is a third-party file d
 
 ## Funding
 
-OM was funded by the Czech Science Foundation PIF grant (GN23-06386I), the Charles University Research Centre program (UNCE/24/SCI/006), and the Institutional Support for Science and Research of the Ministry of Education, Youth and Sports of the Czech Republic. SGAF was supported by the Trond Mohn Foundation and the University of Bergen (startup grant TMS2022STG03). SN acknowledges support from the European Research Council grant TIME-LINES (ERC-CoG-2021.101045309). IS was supported by the Czech Science Foundation (25-18055S).
+RETRACTED
 
 ## Contact
 
