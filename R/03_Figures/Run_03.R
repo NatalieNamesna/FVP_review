@@ -5,7 +5,7 @@
 #
 #                   Run figure scripts
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #

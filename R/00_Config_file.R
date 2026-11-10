@@ -5,7 +5,7 @@
 #
 #                       Config file
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #

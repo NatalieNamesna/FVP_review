@@ -6,7 +6,7 @@
 #                        Figure 1
 #                  - publication metadata
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #

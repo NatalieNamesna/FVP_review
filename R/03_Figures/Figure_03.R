@@ -6,7 +6,7 @@
 #                        Figure 3
 #                  - functional information
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #

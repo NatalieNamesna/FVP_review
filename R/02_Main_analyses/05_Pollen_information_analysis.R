@@ -3,7 +3,7 @@
 #
 #                 The FVP review project
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #
@@ -249,7 +249,7 @@ col_plot_pollen <- icons_plot_pollen +
 
 ## title and caption ----
 title_4 <- "**Which information about pollen were used in the case studies?**"
-cap_4 <- "**Data**: Analyses of 62 case studies | **Graphic**: N. Namesna, inspired by N. Rennie "
+cap_4 <- "**Data**: Analyses of 62 case studies | **Graphic**: RETRACTED, inspired by N. Rennie "
 
 
 source_caption <- function(source, graphic, sep = " | ") {
@@ -261,7 +261,7 @@ source_caption <- function(source, graphic, sep = " | ") {
 
 cap_4 <- source_caption(
   source = "62 case studies",
-  graphic = "N. Namesna, inspired by N. Rennie"
+  graphic = "RETRACTED, inspired by N. Rennie"
 )
 cap_4
 

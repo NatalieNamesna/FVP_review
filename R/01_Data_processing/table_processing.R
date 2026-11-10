@@ -3,7 +3,7 @@
 #
 #                 The FVP review project
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #

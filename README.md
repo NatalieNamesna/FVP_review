@@ -4,11 +4,11 @@
 | --- | --- |
 | **Project** | ![Manuscript](https://img.shields.io/badge/manuscript-in%20review-E58606?style=flat-square&logo=readthedocs&logoColor=white) [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-52BCA3?style=flat-square&logo=creativecommons&logoColor=white)](LICENSE) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23806443-1682D4?style=flat-square&logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.23806443) |
 | **Data** | [![Case studies](https://img.shields.io/badge/case%20studies-62-8E9F7F?style=flat-square&logo=leaflet&logoColor=white)](Data/Input/case_studies_table.csv) [![Variables](https://img.shields.io/badge/variables-65-8E9F7F?style=flat-square)](Data/Input/case_studies_table.csv) [![Years covered](https://img.shields.io/badge/published-1996%E2%80%932025-CC79A7?style=flat-square)](Data/Input/case_studies_table.csv) |
-| **Code** | [![R 4.5.1](https://img.shields.io/badge/R-4.5.1-276DC3?style=flat-square&logo=r&logoColor=white)](https://www.r-project.org/) [![renv](https://img.shields.io/badge/packages-renv%20locked-276DC3?style=flat-square&logo=rstudioide&logoColor=white)](renv.lock) [![Last commit](https://img.shields.io/github/last-commit/NatalieNamesna/FVP_review?style=flat-square&color=56B4E9)](https://github.com/NatalieNamesna/FVP_review/commits) |
+| **Code** | [![R 4.5.1](https://img.shields.io/badge/R-4.5.1-276DC3?style=flat-square&logo=r&logoColor=white)](https://www.r-project.org/) [![renv](https://img.shields.io/badge/packages-renv%20locked-276DC3?style=flat-square&logo=rstudioide&logoColor=white)](renv.lock) [![Last commit](https://img.shields.io/github/last-commit/RETRACTED/FVP_review?style=flat-square&color=56B4E9)](https://github.com/RETRACTED/FVP_review/commits) |
 
 Data and R code accompanying the review manuscript:
 
-> Námešná N., Flantua S. G. A., Kuneš P., Nogué S., Šímová I., Williams J. W. & Mottl O. *A global review of functional vegetation paleoecology and the integration of plant traits with fossil pollen.* Manuscript in review.
+> RETRACTED *A global review of functional vegetation paleoecology and the integration of plant traits with fossil pollen.* Manuscript in review.
 
 The review is a quantitative bibliometric and methodological synthesis of 62 case studies (published 1996–2025) that link pollen data (fossil or modern) to plant functional information, either as plant functional traits or as plant functional types (PFTs). This repository contains the dataset extracted from those studies, the scripts used to clean and analyse it, and the scripts that build Figures 1–4 of the manuscript.
 
@@ -106,4 +106,4 @@ OM was funded by the Czech Science Foundation PIF grant (GN23-06386I), the Charl
 
 ## Contact
 
-Natálie Námešná (Department of Botany, Faculty of Science, Charles University, Prague). For questions about the data or code, please open an [issue](https://github.com/NatalieNamesna/FVP_review/issues).
+RETRACTED. For questions about the data or code, please open an [issue](https://github.com/RETRACTED/FVP_review/issues).

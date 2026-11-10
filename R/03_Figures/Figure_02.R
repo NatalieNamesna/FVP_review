@@ -6,7 +6,7 @@
 #                        Figure 2
 #                  - pollen records metadata
 #
-#           N. Namesna, S. Flantua, O. Mottl
+#                       RETRACTED
 #
 #                         2026
 #
